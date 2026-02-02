@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Filler-token deliberation experiment for multiple-choice questions.
+Filler-token deliberation experiment for ARC-Challenge questions.
 
 Workflow:
 1) For each question, vary the number of filler tokens provided as a
@@ -129,6 +129,16 @@ def _normalize_choices(raw: Any) -> Optional[List[str]]:
     if raw is None:
         return None
 
+    # ARC format: {"label": ["A", "B", ...], "text": ["...", "...", ...]}
+    if isinstance(raw, dict) and "label" in raw and "text" in raw:
+        labels = raw.get("label")
+        texts = raw.get("text")
+        if isinstance(labels, list) and isinstance(texts, list) and len(labels) == len(texts):
+            pairs = list(zip(labels, texts))
+            if all(isinstance(l, str) for l, _ in pairs):
+                pairs = sorted(pairs, key=lambda p: p[0])
+            return [str(t).strip() for _, t in pairs]
+
     if isinstance(raw, list):
         if all(isinstance(x, str) for x in raw):
             return [x.strip() for x in raw]
@@ -178,6 +188,7 @@ def extract_question_and_choices(example: Dict[str, Any]) -> Tuple[str, List[str
 
 def get_gold_letter(example: Dict[str, Any], choices: List[str]) -> str:
     answer_keys = [
+        "answerKey",
         "answer",
         "label",
         "correct_answer",
@@ -414,6 +425,25 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         plt.tight_layout()
         plt.savefig(args.plot_path)
         plt.close()
+
+        if args.separate_figures:
+            base, ext = os.path.splitext(args.plot_path)
+            for question_entry in question_results:
+                q_idx = question_entry["question_index"]
+                per_q = question_entry["results"]
+                per_x = [r["filler_count"] for r in per_q]
+                per_y = [r["percent_correct"] for r in per_q]
+
+                plt.figure(figsize=(8, 5))
+                plt.plot(per_x, per_y, marker="o")
+                plt.ylim(0, 100)
+                plt.xlabel("Number of Filler Tokens")
+                plt.ylabel(f"Percent Correct (n={args.num_repeats})")
+                plt.title(f"Filler Tokens (Q{q_idx}): Accuracy vs. Filler Length")
+                plt.grid(True, alpha=0.3)
+                plt.tight_layout()
+                plt.savefig(f"{base}_q{q_idx}{ext}")
+                plt.close()
     except ImportError as exc:
         raise RuntimeError(
             "matplotlib is required for plotting. Install it or set --plot-path '' to skip."
@@ -446,13 +476,13 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset",
-        default="TIGER-Lab/MMLU-Pro",
+        default="allenai/ai2_arc",
         help="Hugging Face dataset name",
     )
     parser.add_argument(
         "--dataset-config",
-        default=None,
-        help="Optional dataset configuration name",
+        default="ARC-Challenge",
+        help="Dataset configuration name",
     )
     parser.add_argument(
         "--split",
@@ -548,6 +578,11 @@ def parse_args() -> argparse.Namespace:
         "--plot-path",
         default="cot_filler_plot.png",
         help="Where to save the plot",
+    )
+    parser.add_argument(
+        "--separate-figures",
+        action="store_true",
+        help="Save a separate plot for each question",
     )
     parser.add_argument(
         "--save-outputs",

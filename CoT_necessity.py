@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CoT necessity experiment for the first N MMLU-Pro questions.
+CoT necessity experiment for the first N ARC-Challenge questions.
 
 Workflow:
 1) Generate a baseline Chain-of-Thought (CoT) for the first N questions.
@@ -140,6 +140,16 @@ def _normalize_choices(raw: Any) -> Optional[List[str]]:
     if raw is None:
         return None
 
+    # ARC format: {"label": ["A", "B", ...], "text": ["...", "...", ...]}
+    if isinstance(raw, dict) and "label" in raw and "text" in raw:
+        labels = raw.get("label")
+        texts = raw.get("text")
+        if isinstance(labels, list) and isinstance(texts, list) and len(labels) == len(texts):
+            pairs = list(zip(labels, texts))
+            if all(isinstance(l, str) for l, _ in pairs):
+                pairs = sorted(pairs, key=lambda p: p[0])
+            return [str(t).strip() for _, t in pairs]
+
     # Case 1: list of strings
     if isinstance(raw, list):
         if all(isinstance(x, str) for x in raw):
@@ -195,6 +205,7 @@ def extract_question_and_choices(example: Dict[str, Any]) -> Tuple[str, List[str
 def get_gold_letter(example: Dict[str, Any], choices: List[str]) -> str:
     # Common answer keys
     answer_keys = [
+        "answerKey",
         "answer",
         "label",
         "correct_answer",
@@ -307,6 +318,8 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
     aggregated_counts: Dict[int, Dict[str, int]] = {}
     question_results: List[Dict[str, Any]] = []
+    skipped_questions: List[Dict[str, Any]] = []
+    used_questions = 0
 
     for q_idx in range(num_questions):
         example = dataset[q_idx]
@@ -332,6 +345,20 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             top_p=args.cot_top_p,
             seed=args.seed + (q_idx * 10000),
         )
+
+        baseline_pred = parse_model_answer(cot_output, len(choices))
+        baseline_correct = baseline_pred == gold
+        if not baseline_correct:
+            skipped_questions.append(
+                {
+                    "question_index": q_idx,
+                    "gold_letter": gold,
+                    "baseline_pred": baseline_pred,
+                }
+            )
+            continue
+
+        used_questions += 1
 
         cot_text = extract_cot(cot_output)
         sentences = split_sentences(cot_text)
@@ -417,6 +444,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             question_entry["sample_outputs"] = outputs_by_k
         question_results.append(question_entry)
 
+    if used_questions == 0:
+        raise ValueError(
+            "All questions were skipped because the baseline answer was incorrect."
+        )
+
     results: List[ExperimentResult] = []
     for k in sorted(aggregated_counts.keys()):
         correct = aggregated_counts[k]["correct"]
@@ -464,7 +496,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 plt.title(f"CoT Necessity (Q{q_idx}): Accuracy vs. CoT Length")
                 plt.grid(True, alpha=0.3)
                 plt.tight_layout()
-                plt.savefig(f\"{base}_q{q_idx}{ext}\")
+                plt.savefig(f"{base}_q{q_idx}{ext}")
                 plt.close()
     except ImportError as exc:
         raise RuntimeError(
@@ -477,9 +509,12 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         "dataset": args.dataset,
         "dataset_config": args.dataset_config,
         "split": args.split,
-        "num_questions": num_questions,
+        "num_questions_requested": num_questions,
+        "num_questions_used": used_questions,
+        "num_questions_skipped": len(skipped_questions),
         "aggregated_results": [r.__dict__ for r in results],
         "question_results": question_results,
+        "skipped_questions": skipped_questions,
     }
 
     with open(args.output_path, "w", encoding="utf-8") as f:
@@ -497,13 +532,13 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset",
-        default="TIGER-Lab/MMLU-Pro",
+        default="allenai/ai2_arc",
         help="Hugging Face dataset name",
     )
     parser.add_argument(
         "--dataset-config",
-        default=None,
-        help="Optional dataset configuration name",
+        default="ARC-Challenge",
+        help="Dataset configuration name",
     )
     parser.add_argument(
         "--split",
@@ -613,7 +648,11 @@ def main() -> None:
     print("Experiment completed.")
     print(f"Saved results to {args.output_path}")
     print(f"Saved plot to {args.plot_path}")
-    print(f"Number of questions: {result['num_questions']}")
+    print(
+        "Questions used: "
+        f"{result['num_questions_used']}/{result['num_questions_requested']} "
+        f"(skipped {result['num_questions_skipped']})"
+    )
     if result.get("aggregated_results"):
         max_k = max(r["sentence_count"] for r in result["aggregated_results"])
         print(f"Max CoT sentences used: {max_k}")
