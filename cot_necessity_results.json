@@ -1,0 +1,1127 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "dataset": "TIGER-Lab/MMLU-Pro",
+  "dataset_config": null,
+  "split": "test",
+  "num_questions": 4,
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 14,
+      "total": 80,
+      "percent_correct": 17.5
+    },
+    {
+      "sentence_count": 2,
+      "correct": 19,
+      "total": 80,
+      "percent_correct": 23.75
+    },
+    {
+      "sentence_count": 3,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 4,
+      "correct": 12,
+      "total": 80,
+      "percent_correct": 15.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 16,
+      "total": 80,
+      "percent_correct": 20.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 7,
+      "correct": 18,
+      "total": 80,
+      "percent_correct": 22.5
+    },
+    {
+      "sentence_count": 8,
+      "correct": 17,
+      "total": 80,
+      "percent_correct": 21.25
+    },
+    {
+      "sentence_count": 9,
+      "correct": 11,
+      "total": 80,
+      "percent_correct": 13.75
+    },
+    {
+      "sentence_count": 10,
+      "correct": 17,
+      "total": 80,
+      "percent_correct": 21.25
+    },
+    {
+      "sentence_count": 11,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 12,
+      "correct": 16,
+      "total": 80,
+      "percent_correct": 20.0
+    },
+    {
+      "sentence_count": 13,
+      "correct": 12,
+      "total": 80,
+      "percent_correct": 15.0
+    },
+    {
+      "sentence_count": 14,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 15,
+      "correct": 11,
+      "total": 80,
+      "percent_correct": 13.75
+    },
+    {
+      "sentence_count": 16,
+      "correct": 11,
+      "total": 80,
+      "percent_correct": 13.75
+    },
+    {
+      "sentence_count": 17,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 18,
+      "correct": 16,
+      "total": 80,
+      "percent_correct": 20.0
+    },
+    {
+      "sentence_count": 19,
+      "correct": 13,
+      "total": 80,
+      "percent_correct": 16.25
+    },
+    {
+      "sentence_count": 20,
+      "correct": 14,
+      "total": 80,
+      "percent_correct": 17.5
+    },
+    {
+      "sentence_count": 21,
+      "correct": 18,
+      "total": 80,
+      "percent_correct": 22.5
+    },
+    {
+      "sentence_count": 22,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 23,
+      "correct": 15,
+      "total": 80,
+      "percent_correct": 18.75
+    },
+    {
+      "sentence_count": 24,
+      "correct": 12,
+      "total": 80,
+      "percent_correct": 15.0
+    },
+    {
+      "sentence_count": 25,
+      "correct": 0,
+      "total": 60,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 26,
+      "correct": 0,
+      "total": 60,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 27,
+      "correct": 0,
+      "total": 60,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 28,
+      "correct": 0,
+      "total": 40,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 29,
+      "correct": 0,
+      "total": 40,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 30,
+      "correct": 0,
+      "total": 40,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 31,
+      "correct": 0,
+      "total": 40,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 32,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 33,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 34,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 35,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    }
+  ],
+  "question_results": [
+    {
+      "question_index": 0,
+      "question": "Typical advertising regulatory bodies suggest, for example that adverts must not: encourage _________, cause unnecessary ________ or _____, and must not cause _______ offence.",
+      "choices": [
+        "Safe practices, Fear, Jealousy, Trivial",
+        "Unsafe practices, Distress, Joy, Trivial",
+        "Safe practices, Wants, Jealousy, Trivial",
+        "Safe practices, Distress, Fear, Trivial",
+        "Unsafe practices, Wants, Jealousy, Serious",
+        "Safe practices, Distress, Jealousy, Serious",
+        "Safe practices, Wants, Fear, Serious",
+        "Unsafe practices, Wants, Fear, Trivial",
+        "Unsafe practices, Distress, Fear, Serious"
+      ],
+      "gold_letter": "I",
+      "baseline_cot": "Okay, so I've got this multiple-choice question about advertising regulations. Hmm, let me try to break it down. The question says that typical advertising regulatory bodies suggest that adverts must not encourage certain things, cause unnecessary things, or something else. I need to figure out what those blanks are filled with.\n\nThe options are A through I, each with different combinations of words. Let's read the question again: \"must not: encourage _________, cause unnecessary ________ or _____, and must not cause _______ offence.\"\n\nSo, the first blank is something the ads shouldn't encourage. The second is something they shouldn't cause unnecessary. The third is another action they shouldn't cause. The fourth is a type of offence.\n\nI remember that advertising laws aim to prevent certain negative impacts. Let's think about each part.\n\nFirst, what do ads usually try to avoid encouraging? Well, they don't want ads that promote unsafe practices. Like, if an ad tells people to do something dangerous, that's bad. So maybe \"unsafe practices\" is the first word. Alternatively, the options don't all have that. Looking at the options, let's see which ones have \"unsafe\" or \"safe.\"\n\nLooking at the options:\n\nA) Safe practices, Fear, Jealousy, Trivial\nB) Unsafe practices, Distress, Joy, Trivial\nC) Safe practices, Wants, Jealousy, Trivial\nD) Safe practices, Distress, Fear, Trivial\nE) Unsafe practices, Wants, Jealousy, Serious\nF) Safe practices, Distress, Jealousy, Serious\nG) Safe practices, Wants, Fear, Serious\nH) Unsafe practices, Wants, Fear, Trivial\nI) Unsafe practices, Distress, Fear, Serious\n\nSo, the first blank in options B, E, H, I is \"unsafe practices.\" The others have \"safe practices,\" which don't make sense because the first word is about what ads shouldn't encourage. They should be promoting safe things, not encouraging unsafe.\n\nSo the first blank is probably \"unsafe practices.\" That narrows it down to options B, E, H, I.\n\nNext, the second blank: cause unnecessary something. What does an ad cause unnecessary? Probably distress or something else negative. For example, ads about products that cause harm, like excessive alcohol, can cause distress. So the second blank might be \"distress.\"\n\nLooking at the options, let's see:\n\nB) first blank unsafe, second distress",
+      "cot_sentences": [
+        "Okay, so I've got this multiple-choice question about advertising regulations.",
+        "Hmm, let me try to break it down.",
+        "The question says that typical advertising regulatory bodies suggest that adverts must not encourage certain things, cause unnecessary things, or something else.",
+        "I need to figure out what those blanks are filled with.",
+        "The options are A through I, each with different combinations of words.",
+        "Let's read the question again: \"must not: encourage _________, cause unnecessary ________ or _____, and must not cause _______ offence.\" So, the first blank is something the ads shouldn't encourage.",
+        "The second is something they shouldn't cause unnecessary.",
+        "The third is another action they shouldn't cause.",
+        "The fourth is a type of offence.",
+        "I remember that advertising laws aim to prevent certain negative impacts.",
+        "Let's think about each part.",
+        "First, what do ads usually try to avoid encouraging?",
+        "Well, they don't want ads that promote unsafe practices.",
+        "Like, if an ad tells people to do something dangerous, that's bad.",
+        "So maybe \"unsafe practices\" is the first word.",
+        "Alternatively, the options don't all have that.",
+        "Looking at the options, let's see which ones have \"unsafe\" or \"safe.\" Looking at the options: A) Safe practices, Fear, Jealousy, Trivial B) Unsafe practices, Distress, Joy, Trivial C) Safe practices, Wants, Jealousy, Trivial D) Safe practices, Distress, Fear, Trivial E) Unsafe practices, Wants, Jealousy, Serious F) Safe practices, Distress, Jealousy, Serious G) Safe practices, Wants, Fear, Serious H) Unsafe practices, Wants, Fear, Trivial I) Unsafe practices, Distress, Fear, Serious So, the first blank in options B, E, H, I is \"unsafe practices.\" The others have \"safe practices,\" which don't make sense because the first word is about what ads shouldn't encourage.",
+        "They should be promoting safe things, not encouraging unsafe.",
+        "So the first blank is probably \"unsafe practices.\" That narrows it down to options B, E, H, I.",
+        "Next, the second blank: cause unnecessary something.",
+        "What does an ad cause unnecessary?",
+        "Probably distress or something else negative.",
+        "For example, ads about products that cause harm, like excessive alcohol, can cause distress.",
+        "So the second blank might be \"distress.\" Looking at the options, let's see: B) first blank unsafe, second distress"
+      ],
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 14,
+          "total": 20,
+          "percent_correct": 70.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 19,
+          "total": 20,
+          "percent_correct": 95.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 12,
+          "total": 20,
+          "percent_correct": 60.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 16,
+          "total": 20,
+          "percent_correct": 80.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 18,
+          "total": 20,
+          "percent_correct": 90.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 17,
+          "total": 20,
+          "percent_correct": 85.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 11,
+          "total": 20,
+          "percent_correct": 55.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 17,
+          "total": 20,
+          "percent_correct": 85.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 16,
+          "total": 20,
+          "percent_correct": 80.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 12,
+          "total": 20,
+          "percent_correct": 60.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 11,
+          "total": 20,
+          "percent_correct": 55.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 11,
+          "total": 20,
+          "percent_correct": 55.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 16,
+          "total": 20,
+          "percent_correct": 80.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 13,
+          "total": 20,
+          "percent_correct": 65.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 14,
+          "total": 20,
+          "percent_correct": 70.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 18,
+          "total": 20,
+          "percent_correct": 90.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 15,
+          "total": 20,
+          "percent_correct": 75.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 12,
+          "total": 20,
+          "percent_correct": 60.0
+        }
+      ]
+    },
+    {
+      "question_index": 1,
+      "question": "Managers are entrusted to run the company in the best interest of ________. Specifically, they have a duty to act for the benefit of the company, as well as a duty of ________ and of _______.",
+      "choices": [
+        "Shareholders, Diligence, Self-interest",
+        "Shareholders, Self-interest, Care and Skill",
+        "Stakeholders, Care and skill, Self-interest",
+        "Stakeholders, Diligence, Care and Skill",
+        "Customers, Care and Skill, Diligence",
+        "Shareholders, Care and Skill, Diligence",
+        "Shareholders, Self-interest, Diligence",
+        "Employees, Care and Skill, Diligence",
+        "Stakeholders, Self-interest, Diligence",
+        "Stakeholder, Care and Skill, Diligence"
+      ],
+      "gold_letter": "F",
+      "baseline_cot": "Okay, so I've got this multiple-choice question about managers' responsibilities. Hmm, I remember that in business, managers are usually held responsible for the company's performance, but they also have certain duties beyond that. Let me try to break it down.\n\nThe question says that managers are entrusted to run the company in the best interest of someone or something. Specifically, they have a duty to act for the benefit of the company, plus two other duties. The options are A to J, each with different combinations.\n\nFirst, I think about who the primary stakeholders are. Shareholders are definitely a big one because they invest money in the company and expect returns. So the first blank is likely \"Shareholders.\" That leaves the other blanks to be filled with other duties.\n\nNext, what are the other two duties? I recall something about managers acting in the best interest of stakeholders, but there's also a concept called fiduciary duty. That's when managers are trusted to manage the company's assets for the benefit of the shareholders. So that might cover the first part.\n\nBut wait, the question says \"specifically, they have a duty to act for the benefit of the company, as well as a duty of ________ and of _______.\" So the other two duties are probably other obligations beyond just the company.\n\nI think the other two are \"Care and Skill.\" Because managers are expected to be diligent in their work, to take care of the company's operations and have skill in handling finances and strategies. So that would fill in the blanks as Care and Skill.\n\nLet me check the options. Looking at the options, option F is Shareholders, Care and Skill, Diligence. Wait, but I thought Diligence might not fit here. Alternatively, maybe the options are structured as Shareholders, Care and Skill, Diligence.\n\nWait, the first part is Shareholders, then the next two blanks. Let me look at the options again.\n\nOption F: Shareholders, Care and Skill, Diligence.\n\nOption B: Shareholders, Self-interest, Care and Skill.\n\nHmm, but I don't think managers are supposed to act in their own self-interest exclusively. That would conflict with acting in the company's interest. So the second blank can't be self-interest.\n\nSo between F and B, F has Care and Skill, which I think is correct, but the third blank is Diligence. Wait, what's Diligence? Diligence means being thorough and careful. So perhaps the third blank",
+      "cot_sentences": [
+        "Okay, so I've got this multiple-choice question about managers' responsibilities.",
+        "Hmm, I remember that in business, managers are usually held responsible for the company's performance, but they also have certain duties beyond that.",
+        "Let me try to break it down.",
+        "The question says that managers are entrusted to run the company in the best interest of someone or something.",
+        "Specifically, they have a duty to act for the benefit of the company, plus two other duties.",
+        "The options are A to J, each with different combinations.",
+        "First, I think about who the primary stakeholders are.",
+        "Shareholders are definitely a big one because they invest money in the company and expect returns.",
+        "So the first blank is likely \"Shareholders.\" That leaves the other blanks to be filled with other duties.",
+        "Next, what are the other two duties?",
+        "I recall something about managers acting in the best interest of stakeholders, but there's also a concept called fiduciary duty.",
+        "That's when managers are trusted to manage the company's assets for the benefit of the shareholders.",
+        "So that might cover the first part.",
+        "But wait, the question says \"specifically, they have a duty to act for the benefit of the company, as well as a duty of ________ and of _______.\" So the other two duties are probably other obligations beyond just the company.",
+        "I think the other two are \"Care and Skill.\" Because managers are expected to be diligent in their work, to take care of the company's operations and have skill in handling finances and strategies.",
+        "So that would fill in the blanks as Care and Skill.",
+        "Let me check the options.",
+        "Looking at the options, option F is Shareholders, Care and Skill, Diligence.",
+        "Wait, but I thought Diligence might not fit here.",
+        "Alternatively, maybe the options are structured as Shareholders, Care and Skill, Diligence.",
+        "Wait, the first part is Shareholders, then the next two blanks.",
+        "Let me look at the options again.",
+        "Option F: Shareholders, Care and Skill, Diligence.",
+        "Option B: Shareholders, Self-interest, Care and Skill.",
+        "Hmm, but I don't think managers are supposed to act in their own self-interest exclusively.",
+        "That would conflict with acting in the company's interest.",
+        "So the second blank can't be self-interest.",
+        "So between F and B, F has Care and Skill, which I think is correct, but the third blank is Diligence.",
+        "Wait, what's Diligence?",
+        "Diligence means being thorough and careful.",
+        "So perhaps the third blank"
+      ],
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        }
+      ]
+    },
+    {
+      "question_index": 2,
+      "question": "There are two main issues associated with _____ sizing. _______ is a key issue as due to the information policy of the corporation it can be argued that employees have a right to know if they are being made redundant. _______ is a second issue, particularly the ________ package that employees receive when laid off.",
+      "choices": [
+        "Down, Autonomy, Remuneration, Benefit",
+        "Down, Involvement, Independence, Benefit",
+        "Up, Independence, Involvement, Benefit",
+        "Down, Privacy, Autonomy, Benefit",
+        "Up, Involvement, Autonomy, Compensation",
+        "Down, Independence, Autonomy, Compensation",
+        "Up, Involvement, Remuneration, Severance",
+        "Up, Privacy, Remuneration, Severance",
+        "Up, Autonomy, Remuneration, Compensation",
+        "Down, Involvement, Remuneration, Compensation"
+      ],
+      "gold_letter": "J",
+      "baseline_cot": "Okay, so I've got this multiple-choice question about employee issues related to company downsizing. Hmm, I need to figure out which two main issues are associated with downsizing. Let's break it down.\n\nFirst, the question mentions two main issues. The first blank is about something related to downsizing. The options have \"Down\" and \"Up\" as possibilities. Down probably refers to the process of reducing, like a layoff. Up would be the opposite, maybe expansion, but the question is about downsizing, so the first word is likely \"Down.\"\n\nNext, the first issue is something about employees knowing if they're being made redundant. The question says it's a key issue because of the company's information policy. So employees have a right to know. Which term fits here? I think it's about privacy. Companies usually have policies protecting employee information, so not knowing about a layoff might infringe on that privacy. So the first blank is \"Privacy.\"\n\nWait, looking at the options, option J starts with \"Down, Involvement...\" Hmm, no. Let me check the options again.\n\nOption D is \"Down, Privacy, Autonomy, Benefit.\" That seems relevant because the first blank is Down, the second is Privacy. So the first part of the sentence would be \"Down, Privacy.\" That fits.\n\nNow the second issue is about what happens when employees are laid off. The question mentions a package or something, so maybe it's about compensation or severance. Looking at the options, the third part would be something like \"Autonomy\" or \"Remuneration.\" Let's see.\n\nOption D continues with \"Autonomy, Benefit.\" Wait, the sentence structure is: \"______ is a key issue as due to...______ is a second issue, particularly the ________ package...\"\n\nSo the first blank is \"Privacy,\" the second part is about the package. So after \"Down, Privacy,\" the second issue is the package, which would be compensation or severance. Looking at the options, let's see:\n\nOption D: Down, Privacy, Autonomy, Benefit. Wait, that doesn't fit because the second issue is the package, which would be the last part. Let me check the structure.\n\nThe sentence is: \"______ is a key issue as due to...______ is a second issue, particularly the ________ package...\"\n\nSo the first blank is the first word, the second blank is the second word. The third blank is the third word (package),",
+      "cot_sentences": [
+        "Okay, so I've got this multiple-choice question about employee issues related to company downsizing.",
+        "Hmm, I need to figure out which two main issues are associated with downsizing.",
+        "Let's break it down.",
+        "First, the question mentions two main issues.",
+        "The first blank is about something related to downsizing.",
+        "The options have \"Down\" and \"Up\" as possibilities.",
+        "Down probably refers to the process of reducing, like a layoff.",
+        "Up would be the opposite, maybe expansion, but the question is about downsizing, so the first word is likely \"Down.\" Next, the first issue is something about employees knowing if they're being made redundant.",
+        "The question says it's a key issue because of the company's information policy.",
+        "So employees have a right to know.",
+        "Which term fits here?",
+        "I think it's about privacy.",
+        "Companies usually have policies protecting employee information, so not knowing about a layoff might infringe on that privacy.",
+        "So the first blank is \"Privacy.\" Wait, looking at the options, option J starts with \"Down, Involvement...\" Hmm, no.",
+        "Let me check the options again.",
+        "Option D is \"Down, Privacy, Autonomy, Benefit.\" That seems relevant because the first blank is Down, the second is Privacy.",
+        "So the first part of the sentence would be \"Down, Privacy.\" That fits.",
+        "Now the second issue is about what happens when employees are laid off.",
+        "The question mentions a package or something, so maybe it's about compensation or severance.",
+        "Looking at the options, the third part would be something like \"Autonomy\" or \"Remuneration.\" Let's see.",
+        "Option D continues with \"Autonomy, Benefit.\" Wait, the sentence structure is: \"______ is a key issue as due to...______ is a second issue, particularly the ________ package...\" So the first blank is \"Privacy,\" the second part is about the package.",
+        "So after \"Down, Privacy,\" the second issue is the package, which would be compensation or severance.",
+        "Looking at the options, let's see: Option D: Down, Privacy, Autonomy, Benefit.",
+        "Wait, that doesn't fit because the second issue is the package, which would be the last part.",
+        "Let me check the structure.",
+        "The sentence is: \"______ is a key issue as due to...______ is a second issue, particularly the ________ package...\" So the first blank is the first word, the second blank is the second word.",
+        "The third blank is the third word (package),"
+      ],
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        }
+      ]
+    },
+    {
+      "question_index": 3,
+      "question": "_______ locate morality beyond the sphere of rationality in an emotional 'moral impulse' towards others.",
+      "choices": [
+        "Ethical egoism",
+        "Ethics of duty",
+        "Postmodern ethics",
+        "Consequentialist ethics",
+        "Utilitarian ethics",
+        "Deontological ethics",
+        "Virtue ethics",
+        "Ethics of care",
+        "Ethics of rights",
+        "Relativist ethics"
+      ],
+      "gold_letter": "C",
+      "baseline_cot": "Okay, so I've got this multiple-choice question here, and I'm trying to figure out the right answer. The question is about where morality is located—whether it's in the sphere of rationality or in an emotional 'moral impulse' towards others. The options are from A to J, each representing different ethical theories.\n\nFirst, I need to understand what each of these terms means. Let me go through them one by one.\n\nOption A is Ethical Egoism. I remember that this theory suggests that the morality of an action is determined by how it affects the individual who is acting. So, the focus is on self-interest and consequences for the actor, not others. That doesn't sound like where emotions are the main factor, but more about self-interest.\n\nOption B is Ethics of Duty. This is also called Deontological Ethics. It's based on the idea that certain duties are inherent, regardless of the consequences. So, for example, stealing is wrong because it violates a moral duty, not because it's the worst outcome. This seems more rule-based and rational, so probably not where emotions are the main driver.\n\nOption C is Postmodern Ethics. I'm not too familiar with this one. I think postmodernism deals with skepticism about grand narratives and emphasizes plurality and context. But I'm not sure how that ties into morality. Maybe it's more about relativism or uncertainty, but I'm not certain.\n\nOption D is Consequentialist Ethics. This is about the outcomes of actions. The morality is determined by the consequences—whether the action brings more good or harm. So, it's outcome-based, which could involve emotions if the outcomes evoke strong feelings, but it's more about the logical consequences.\n\nOption E is Utilitarian Ethics. This is similar to Consequentialism, where the best outcome is chosen. It's based on maximizing utility, so it's all about the consequences and outcomes. Utilitarianism definitely looks at the consequences and could involve emotional responses to the outcomes, but it's still rational in that it's about maximizing happiness or minimizing suffering.\n\nOption F is Deontological Ethics. Wait, that's the same as Ethics of Duty. So, same as B, focusing on duties and rules, not outcomes.\n\nOption G is Virtue Ethics. This focuses on the character of the person acting. It's about the virtues of the agent, like honesty, kindness, etc. So, it's more about the person's moral character rather than the action's consequences. But does that involve",
+      "cot_sentences": [
+        "Okay, so I've got this multiple-choice question here, and I'm trying to figure out the right answer.",
+        "The question is about where morality is located—whether it's in the sphere of rationality or in an emotional 'moral impulse' towards others.",
+        "The options are from A to J, each representing different ethical theories.",
+        "First, I need to understand what each of these terms means.",
+        "Let me go through them one by one.",
+        "Option A is Ethical Egoism.",
+        "I remember that this theory suggests that the morality of an action is determined by how it affects the individual who is acting.",
+        "So, the focus is on self-interest and consequences for the actor, not others.",
+        "That doesn't sound like where emotions are the main factor, but more about self-interest.",
+        "Option B is Ethics of Duty.",
+        "This is also called Deontological Ethics.",
+        "It's based on the idea that certain duties are inherent, regardless of the consequences.",
+        "So, for example, stealing is wrong because it violates a moral duty, not because it's the worst outcome.",
+        "This seems more rule-based and rational, so probably not where emotions are the main driver.",
+        "Option C is Postmodern Ethics.",
+        "I'm not too familiar with this one.",
+        "I think postmodernism deals with skepticism about grand narratives and emphasizes plurality and context.",
+        "But I'm not sure how that ties into morality.",
+        "Maybe it's more about relativism or uncertainty, but I'm not certain.",
+        "Option D is Consequentialist Ethics.",
+        "This is about the outcomes of actions.",
+        "The morality is determined by the consequences—whether the action brings more good or harm.",
+        "So, it's outcome-based, which could involve emotions if the outcomes evoke strong feelings, but it's more about the logical consequences.",
+        "Option E is Utilitarian Ethics.",
+        "This is similar to Consequentialism, where the best outcome is chosen.",
+        "It's based on maximizing utility, so it's all about the consequences and outcomes.",
+        "Utilitarianism definitely looks at the consequences and could involve emotional responses to the outcomes, but it's still rational in that it's about maximizing happiness or minimizing suffering.",
+        "Option F is Deontological Ethics.",
+        "Wait, that's the same as Ethics of Duty.",
+        "So, same as B, focusing on duties and rules, not outcomes.",
+        "Option G is Virtue Ethics.",
+        "This focuses on the character of the person acting.",
+        "It's about the virtues of the agent, like honesty, kindness, etc.",
+        "So, it's more about the person's moral character rather than the action's consequences.",
+        "But does that involve"
+      ],
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 20,
+          "percent_correct": 0.0
+        }
+      ]
+    }
+  ]
+}
