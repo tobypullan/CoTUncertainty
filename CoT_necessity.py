@@ -25,6 +25,8 @@ import torch
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+os.environ.setdefault("HF_HUB_DISABLE_FILELOCK", "1")
+
 
 # -----------------------------
 # Utilities
@@ -111,15 +113,58 @@ def extract_cot(text: str) -> str:
 
 def parse_model_answer(text: str, num_choices: int) -> Optional[str]:
     letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    allowed = letters[: max(2, num_choices)]
-    match = re.search(r"\b([A-Z])\b", text.upper())
-    if match and match.group(1) in allowed:
-        return match.group(1)
-    # Sometimes the model returns like "Answer: C" without spaces.
-    match = re.search(r"([A-Z])", text.upper())
-    if match and match.group(1) in allowed:
-        return match.group(1)
+    allowed = set(letters[: max(2, num_choices)])
+    if not text:
+        return None
+
+    # Prefer explicit answer markers.
+    patterns = [
+        r"final\s+answer\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
+        r"answer\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
+        r"option\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
+        r"choice\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
+        r"letter\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
+    ]
+    for pat in patterns:
+        match = re.search(pat, text, flags=re.IGNORECASE)
+        if match:
+            letter = match.group(1).upper()
+            if letter in allowed:
+                return letter
+
+    # Next, look for a standalone letter on the last non-empty line(s).
+    for line in reversed(text.splitlines()):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        stripped = re.sub(r"[`*_]+", "", stripped)
+        match = re.match(r"^\s*([A-Z])\s*[.\)]?\s*$", stripped, flags=re.IGNORECASE)
+        if match:
+            letter = match.group(1).upper()
+            if letter in allowed:
+                return letter
+
+    # Fallback: search near the end to avoid grabbing letters from the prompt.
+    tail = "\n".join(text.splitlines()[-5:])
+    matches = re.findall(r"\b([A-Z])\b", tail.upper())
+    for letter in reversed(matches):
+        if letter in allowed:
+            return letter
     return None
+
+
+def resolve_results_path(results_dir: str, requested_path: str) -> str:
+    if not requested_path:
+        return requested_path
+    abs_results = os.path.abspath(results_dir)
+    abs_requested = os.path.abspath(requested_path)
+    try:
+        common = os.path.commonpath([abs_results, abs_requested])
+    except ValueError:
+        common = ""
+    if common == abs_results:
+        return requested_path
+    return os.path.join(results_dir, os.path.basename(requested_path))
 
 
 # -----------------------------
@@ -316,133 +361,156 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         else args.system_prompt
     )
 
+    results_dir = "results"
+    os.makedirs(results_dir, exist_ok=True)
+    plot_path = resolve_results_path(results_dir, args.plot_path)
+    baseline_path = os.path.join(results_dir, "baselineCoT.jsonl")
+
     aggregated_counts: Dict[int, Dict[str, int]] = {}
     question_results: List[Dict[str, Any]] = []
     skipped_questions: List[Dict[str, Any]] = []
     used_questions = 0
 
-    for q_idx in range(num_questions):
-        example = dataset[q_idx]
-        question, choices = extract_question_and_choices(example)
-        gold = get_gold_letter(example, choices)
-        formatted_question = format_mcq(question, choices)
+    baseline_f = open(baseline_path, "w", encoding="utf-8")
+    try:
+        for q_idx in range(num_questions):
+            example = dataset[q_idx]
+            question, choices = extract_question_and_choices(example)
+            gold = get_gold_letter(example, choices)
+            formatted_question = format_mcq(question, choices)
 
-        # 1) Baseline CoT
-        cot_prompt_text = (
-            "Solve the following multiple-choice question. "
-            "Think step-by-step and end with 'Final Answer: <letter>'.\n\n"
-            f"{formatted_question}\n\n"
-            "Let's think step by step."
-        )
-        cot_prompt = build_prompt(tokenizer, cot_prompt_text, system_prompt)
-        cot_output = generate_text(
-            model,
-            tokenizer,
-            cot_prompt,
-            max_new_tokens=args.cot_max_new_tokens,
-            do_sample=True,
-            temperature=args.cot_temperature,
-            top_p=args.cot_top_p,
-            seed=args.seed + (q_idx * 10000),
-        )
-
-        baseline_pred = parse_model_answer(cot_output, len(choices))
-        baseline_correct = baseline_pred == gold
-        if not baseline_correct:
-            skipped_questions.append(
-                {
-                    "question_index": q_idx,
-                    "gold_letter": gold,
-                    "baseline_pred": baseline_pred,
-                }
+            # 1) Baseline CoT
+            cot_prompt_text = (
+                "Solve the following multiple-choice question. "
+                "Think step-by-step and end with 'Final Answer: <letter>'.\n\n"
+                f"{formatted_question}\n\n"
+                "Let's think step by step."
             )
-            continue
-
-        used_questions += 1
-
-        cot_text = extract_cot(cot_output)
-        sentences = split_sentences(cot_text)
-
-        if args.sentence_limit is not None:
-            sentences = sentences[: args.sentence_limit]
-
-        if not sentences:
-            raise ValueError(
-                f"No CoT sentences were extracted for question {q_idx}. "
-                "Try increasing cot_max_new_tokens."
+            cot_prompt = build_prompt(tokenizer, cot_prompt_text, system_prompt)
+            baseline_seed = args.seed + (q_idx * 10000)
+            cot_output = generate_text(
+                model,
+                tokenizer,
+                cot_prompt,
+                max_new_tokens=args.cot_max_new_tokens,
+                do_sample=True,
+                temperature=args.cot_temperature,
+                top_p=args.cot_top_p,
+                seed=baseline_seed,
             )
 
-        per_question_results: List[ExperimentResult] = []
-        outputs_by_k: Dict[int, List[Dict[str, Any]]] = {}
+            cot_text = extract_cot(cot_output)
+            baseline_pred = parse_model_answer(cot_output, len(choices))
+            baseline_correct = baseline_pred == gold
+            baseline_entry = {
+                "question_index": q_idx,
+                "question": question,
+                "choices": choices,
+                "gold_letter": gold,
+                "baseline_seed": baseline_seed,
+                "baseline_output": cot_output,
+                "baseline_cot": cot_text,
+                "baseline_pred": baseline_pred,
+                "baseline_correct": baseline_correct,
+            }
+            baseline_f.write(json.dumps(baseline_entry, ensure_ascii=False) + "\n")
 
-        # 2) Partial-CoT prompting
-        for k in range(1, len(sentences) + 1):
-            partial_cot = " ".join(sentences[:k])
-            answer_prompt_text = (
-                "Use the partial reasoning below and answer the question immediately. "
-                "Respond with only the letter (A, B, C, ...).\n\n"
-                f"Question:\n{formatted_question}\n\n"
-                f"Partial reasoning:\n{partial_cot}\n\n"
-                "Answer:"
-            )
-            answer_prompt = build_prompt(tokenizer, answer_prompt_text, system_prompt)
-
-            correct = 0
-            run_outputs: List[Dict[str, Any]] = []
-
-            for r in range(args.num_repeats):
-                seed = args.seed + (q_idx * 10000) + (k * 100) + r
-                answer_output = generate_text(
-                    model,
-                    tokenizer,
-                    answer_prompt,
-                    max_new_tokens=args.answer_max_new_tokens,
-                    do_sample=True,
-                    temperature=args.answer_temperature,
-                    top_p=args.answer_top_p,
-                    seed=seed,
-                )
-                pred = parse_model_answer(answer_output, len(choices))
-                is_correct = pred == gold
-                if is_correct:
-                    correct += 1
-                run_outputs.append(
+            if not baseline_correct:
+                skipped_questions.append(
                     {
-                        "seed": seed,
-                        "raw_output": answer_output,
-                        "parsed_answer": pred,
-                        "correct": is_correct,
+                        "question_index": q_idx,
+                        "gold_letter": gold,
+                        "baseline_pred": baseline_pred,
                     }
                 )
+                continue
 
-            percent_correct = 100.0 * correct / args.num_repeats
-            per_question_results.append(
-                ExperimentResult(
-                    sentence_count=k,
-                    correct=correct,
-                    total=args.num_repeats,
-                    percent_correct=percent_correct,
+            used_questions += 1
+
+            sentences = split_sentences(cot_text)
+
+            if args.sentence_limit is not None:
+                sentences = sentences[: args.sentence_limit]
+
+            if not sentences:
+                raise ValueError(
+                    f"No CoT sentences were extracted for question {q_idx}. "
+                    "Try increasing cot_max_new_tokens."
                 )
-            )
-            outputs_by_k[k] = run_outputs
 
-            if k not in aggregated_counts:
-                aggregated_counts[k] = {"correct": 0, "total": 0}
-            aggregated_counts[k]["correct"] += correct
-            aggregated_counts[k]["total"] += args.num_repeats
+            per_question_results: List[ExperimentResult] = []
+            outputs_by_k: Dict[int, List[Dict[str, Any]]] = {}
 
-        question_entry = {
-            "question_index": q_idx,
-            "question": question,
-            "choices": choices,
-            "gold_letter": gold,
-            "baseline_cot": cot_text,
-            "cot_sentences": sentences,
-            "results": [r.__dict__ for r in per_question_results],
-        }
-        if args.save_outputs:
-            question_entry["sample_outputs"] = outputs_by_k
-        question_results.append(question_entry)
+            # 2) Partial-CoT prompting
+            for k in range(1, len(sentences) + 1):
+                partial_cot = " ".join(sentences[:k])
+                answer_prompt_text = (
+                    "Use the partial reasoning below and answer the question immediately. "
+                    "Respond with only the letter (A, B, C, ...).\n\n"
+                    f"Question:\n{formatted_question}\n\n"
+                    f"Partial reasoning:\n{partial_cot}\n\n"
+                    "Answer:"
+                )
+                answer_prompt = build_prompt(tokenizer, answer_prompt_text, system_prompt)
+
+                correct = 0
+                run_outputs: List[Dict[str, Any]] = []
+
+                for r in range(args.num_repeats):
+                    seed = args.seed + (q_idx * 10000) + (k * 100) + r
+                    answer_output = generate_text(
+                        model,
+                        tokenizer,
+                        answer_prompt,
+                        max_new_tokens=args.answer_max_new_tokens,
+                        do_sample=True,
+                        temperature=args.answer_temperature,
+                        top_p=args.answer_top_p,
+                        seed=seed,
+                    )
+                    pred = parse_model_answer(answer_output, len(choices))
+                    is_correct = pred == gold
+                    if is_correct:
+                        correct += 1
+                    run_outputs.append(
+                        {
+                            "seed": seed,
+                            "raw_output": answer_output,
+                            "parsed_answer": pred,
+                            "correct": is_correct,
+                        }
+                    )
+
+                percent_correct = 100.0 * correct / args.num_repeats
+                per_question_results.append(
+                    ExperimentResult(
+                        sentence_count=k,
+                        correct=correct,
+                        total=args.num_repeats,
+                        percent_correct=percent_correct,
+                    )
+                )
+                outputs_by_k[k] = run_outputs
+
+                if k not in aggregated_counts:
+                    aggregated_counts[k] = {"correct": 0, "total": 0}
+                aggregated_counts[k]["correct"] += correct
+                aggregated_counts[k]["total"] += args.num_repeats
+
+            question_entry = {
+                "question_index": q_idx,
+                "question": question,
+                "choices": choices,
+                "gold_letter": gold,
+                "baseline_cot": cot_text,
+                "cot_sentences": sentences,
+                "results": [r.__dict__ for r in per_question_results],
+            }
+            if args.save_outputs:
+                question_entry["sample_outputs"] = outputs_by_k
+            question_results.append(question_entry)
+    finally:
+        baseline_f.close()
 
     if used_questions == 0:
         raise ValueError(
@@ -477,11 +545,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         plt.title("CoT Necessity: Accuracy vs. CoT Length")
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
-        plt.savefig(args.plot_path)
+        plt.savefig(plot_path)
         plt.close()
 
         if args.separate_figures:
-            base, ext = os.path.splitext(args.plot_path)
+            base, ext = os.path.splitext(plot_path)
             for question_entry in question_results:
                 q_idx = question_entry["question_index"]
                 per_q = question_entry["results"]
@@ -512,6 +580,8 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         "num_questions_requested": num_questions,
         "num_questions_used": used_questions,
         "num_questions_skipped": len(skipped_questions),
+        "plot_path": plot_path,
+        "baseline_cot_path": baseline_path,
         "aggregated_results": [r.__dict__ for r in results],
         "question_results": question_results,
         "skipped_questions": skipped_questions,
@@ -577,7 +647,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--cot-max-new-tokens",
         type=int,
-        default=512,
+        default=1024,
         help="Max tokens for baseline CoT generation",
     )
     parser.add_argument(
@@ -622,7 +692,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--plot-path",
-        default="cot_necessity_plot.png",
+        default="results/cot_necessity_plot.png",
         help="Where to save the plot",
     )
     parser.add_argument(
@@ -647,7 +717,8 @@ def main() -> None:
 
     print("Experiment completed.")
     print(f"Saved results to {args.output_path}")
-    print(f"Saved plot to {args.plot_path}")
+    print(f"Saved plot to {result['plot_path']}")
+    print(f"Saved baseline CoT to {result['baseline_cot_path']}")
     print(
         "Questions used: "
         f"{result['num_questions_used']}/{result['num_questions_requested']} "
