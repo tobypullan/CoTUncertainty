@@ -18,6 +18,7 @@ import json
 import os
 import random
 import re
+import threading
 from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -26,6 +27,36 @@ from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 os.environ.setdefault("HF_HUB_DISABLE_FILELOCK", "1")
+
+
+def _patch_filelock_for_hf() -> None:
+    """Compat patch for old filelock + newer huggingface_hub usage."""
+    try:
+        import inspect
+        import filelock
+    except Exception:
+        return
+
+    base_cls = getattr(filelock, "BaseFileLock", None)
+    if base_cls is None or getattr(base_cls, "_cot_patched", False):
+        return
+
+    orig_init = base_cls.__init__
+    sig = inspect.signature(orig_init)
+    accepts_mode = "mode" in sig.parameters
+
+    def _init(self, lock_file, timeout=-1, *args, **kwargs):
+        if not accepts_mode and "mode" in kwargs:
+            kwargs.pop("mode", None)
+        orig_init(self, lock_file, timeout=timeout, *args, **kwargs)
+        if not hasattr(self, "_thread_lock"):
+            self._thread_lock = threading.Lock()
+
+    base_cls.__init__ = _init  # type: ignore[assignment]
+    base_cls._cot_patched = True  # type: ignore[attr-defined]
+
+
+_patch_filelock_for_hf()
 
 
 # -----------------------------
@@ -63,16 +94,25 @@ def generate_text(
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     prompt: str,
-    max_new_tokens: int,
+    max_new_tokens: Optional[int],
     do_sample: bool,
     temperature: float,
     top_p: float,
     seed: Optional[int] = None,
+    allowed_token_ids: Optional[List[int]] = None,
 ) -> str:
     if seed is not None:
         set_seed(seed)
     inputs = tokenizer(prompt, return_tensors="pt")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
+
+    if max_new_tokens is None:
+        limit = getattr(model.config, "max_position_embeddings", None)
+        if not isinstance(limit, int) or limit <= 0:
+            limit = getattr(tokenizer, "model_max_length", None)
+        if not isinstance(limit, int) or limit <= 0 or limit > 100000:
+            limit = 4096
+        max_new_tokens = max(1, limit - inputs["input_ids"].shape[1])
 
     gen_kwargs = {
         "max_new_tokens": max_new_tokens,
@@ -82,6 +122,10 @@ def generate_text(
     if do_sample:
         gen_kwargs["temperature"] = temperature
         gen_kwargs["top_p"] = top_p
+    if allowed_token_ids:
+        def _allowed(_batch_id: int, _input_ids: torch.Tensor) -> List[int]:
+            return allowed_token_ids
+        gen_kwargs["prefix_allowed_tokens_fn"] = _allowed
 
     with torch.inference_mode():
         output_ids = model.generate(**inputs, **gen_kwargs)
@@ -151,6 +195,32 @@ def parse_model_answer(text: str, num_choices: int) -> Optional[str]:
         if letter in allowed:
             return letter
     return None
+
+
+def build_allowed_answer_token_ids(
+    tokenizer: AutoTokenizer,
+    num_choices: int,
+) -> List[int]:
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[: max(2, num_choices)]
+    candidates: List[str] = []
+    for letter in letters:
+        candidates.append(letter)
+        candidates.append(f" {letter}")
+        candidates.append(letter.lower())
+        candidates.append(f" {letter.lower()}")
+    allowed: List[int] = []
+    for text in candidates:
+        token_ids = tokenizer.encode(text, add_special_tokens=False)
+        if len(token_ids) == 1:
+            allowed.append(token_ids[0])
+    # Deduplicate while preserving order.
+    seen: set[int] = set()
+    unique_allowed: List[int] = []
+    for token_id in allowed:
+        if token_id not in seen:
+            seen.add(token_id)
+            unique_allowed.append(token_id)
+    return unique_allowed
 
 
 def resolve_results_path(results_dir: str, requested_path: str) -> str:
@@ -365,6 +435,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     os.makedirs(results_dir, exist_ok=True)
     plot_path = resolve_results_path(results_dir, args.plot_path)
     baseline_path = os.path.join(results_dir, "baselineCoT.jsonl")
+    resampled_path = os.path.join(results_dir, "resampled_CoT.jsonl")
 
     aggregated_counts: Dict[int, Dict[str, int]] = {}
     question_results: List[Dict[str, Any]] = []
@@ -372,6 +443,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     used_questions = 0
 
     baseline_f = open(baseline_path, "w", encoding="utf-8")
+    resampled_f = open(resampled_path, "w", encoding="utf-8")
     try:
         for q_idx in range(num_questions):
             example = dataset[q_idx]
@@ -443,16 +515,14 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
             # 2) Partial-CoT prompting
             for k in range(1, len(sentences) + 1):
-                partial_cot = " ".join(sentences[:k])
+                received_sentences = ". ".join(sentences[:k - 1])
                 answer_prompt_text = (
-                    "Use the partial reasoning below and answer the question immediately. "
-                    "Respond with only the letter (A, B, C, ...).\n\n"
-                    f"Question:\n{formatted_question}\n\n"
-                    f"Partial reasoning:\n{partial_cot}\n\n"
-                    "Answer:"
+                    f"Question: {formatted_question}\n\n"
+                    f"This is your previous reasoning: {received_sentences}\n"
+                    "Based off this reasoning, you must now immediately choose an answer to this question, without doing anymore reasoning. If you don't know the answer then guess.\n\n"
                 )
                 answer_prompt = build_prompt(tokenizer, answer_prompt_text, system_prompt)
-
+                resampled_input = answer_prompt_text
                 correct = 0
                 run_outputs: List[Dict[str, Any]] = []
 
@@ -462,7 +532,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                         model,
                         tokenizer,
                         answer_prompt,
-                        max_new_tokens=args.answer_max_new_tokens,
+                        max_new_tokens=None,
                         do_sample=True,
                         temperature=args.answer_temperature,
                         top_p=args.answer_top_p,
@@ -475,10 +545,25 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                     run_outputs.append(
                         {
                             "seed": seed,
+                            "resampled_input": resampled_input,
                             "raw_output": answer_output,
                             "parsed_answer": pred,
                             "correct": is_correct,
                         }
+                    )
+                    resampled_f.write(
+                        json.dumps(
+                            {
+                                "sentence_count": k,
+                                "seed": seed,
+                                "resampled_input": resampled_input,
+                                "raw_output": answer_output,
+                                "parsed_answer": pred,
+                                "correct": is_correct,
+                            },
+                            ensure_ascii=False,
+                        )
+                        + "\n"
                     )
 
                 percent_correct = 100.0 * correct / args.num_repeats
@@ -511,6 +596,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             question_results.append(question_entry)
     finally:
         baseline_f.close()
+        resampled_f.close()
 
     if used_questions == 0:
         raise ValueError(
@@ -582,6 +668,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         "num_questions_skipped": len(skipped_questions),
         "plot_path": plot_path,
         "baseline_cot_path": baseline_path,
+        "resampled_cot_path": resampled_path,
         "aggregated_results": [r.__dict__ for r in results],
         "question_results": question_results,
         "skipped_questions": skipped_questions,
@@ -597,7 +684,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="CoT necessity experiment")
     parser.add_argument(
         "--model",
-        default="deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+        default="google/gemma-3-27b-it",
         help="Hugging Face model name or path",
     )
     parser.add_argument(
@@ -719,6 +806,7 @@ def main() -> None:
     print(f"Saved results to {args.output_path}")
     print(f"Saved plot to {result['plot_path']}")
     print(f"Saved baseline CoT to {result['baseline_cot_path']}")
+    print(f"Saved resampled CoT to {result['resampled_cot_path']}")
     print(
         "Questions used: "
         f"{result['num_questions_used']}/{result['num_questions_requested']} "

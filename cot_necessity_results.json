@@ -1,5 +1,5 @@
 {
-  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "model": "google/gemma-3-27b-it",
   "dataset": "allenai/ai2_arc",
   "dataset_config": "ARC-Challenge",
   "split": "test",
@@ -8,366 +8,97 @@
   "num_questions_skipped": 0,
   "plot_path": "results/cot_necessity_plot.png",
   "baseline_cot_path": "results/baselineCoT.jsonl",
+  "resampled_cot_path": "results/resampled_CoT.jsonl",
   "aggregated_results": [
     {
       "sentence_count": 1,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 2,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 3,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 4,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 5,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 6,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 7,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 8,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 9,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 10,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 11,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 12,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 13,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 14,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     },
     {
       "sentence_count": 15,
-      "correct": 0,
+      "correct": 5,
       "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 16,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 17,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 18,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 19,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 20,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 21,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 22,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 23,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 24,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 25,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 26,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 27,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 28,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 29,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 30,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 31,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 32,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 33,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 34,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 35,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 36,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 37,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 38,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 39,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 40,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 41,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 42,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 43,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 44,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 45,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 46,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 47,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 48,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 49,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 50,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 51,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 52,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 53,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 54,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 55,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 56,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 57,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 58,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 59,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
-    },
-    {
-      "sentence_count": 60,
-      "correct": 0,
-      "total": 5,
-      "percent_correct": 0.0
+      "percent_correct": 100.0
     }
   ],
   "question_results": [
@@ -381,429 +112,114 @@
         "Planetary gravity will become stronger."
       ],
       "gold_letter": "C",
-      "baseline_cot": "Okay, so I've got this astronomy question here. Let's see what it says. The question is about an astronomer observing that a planet rotates faster after a meteorite impact. And then they ask what the most likely effect of this increased rotation is. The options are A, B, C, D.\n\nHmm, I'm a bit rusty on this, but I'll try to think through it. So, the scenario is a planet that, after a meteorite hits it, starts rotating faster. What happens then? Let's break it down.\n\nFirst, I remember that a planet's rotation affects its day length. A day is the time it takes for the planet to complete one full rotation. So if a planet rotates faster, its day should be shorter. That would mean that each day would be quicker, like how some planets have really fast rotation, like Venus, I think. So, option C says planetary days become shorter, which seems likely.\n\nWait, but what about other effects? Like, does faster rotation affect the planet's gravity? I'm not too sure. I know that gravity is mainly determined by the mass and radius of the planet. If the rotation is faster, would that make gravity stronger or weaker? Oh, right, there's this thing about centrifugal force. When a planet spins faster, the centrifugal force at the equator increases. That could slightly reduce the effective gravity because you're flung outward a bit more. But wait, I'm not sure if that's a significant effect compared to other factors. Also, the mass of the planet hasn't changed because of the meteorite impact. So, unless the mass changes, the overall gravity should stay about the same. So option D, planetary gravity becoming stronger, probably isn't correct. Because if rotation increases, maybe gravity would decrease a tiny bit, but I don't think that's a big effect. Or maybe it depends on how much the rotation affects it. Hmm.\n\nAnother thought: meteorites hitting a planet could add mass, but wait, the question says the rotation is faster. So, the mass might not change much if the meteorites just impact and maybe stick to the planet, but maybe if they hit it and cause some changes, like maybe moving material around. But I think the primary effect of faster rotation would be on the length of the day, not so much on the overall gravity. So option C seems more plausible.\n\nWhat about other options? Option A says planetary density decreases. Wait, density is mass divided by volume. If the rotation doesn't change the mass or the volume much, density should stay the same. Unless the rotation somehow affects the structure, but I don't think that's the case here. So A doesn't seem right.\n\nOption B is planetary years becoming longer. Wait, a year is the time it takes to orbit the star, right? So the rotation of the planet doesn't directly affect its orbital period or the length of the year. Unless there's some tidal locking or something, but that's more about how the planet's rotation is synchronized with its orbit, which isn't the case here. The meteorite impact would probably affect the planet's rotation and maybe its orbit if there's a lot of mass change, but the question doesn't mention orbital changes. So B doesn't make sense in this context.\n\nPutting it all together, the effect of increased rotation is a shorter day. So the correct answer is C.\n</think>\n\nThe question involves a planet that rotates faster after a meteorite impact, and the task is to determine the most likely effect of this increased rotation. \n\nWhen a planet rotates faster, its day length decreases because the time required to complete one full rotation becomes shorter. This aligns with option C, which states that planetary days will become shorter. \n\nAnalyzing the other options:\n\n- **Option A (Planetary density will decrease):** Density is mass divided by volume. Since the question does not mention changes in mass or volume, density is unlikely to decrease. Thus, this option is not plausible.\n\n- **Option B (Planetary years will become longer):** A year is determined by the planet's orbital period around its star, not its rotation. The question does not indicate any changes in the planet's orbit, so this option is incorrect.\n\n- **Option D (Planetary gravity will become stronger):** Gravity is primarily determined by mass and radius. While faster rotation introduces centrifugal force, which could slightly reduce effective gravity at the equator, this effect is negligible compared to other factors. Therefore, gravity is unlikely to become significantly stronger.\n\nThe most plausible effect of increased rotation is a shorter day, making option C the correct answer.\n\n**Final Answer: C**",
+      "baseline_cot": "The question states the planet rotates *faster*. Let's analyze each option:\n\n*   **A) Planetary density will decrease.** Density is mass/volume. A change in rotation speed doesn't directly affect either mass or volume, so density shouldn't change. This is unlikely.\n*   **B) Planetary years will become longer.** A year is the time it takes for a planet to orbit the sun. Rotation speed affects the length of a day, not a year. This is unlikely.\n*   **C) Planetary days will become shorter.** A day is defined by the time it takes for a planet to complete one rotation. If the planet rotates faster, it will take *less* time to complete one rotation. Therefore, days will become shorter. This is very likely.\n*   **D) Planetary gravity will become stronger.** Gravity depends on mass and distance. A change in rotation speed doesn't directly change mass or the planet's radius significantly enough to alter gravity in a noticeable way. This is unlikely.\n\nTherefore, the most likely effect is that planetary days will become shorter.",
       "cot_sentences": [
-        "Okay, so I've got this astronomy question here.",
-        "Let's see what it says.",
-        "The question is about an astronomer observing that a planet rotates faster after a meteorite impact.",
-        "And then they ask what the most likely effect of this increased rotation is.",
-        "The options are A, B, C, D.",
-        "Hmm, I'm a bit rusty on this, but I'll try to think through it.",
-        "So, the scenario is a planet that, after a meteorite hits it, starts rotating faster.",
-        "What happens then?",
-        "Let's break it down.",
-        "First, I remember that a planet's rotation affects its day length.",
-        "A day is the time it takes for the planet to complete one full rotation.",
-        "So if a planet rotates faster, its day should be shorter.",
-        "That would mean that each day would be quicker, like how some planets have really fast rotation, like Venus, I think.",
-        "So, option C says planetary days become shorter, which seems likely.",
-        "Wait, but what about other effects?",
-        "Like, does faster rotation affect the planet's gravity?",
-        "I'm not too sure.",
-        "I know that gravity is mainly determined by the mass and radius of the planet.",
-        "If the rotation is faster, would that make gravity stronger or weaker?",
-        "Oh, right, there's this thing about centrifugal force.",
-        "When a planet spins faster, the centrifugal force at the equator increases.",
-        "That could slightly reduce the effective gravity because you're flung outward a bit more.",
-        "But wait, I'm not sure if that's a significant effect compared to other factors.",
-        "Also, the mass of the planet hasn't changed because of the meteorite impact.",
-        "So, unless the mass changes, the overall gravity should stay about the same.",
-        "So option D, planetary gravity becoming stronger, probably isn't correct.",
-        "Because if rotation increases, maybe gravity would decrease a tiny bit, but I don't think that's a big effect.",
-        "Or maybe it depends on how much the rotation affects it.",
-        "Hmm.",
-        "Another thought: meteorites hitting a planet could add mass, but wait, the question says the rotation is faster.",
-        "So, the mass might not change much if the meteorites just impact and maybe stick to the planet, but maybe if they hit it and cause some changes, like maybe moving material around.",
-        "But I think the primary effect of faster rotation would be on the length of the day, not so much on the overall gravity.",
-        "So option C seems more plausible.",
-        "What about other options?",
-        "Option A says planetary density decreases.",
-        "Wait, density is mass divided by volume.",
-        "If the rotation doesn't change the mass or the volume much, density should stay the same.",
-        "Unless the rotation somehow affects the structure, but I don't think that's the case here.",
-        "So A doesn't seem right.",
-        "Option B is planetary years becoming longer.",
-        "Wait, a year is the time it takes to orbit the star, right?",
-        "So the rotation of the planet doesn't directly affect its orbital period or the length of the year.",
-        "Unless there's some tidal locking or something, but that's more about how the planet's rotation is synchronized with its orbit, which isn't the case here.",
-        "The meteorite impact would probably affect the planet's rotation and maybe its orbit if there's a lot of mass change, but the question doesn't mention orbital changes.",
-        "So B doesn't make sense in this context.",
-        "Putting it all together, the effect of increased rotation is a shorter day.",
-        "So the correct answer is C.",
-        "</think> The question involves a planet that rotates faster after a meteorite impact, and the task is to determine the most likely effect of this increased rotation.",
-        "When a planet rotates faster, its day length decreases because the time required to complete one full rotation becomes shorter.",
-        "This aligns with option C, which states that planetary days will become shorter.",
-        "Analyzing the other options: - **Option A (Planetary density will decrease):** Density is mass divided by volume.",
-        "Since the question does not mention changes in mass or volume, density is unlikely to decrease.",
-        "Thus, this option is not plausible.",
-        "- **Option B (Planetary years will become longer):** A year is determined by the planet's orbital period around its star, not its rotation.",
-        "The question does not indicate any changes in the planet's orbit, so this option is incorrect.",
-        "- **Option D (Planetary gravity will become stronger):** Gravity is primarily determined by mass and radius.",
-        "While faster rotation introduces centrifugal force, which could slightly reduce effective gravity at the equator, this effect is negligible compared to other factors.",
-        "Therefore, gravity is unlikely to become significantly stronger.",
-        "The most plausible effect of increased rotation is a shorter day, making option C the correct answer.",
-        "**Final Answer: C**"
+        "The question states the planet rotates *faster*.",
+        "Let's analyze each option: * **A) Planetary density will decrease.** Density is mass/volume.",
+        "A change in rotation speed doesn't directly affect either mass or volume, so density shouldn't change.",
+        "This is unlikely.",
+        "* **B) Planetary years will become longer.** A year is the time it takes for a planet to orbit the sun.",
+        "Rotation speed affects the length of a day, not a year.",
+        "This is unlikely.",
+        "* **C) Planetary days will become shorter.** A day is defined by the time it takes for a planet to complete one rotation.",
+        "If the planet rotates faster, it will take *less* time to complete one rotation.",
+        "Therefore, days will become shorter.",
+        "This is very likely.",
+        "* **D) Planetary gravity will become stronger.** Gravity depends on mass and distance.",
+        "A change in rotation speed doesn't directly change mass or the planet's radius significantly enough to alter gravity in a noticeable way.",
+        "This is unlikely.",
+        "Therefore, the most likely effect is that planetary days will become shorter."
       ],
       "results": [
         {
           "sentence_count": 1,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 2,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 3,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 4,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 5,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 6,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 7,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 8,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 9,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 10,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 11,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 12,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 13,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 14,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         },
         {
           "sentence_count": 15,
-          "correct": 0,
+          "correct": 5,
           "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 16,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 17,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 18,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 19,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 20,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 21,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 22,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 23,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 24,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 25,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 26,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 27,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 28,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 29,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 30,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 31,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 32,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 33,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 34,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 35,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 36,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 37,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 38,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 39,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 40,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 41,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 42,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 43,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 44,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 45,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 46,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 47,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 48,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 49,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 50,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 51,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 52,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 53,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 54,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 55,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 56,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 57,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 58,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 59,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
-        },
-        {
-          "sentence_count": 60,
-          "correct": 0,
-          "total": 5,
-          "percent_correct": 0.0
+          "percent_correct": 100.0
         }
       ]
     }
