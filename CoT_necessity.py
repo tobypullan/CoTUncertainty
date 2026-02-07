@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-CoT necessity experiment for the first N ARC-Challenge questions.
+CoT necessity experiment for the first N math questions.
 
 Workflow:
 1) Generate a baseline Chain-of-Thought (CoT) for the first N questions.
@@ -19,14 +19,80 @@ import os
 import random
 import re
 import threading
+from types import SimpleNamespace
 from dataclasses import dataclass
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional
+
+# Prefer the user's standard HF cache, but fall back to a local cache if writes fail.
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_HF_HOME = os.path.join(SCRIPT_DIR, ".hf_cache")
+DEFAULT_USER_HF_HOME = os.path.join(os.path.expanduser("~"), ".cache", "huggingface")
+
+
+def _pick_writable_dir(preferred: str, fallback: str) -> str:
+    for candidate in (preferred, fallback):
+        try:
+            os.makedirs(candidate, exist_ok=True)
+            probe_path = os.path.join(candidate, f".cot_write_probe_{os.getpid()}")
+            with open(probe_path, "w", encoding="utf-8"):
+                pass
+            os.remove(probe_path)
+            return candidate
+        except OSError:
+            continue
+    raise OSError(
+        f"Could not create a writable cache directory: {preferred} or {fallback}"
+    )
+
+
+hf_home = _pick_writable_dir(
+    os.environ.get("HF_HOME", DEFAULT_USER_HF_HOME),
+    PROJECT_HF_HOME,
+)
+os.environ["HF_HOME"] = hf_home
+os.environ["HF_DATASETS_CACHE"] = _pick_writable_dir(
+    os.environ.get("HF_DATASETS_CACHE", os.path.join(hf_home, "datasets")),
+    os.path.join(PROJECT_HF_HOME, "datasets"),
+)
+os.environ["HF_HUB_CACHE"] = _pick_writable_dir(
+    os.environ.get("HF_HUB_CACHE", os.path.join(hf_home, "hub")),
+    os.path.join(PROJECT_HF_HOME, "hub"),
+)
+os.environ["TRANSFORMERS_CACHE"] = _pick_writable_dir(
+    os.environ.get("TRANSFORMERS_CACHE", os.path.join(hf_home, "transformers")),
+    os.path.join(PROJECT_HF_HOME, "transformers"),
+)
+os.environ.setdefault("HF_HUB_DISABLE_FILELOCK", "1")
+
+
+def _patch_pillow_resampling() -> None:
+    """
+    Backward-compat patch for Pillow<9.1 where Image.Resampling doesn't exist.
+    Newer transformers versions expect this attribute during Gemma3 imports.
+    """
+    try:
+        from PIL import Image as PILImage
+    except Exception:
+        return
+
+    if hasattr(PILImage, "Resampling"):
+        return
+
+    PILImage.Resampling = SimpleNamespace(  # type: ignore[attr-defined]
+        NEAREST=getattr(PILImage, "NEAREST", 0),
+        BOX=getattr(PILImage, "BOX", getattr(PILImage, "NEAREST", 0)),
+        BILINEAR=getattr(PILImage, "BILINEAR", 2),
+        HAMMING=getattr(PILImage, "HAMMING", getattr(PILImage, "BILINEAR", 2)),
+        BICUBIC=getattr(PILImage, "BICUBIC", 3),
+        LANCZOS=getattr(PILImage, "LANCZOS", getattr(PILImage, "BICUBIC", 3)),
+    )
+
+
+_patch_pillow_resampling()
 
 import torch
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
-os.environ.setdefault("HF_HUB_DISABLE_FILELOCK", "1")
 
 
 def _patch_filelock_for_hf() -> None:
@@ -80,11 +146,15 @@ def build_prompt(
         if system_text:
             messages.append({"role": "system", "content": system_text})
         messages.append({"role": "user", "content": user_text})
-        return tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
-        )
+        try:
+            return tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+            )
+        except (ImportError, RuntimeError, ValueError):
+            # Fallback for environments missing chat-template deps (e.g. old jinja2).
+            pass
     if system_text:
         return f"{system_text}\n\n{user_text}"
     return user_text
@@ -155,72 +225,36 @@ def extract_cot(text: str) -> str:
     return text.strip()
 
 
-def parse_model_answer(text: str, num_choices: int) -> Optional[str]:
-    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    allowed = set(letters[: max(2, num_choices)])
+def normalize_answer(value: Any) -> Optional[str]:
+    if value is None:
+        return None
+    text = str(value).strip()
     if not text:
         return None
 
-    # Prefer explicit answer markers.
-    patterns = [
-        r"final\s+answer\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
-        r"answer\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
-        r"option\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
-        r"choice\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
-        r"letter\s*(?:is|:|-|=)?\s*[*_`]*\s*([A-Z])\b",
-    ]
-    for pat in patterns:
-        match = re.search(pat, text, flags=re.IGNORECASE)
-        if match:
-            letter = match.group(1).upper()
-            if letter in allowed:
-                return letter
+    boxed_matches = re.findall(r"\\boxed\{([^{}]+)\}", text)
+    if boxed_matches:
+        text = boxed_matches[-1].strip()
 
-    # Next, look for a standalone letter on the last non-empty line(s).
-    for line in reversed(text.splitlines()):
-        stripped = line.strip()
-        if not stripped:
-            continue
-        stripped = re.sub(r"[`*_]+", "", stripped)
-        match = re.match(r"^\s*([A-Z])\s*[.\)]?\s*$", stripped, flags=re.IGNORECASE)
-        if match:
-            letter = match.group(1).upper()
-            if letter in allowed:
-                return letter
+    marker_match = re.search(
+        r"(?:final\s+answer|answer)\s*(?:is|:|-|=)?\s*[-+]?(\d+)",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if marker_match:
+        return str(int(marker_match.group(1)))
 
-    # Fallback: search near the end to avoid grabbing letters from the prompt.
-    tail = "\n".join(text.splitlines()[-5:])
-    matches = re.findall(r"\b([A-Z])\b", tail.upper())
-    for letter in reversed(matches):
-        if letter in allowed:
-            return letter
-    return None
+    integers = re.findall(r"[-+]?\d+", text)
+    if integers:
+        return str(int(integers[-1]))
+
+    return text
 
 
-def build_allowed_answer_token_ids(
-    tokenizer: AutoTokenizer,
-    num_choices: int,
-) -> List[int]:
-    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[: max(2, num_choices)]
-    candidates: List[str] = []
-    for letter in letters:
-        candidates.append(letter)
-        candidates.append(f" {letter}")
-        candidates.append(letter.lower())
-        candidates.append(f" {letter.lower()}")
-    allowed: List[int] = []
-    for text in candidates:
-        token_ids = tokenizer.encode(text, add_special_tokens=False)
-        if len(token_ids) == 1:
-            allowed.append(token_ids[0])
-    # Deduplicate while preserving order.
-    seen: set[int] = set()
-    unique_allowed: List[int] = []
-    for token_id in allowed:
-        if token_id not in seen:
-            seen.add(token_id)
-            unique_allowed.append(token_id)
-    return unique_allowed
+def parse_model_answer(text: str) -> Optional[str]:
+    if not text:
+        return None
+    return normalize_answer(text)
 
 
 def resolve_results_path(results_dir: str, requested_path: str) -> str:
@@ -251,82 +285,24 @@ def _first_nonempty(example: Dict[str, Any], keys: Iterable[str]) -> Optional[st
     return None
 
 
-def _normalize_choices(raw: Any) -> Optional[List[str]]:
-    if raw is None:
-        return None
-
-    # ARC format: {"label": ["A", "B", ...], "text": ["...", "...", ...]}
-    if isinstance(raw, dict) and "label" in raw and "text" in raw:
-        labels = raw.get("label")
-        texts = raw.get("text")
-        if isinstance(labels, list) and isinstance(texts, list) and len(labels) == len(texts):
-            pairs = list(zip(labels, texts))
-            if all(isinstance(l, str) for l, _ in pairs):
-                pairs = sorted(pairs, key=lambda p: p[0])
-            return [str(t).strip() for _, t in pairs]
-
-    # Case 1: list of strings
-    if isinstance(raw, list):
-        if all(isinstance(x, str) for x in raw):
-            return [x.strip() for x in raw]
-        # list of dicts
-        if all(isinstance(x, dict) for x in raw):
-            # common pattern: {"label": "A", "text": "..."}
-            if all("text" in x for x in raw):
-                if all("label" in x for x in raw):
-                    def key_fn(d: Dict[str, Any]) -> str:
-                        return str(d.get("label", ""))
-                    sorted_raw = sorted(raw, key=key_fn)
-                    return [str(d["text"]).strip() for d in sorted_raw]
-                return [str(d["text"]).strip() for d in raw]
-    # Case 2: dict of letter->choice
-    if isinstance(raw, dict):
-        # If keys are letters, sort by letter
-        keys = list(raw.keys())
-        if all(isinstance(k, str) for k in keys):
-            letter_keys = sorted(keys)
-            return [str(raw[k]).strip() for k in letter_keys]
-
-    return None
-
-
-def extract_question_and_choices(example: Dict[str, Any]) -> Tuple[str, List[str]]:
-    question_keys = ["question", "problem", "prompt", "input", "query"]
-    choice_keys = ["choices", "options", "answers", "answer_choices", "answer_options"]
-
+def extract_question_text(example: Dict[str, Any]) -> str:
+    question_keys = ["problem", "question", "prompt", "input", "query"]
     question = _first_nonempty(example, question_keys)
     if not question:
         raise ValueError(
             f"Could not find a question field. Available keys: {list(example.keys())}"
         )
-
-    raw_choices = None
-    for k in choice_keys:
-        if k in example:
-            raw_choices = example[k]
-            break
-
-    choices = _normalize_choices(raw_choices)
-    if not choices:
-        raise ValueError(
-            "Could not parse choices. "
-            f"Available keys: {list(example.keys())}. "
-            "If your dataset uses different keys, add them to choice_keys."
-        )
-
-    return question, choices
+    return question
 
 
-def get_gold_letter(example: Dict[str, Any], choices: List[str]) -> str:
-    # Common answer keys
+def get_gold_answer(example: Dict[str, Any]) -> str:
     answer_keys = [
-        "answerKey",
         "answer",
+        "final_answer",
         "label",
         "correct_answer",
         "gold",
         "gold_answer",
-        "answer_idx",
     ]
     ans = None
     for k in answer_keys:
@@ -334,55 +310,34 @@ def get_gold_letter(example: Dict[str, Any], choices: List[str]) -> str:
             ans = example[k]
             break
 
-    if ans is None:
+    normalized = normalize_answer(ans)
+    if normalized is None:
         raise ValueError(
-            f"Could not find an answer field. Available keys: {list(example.keys())}"
+            f"Could not parse answer value from keys {answer_keys}. "
+            f"Available keys: {list(example.keys())}"
         )
-
-    # If already a letter
-    if isinstance(ans, str):
-        cleaned = ans.strip().upper()
-        # e.g., "A" or "A." or "(A)"
-        m = re.match(r"^[\(\[]?([A-Z])[\)\].]?$", cleaned)
-        if m:
-            return m.group(1)
-        # If it's a digit string
-        if cleaned.isdigit():
-            idx = int(cleaned)
-            if idx < 0 or idx >= len(choices):
-                raise ValueError(f"Answer index out of range: {idx}")
-            return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[idx]
-        # Match to choice text
-        for i, c in enumerate(choices):
-            if cleaned == c.strip().upper():
-                return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i]
-
-    # If integer index
-    if isinstance(ans, (int, float)):
-        idx = int(ans)
-        if idx < 0 or idx >= len(choices):
-            raise ValueError(f"Answer index out of range: {idx}")
-        return "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[idx]
-
-    raise ValueError(f"Could not parse answer value: {ans}")
+    return normalized
 
 
-def format_mcq(question: str, choices: List[str]) -> str:
-    lines = [question.strip(), ""]
-    for i, choice in enumerate(choices):
-        letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i]
-        lines.append(f"{letter}) {choice}")
-    return "\n".join(lines)
+def format_problem(question: str) -> str:
+    return question.strip()
 
 
 def load_first_split(
     dataset_name: str,
     dataset_config: Optional[str],
     split: Optional[str],
+    cache_dir: Optional[str] = None,
 ):
     if not split:
         raise ValueError("split is required for this experiment.")
-    return load_dataset(dataset_name, dataset_config, split=split)
+    if isinstance(dataset_config, str):
+        normalized = dataset_config.strip()
+        if normalized.lower() in {"", "none", "null"}:
+            dataset_config = None
+        else:
+            dataset_config = normalized
+    return load_dataset(dataset_name, dataset_config, split=split, cache_dir=cache_dir)
 
 
 @dataclass
@@ -401,10 +356,14 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.set_float32_matmul_precision("high")
 
+    datasets_cache_dir = os.environ.get("HF_DATASETS_CACHE")
+    hub_cache_dir = os.environ.get("HF_HUB_CACHE") or os.environ.get("TRANSFORMERS_CACHE")
+
     dataset = load_first_split(
         args.dataset,
         args.dataset_config,
         args.split,
+        cache_dir=datasets_cache_dir,
     )
     num_questions = min(args.num_questions, len(dataset))
     if num_questions <= 0:
@@ -412,6 +371,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
     tokenizer = AutoTokenizer.from_pretrained(
         args.model,
+        cache_dir=hub_cache_dir,
         trust_remote_code=args.trust_remote_code,
     )
     if tokenizer.pad_token_id is None:
@@ -419,14 +379,15 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         low_cpu_mem_usage=True,
+        cache_dir=hub_cache_dir,
         trust_remote_code=args.trust_remote_code,
     ).to("cuda")
     model.eval()
 
     system_prompt = (
-        "You are a careful multiple-choice solver."
+        "You are a concise math solver."
         if args.system_prompt is None
         else args.system_prompt
     )
@@ -447,16 +408,15 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     try:
         for q_idx in range(num_questions):
             example = dataset[q_idx]
-            question, choices = extract_question_and_choices(example)
-            gold = get_gold_letter(example, choices)
-            formatted_question = format_mcq(question, choices)
+            question = extract_question_text(example)
+            gold_answer = get_gold_answer(example)
+            formatted_problem = format_problem(question)
 
             # 1) Baseline CoT
             cot_prompt_text = (
-                "Solve the following multiple-choice question. "
-                "Think step-by-step and end with 'Final Answer: <letter>'.\n\n"
-                f"{formatted_question}\n\n"
-                "Let's think step by step."
+                "Solve this math problem briefly. "
+                "End with 'Final Answer: <integer>'.\n\n"
+                f"{formatted_problem}"
             )
             cot_prompt = build_prompt(tokenizer, cot_prompt_text, system_prompt)
             baseline_seed = args.seed + (q_idx * 10000)
@@ -472,26 +432,26 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             )
 
             cot_text = extract_cot(cot_output)
-            baseline_pred = parse_model_answer(cot_output, len(choices))
-            baseline_correct = baseline_pred == gold
+            baseline_pred = parse_model_answer(cot_output)
+            baseline_correct = baseline_pred == gold_answer
             baseline_entry = {
                 "question_index": q_idx,
                 "question": question,
-                "choices": choices,
-                "gold_letter": gold,
+                "gold_answer": gold_answer,
                 "baseline_seed": baseline_seed,
-                "baseline_output": cot_output,
                 "baseline_cot": cot_text,
                 "baseline_pred": baseline_pred,
                 "baseline_correct": baseline_correct,
             }
+            if args.save_outputs:
+                baseline_entry["baseline_output"] = cot_output
             baseline_f.write(json.dumps(baseline_entry, ensure_ascii=False) + "\n")
 
             if not baseline_correct:
                 skipped_questions.append(
                     {
                         "question_index": q_idx,
-                        "gold_letter": gold,
+                        "gold_answer": gold_answer,
                         "baseline_pred": baseline_pred,
                     }
                 )
@@ -507,7 +467,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             if not sentences:
                 raise ValueError(
                     f"No CoT sentences were extracted for question {q_idx}. "
-                    "Try increasing cot_max_new_tokens."
+                    "Try increasing --cot-max-new-tokens."
                 )
 
             per_question_results: List[ExperimentResult] = []
@@ -517,9 +477,9 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             for k in range(1, len(sentences) + 1):
                 received_sentences = ". ".join(sentences[:k - 1])
                 answer_prompt_text = (
-                    f"Question: {formatted_question}\n\n"
-                    f"This is your previous reasoning: {received_sentences}\n"
-                    "Based off this reasoning, you must now immediately choose an answer to this question, without doing anymore reasoning. If you don't know the answer then guess.\n\n"
+                    f"{formatted_problem}\n\n"
+                    f"Previous reasoning: {received_sentences}\n"
+                    "Give only the final integer answer."
                 )
                 answer_prompt = build_prompt(tokenizer, answer_prompt_text, system_prompt)
                 resampled_input = answer_prompt_text
@@ -532,39 +492,27 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                         model,
                         tokenizer,
                         answer_prompt,
-                        max_new_tokens=None,
+                        max_new_tokens=args.answer_max_new_tokens,
                         do_sample=True,
                         temperature=args.answer_temperature,
                         top_p=args.answer_top_p,
                         seed=seed,
                     )
-                    pred = parse_model_answer(answer_output, len(choices))
-                    is_correct = pred == gold
+                    pred = parse_model_answer(answer_output)
+                    is_correct = pred == gold_answer
                     if is_correct:
                         correct += 1
-                    run_outputs.append(
-                        {
-                            "seed": seed,
-                            "resampled_input": resampled_input,
-                            "raw_output": answer_output,
-                            "parsed_answer": pred,
-                            "correct": is_correct,
-                        }
-                    )
-                    resampled_f.write(
-                        json.dumps(
-                            {
-                                "sentence_count": k,
-                                "seed": seed,
-                                "resampled_input": resampled_input,
-                                "raw_output": answer_output,
-                                "parsed_answer": pred,
-                                "correct": is_correct,
-                            },
-                            ensure_ascii=False,
-                        )
-                        + "\n"
-                    )
+                    run_record = {
+                        "sentence_count": k,
+                        "seed": seed,
+                        "parsed_answer": pred,
+                        "correct": is_correct,
+                    }
+                    if args.save_outputs:
+                        run_record["resampled_input"] = resampled_input
+                        run_record["raw_output"] = answer_output
+                        run_outputs.append(run_record)
+                    resampled_f.write(json.dumps(run_record, ensure_ascii=False) + "\n")
 
                 percent_correct = 100.0 * correct / args.num_repeats
                 per_question_results.append(
@@ -585,8 +533,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             question_entry = {
                 "question_index": q_idx,
                 "question": question,
-                "choices": choices,
-                "gold_letter": gold,
+                "gold_answer": gold_answer,
                 "baseline_cot": cot_text,
                 "cot_sentences": sentences,
                 "results": [r.__dict__ for r in per_question_results],
@@ -689,17 +636,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset",
-        default="allenai/ai2_arc",
+        default="HuggingFaceH4/aime_2024",
         help="Hugging Face dataset name",
     )
     parser.add_argument(
         "--dataset-config",
-        default="ARC-Challenge",
-        help="Dataset configuration name",
+        default=None,
+        help="Dataset configuration name (leave unset for default)",
     )
     parser.add_argument(
         "--split",
-        default="test",
+        default="train",
         help="Dataset split to use",
     )
     parser.add_argument(
@@ -734,8 +681,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--cot-max-new-tokens",
         type=int,
-        default=1024,
-        help="Max tokens for baseline CoT generation",
+        default=None,
+        help="Optional max tokens for baseline CoT generation (default: no cap)",
     )
     parser.add_argument(
         "--cot-temperature",
@@ -752,7 +699,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--answer-max-new-tokens",
         type=int,
-        default=8,
+        default=16,
         help="Max tokens for answer generation",
     )
     parser.add_argument(
@@ -802,19 +749,18 @@ def main() -> None:
 
     result = run_experiment(args)
 
-    print("Experiment completed.")
-    print(f"Saved results to {args.output_path}")
-    print(f"Saved plot to {result['plot_path']}")
-    print(f"Saved baseline CoT to {result['baseline_cot_path']}")
-    print(f"Saved resampled CoT to {result['resampled_cot_path']}")
     print(
-        "Questions used: "
-        f"{result['num_questions_used']}/{result['num_questions_requested']} "
-        f"(skipped {result['num_questions_skipped']})"
+        "Done. "
+        f"results={args.output_path} plot={result['plot_path']} "
+        f"baseline={result['baseline_cot_path']} resampled={result['resampled_cot_path']}"
+    )
+    print(
+        f"used={result['num_questions_used']}/{result['num_questions_requested']} "
+        f"skipped={result['num_questions_skipped']}"
     )
     if result.get("aggregated_results"):
         max_k = max(r["sentence_count"] for r in result["aggregated_results"])
-        print(f"Max CoT sentences used: {max_k}")
+        print(f"max_k={max_k}")
 
 
 if __name__ == "__main__":

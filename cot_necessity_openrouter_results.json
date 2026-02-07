@@ -1,0 +1,22 @@
+{
+  "provider": "openrouter",
+  "model": "google/gemma-3-27b-it:free",
+  "dataset": "HuggingFaceH4/aime_2024",
+  "dataset_config": null,
+  "split": "train",
+  "num_questions_requested": 1,
+  "num_questions_used": 0,
+  "num_questions_skipped": 1,
+  "plot_path": "results/cot_necessity_openrouter_plot.png",
+  "baseline_cot_path": "results/baselineCoT_openrouter.jsonl",
+  "resampled_cot_path": "results/resampled_CoT_openrouter.jsonl",
+  "aggregated_results": [],
+  "question_results": [],
+  "skipped_questions": [
+    {
+      "question_index": 0,
+      "gold_answer": "204",
+      "baseline_pred": "150"
+    }
+  ]
+}

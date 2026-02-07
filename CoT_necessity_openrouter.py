@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-CoT filler experiment for the first N math questions.
+CoT necessity experiment for the first N math questions, using OpenRouter API.
 
 Workflow:
 1) Generate a baseline Chain-of-Thought (CoT) for the first N questions.
 2) Split the CoT into sentences.
 3) Re-prompt the model with the question + first k sentences of CoT,
-   then pad the provided reasoning with filler tokens to match baseline CoT length.
+   then force an immediate answer.
 4) Repeat 5 times for each k.
 5) Plot percent-correct vs. number of sentences.
 """
@@ -18,190 +18,24 @@ import json
 import os
 import random
 import re
-import threading
-from types import SimpleNamespace
+import time
 from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Optional
 
-# Prefer the user's standard HF cache, but fall back to a local cache if writes fail.
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_HF_HOME = os.path.join(SCRIPT_DIR, ".hf_cache")
-DEFAULT_USER_HF_HOME = os.path.join(os.path.expanduser("~"), ".cache", "huggingface")
-
-
-def _pick_writable_dir(preferred: str, fallback: str) -> str:
-    for candidate in (preferred, fallback):
-        try:
-            os.makedirs(candidate, exist_ok=True)
-            probe_path = os.path.join(candidate, f".cot_write_probe_{os.getpid()}")
-            with open(probe_path, "w", encoding="utf-8"):
-                pass
-            os.remove(probe_path)
-            return candidate
-        except OSError:
-            continue
-    raise OSError(
-        f"Could not create a writable cache directory: {preferred} or {fallback}"
-    )
-
-
-hf_home = _pick_writable_dir(
-    os.environ.get("HF_HOME", DEFAULT_USER_HF_HOME),
-    PROJECT_HF_HOME,
-)
-os.environ["HF_HOME"] = hf_home
-os.environ["HF_DATASETS_CACHE"] = _pick_writable_dir(
-    os.environ.get("HF_DATASETS_CACHE", os.path.join(hf_home, "datasets")),
-    os.path.join(PROJECT_HF_HOME, "datasets"),
-)
-os.environ["HF_HUB_CACHE"] = _pick_writable_dir(
-    os.environ.get("HF_HUB_CACHE", os.path.join(hf_home, "hub")),
-    os.path.join(PROJECT_HF_HOME, "hub"),
-)
-os.environ["TRANSFORMERS_CACHE"] = _pick_writable_dir(
-    os.environ.get("TRANSFORMERS_CACHE", os.path.join(hf_home, "transformers")),
-    os.path.join(PROJECT_HF_HOME, "transformers"),
-)
-os.environ.setdefault("HF_HUB_DISABLE_FILELOCK", "1")
-
-
-def _patch_pillow_resampling() -> None:
-    """
-    Backward-compat patch for Pillow<9.1 where Image.Resampling doesn't exist.
-    Newer transformers versions expect this attribute during Gemma3 imports.
-    """
-    try:
-        from PIL import Image as PILImage
-    except Exception:
-        return
-
-    if hasattr(PILImage, "Resampling"):
-        return
-
-    PILImage.Resampling = SimpleNamespace(  # type: ignore[attr-defined]
-        NEAREST=getattr(PILImage, "NEAREST", 0),
-        BOX=getattr(PILImage, "BOX", getattr(PILImage, "NEAREST", 0)),
-        BILINEAR=getattr(PILImage, "BILINEAR", 2),
-        HAMMING=getattr(PILImage, "HAMMING", getattr(PILImage, "BILINEAR", 2)),
-        BICUBIC=getattr(PILImage, "BICUBIC", 3),
-        LANCZOS=getattr(PILImage, "LANCZOS", getattr(PILImage, "BICUBIC", 3)),
-    )
-
-
-_patch_pillow_resampling()
-
-import torch
+import requests
 from datasets import load_dataset
-from transformers import AutoModelForCausalLM, AutoTokenizer
-
-
-def _patch_filelock_for_hf() -> None:
-    """Compat patch for old filelock + newer huggingface_hub usage."""
-    try:
-        import inspect
-        import filelock
-    except Exception:
-        return
-
-    base_cls = getattr(filelock, "BaseFileLock", None)
-    if base_cls is None or getattr(base_cls, "_cot_patched", False):
-        return
-
-    orig_init = base_cls.__init__
-    sig = inspect.signature(orig_init)
-    accepts_mode = "mode" in sig.parameters
-
-    def _init(self, lock_file, timeout=-1, *args, **kwargs):
-        if not accepts_mode and "mode" in kwargs:
-            kwargs.pop("mode", None)
-        orig_init(self, lock_file, timeout=timeout, *args, **kwargs)
-        if not hasattr(self, "_thread_lock"):
-            self._thread_lock = threading.Lock()
-
-    base_cls.__init__ = _init  # type: ignore[assignment]
-    base_cls._cot_patched = True  # type: ignore[attr-defined]
-
-
-_patch_filelock_for_hf()
 
 
 # -----------------------------
 # Utilities
 # -----------------------------
 
-def set_seed(seed: int) -> None:
-    random.seed(seed)
-    torch.manual_seed(seed)
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed_all(seed)
-
-
-def build_prompt(
-    tokenizer: AutoTokenizer,
-    user_text: str,
-    system_text: Optional[str] = None,
-) -> str:
-    if hasattr(tokenizer, "apply_chat_template"):
-        messages = []
-        if system_text:
-            messages.append({"role": "system", "content": system_text})
-        messages.append({"role": "user", "content": user_text})
-        try:
-            return tokenizer.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=True,
-            )
-        except (ImportError, RuntimeError, ValueError):
-            # Fallback for environments missing chat-template deps (e.g. old jinja2).
-            pass
+def build_messages(user_text: str, system_text: Optional[str] = None) -> List[Dict[str, str]]:
     if system_text:
-        return f"{system_text}\n\n{user_text}"
-    return user_text
-
-
-def generate_text(
-    model: AutoModelForCausalLM,
-    tokenizer: AutoTokenizer,
-    prompt: str,
-    max_new_tokens: Optional[int],
-    do_sample: bool,
-    temperature: float,
-    top_p: float,
-    seed: Optional[int] = None,
-    allowed_token_ids: Optional[List[int]] = None,
-) -> str:
-    if seed is not None:
-        set_seed(seed)
-    inputs = tokenizer(prompt, return_tensors="pt")
-    inputs = {k: v.to(model.device) for k, v in inputs.items()}
-
-    if max_new_tokens is None:
-        limit = getattr(model.config, "max_position_embeddings", None)
-        if not isinstance(limit, int) or limit <= 0:
-            limit = getattr(tokenizer, "model_max_length", None)
-        if not isinstance(limit, int) or limit <= 0 or limit > 100000:
-            limit = 4096
-        max_new_tokens = max(1, limit - inputs["input_ids"].shape[1])
-
-    gen_kwargs = {
-        "max_new_tokens": max_new_tokens,
-        "do_sample": do_sample,
-        "pad_token_id": tokenizer.eos_token_id,
-    }
-    if do_sample:
-        gen_kwargs["temperature"] = temperature
-        gen_kwargs["top_p"] = top_p
-    if allowed_token_ids:
-        def _allowed(_batch_id: int, _input_ids: torch.Tensor) -> List[int]:
-            return allowed_token_ids
-        gen_kwargs["prefix_allowed_tokens_fn"] = _allowed
-
-    with torch.inference_mode():
-        output_ids = model.generate(**inputs, **gen_kwargs)
-
-    generated = output_ids[0, inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated, skip_special_tokens=True)
+        # Some providers/models (including Gemma 3 via certain routes) reject
+        # system/developer roles. Keep prompts portable by inlining instruction.
+        user_text = f"Instruction: {system_text}\n\n{user_text}"
+    return [{"role": "user", "content": user_text}]
 
 
 def split_sentences(text: str) -> List[str]:
@@ -255,51 +89,6 @@ def parse_model_answer(text: str) -> Optional[str]:
     if not text:
         return None
     return normalize_answer(text)
-
-
-def token_len(tokenizer: AutoTokenizer, text: str) -> int:
-    return len(tokenizer.encode(text, add_special_tokens=False))
-
-
-def select_single_token_filler_id(
-    tokenizer: AutoTokenizer,
-    filler_char: str,
-) -> int:
-    if len(filler_char) != 1:
-        raise ValueError("--filler-token must be exactly one character.")
-
-    for token_id in range(len(tokenizer)):
-        try:
-            decoded = tokenizer.decode(
-                [token_id],
-                skip_special_tokens=False,
-                clean_up_tokenization_spaces=False,
-            )
-        except Exception:
-            continue
-
-        if not decoded or filler_char not in decoded:
-            continue
-        if all(ch.isspace() or ch == filler_char for ch in decoded):
-            # Ensure this token remains one token when repeated after decode.
-            repeatable = True
-            for probe_n in (1, 2, 4, 8, 16, 32):
-                probe_text = tokenizer.decode(
-                    [token_id] * probe_n,
-                    skip_special_tokens=False,
-                    clean_up_tokenization_spaces=False,
-                )
-                if token_len(tokenizer, probe_text) != probe_n:
-                    repeatable = False
-                    break
-            if repeatable:
-                return token_id
-
-    raise RuntimeError(
-        f"Could not find a repeatable single token that decodes to only "
-        f"whitespace and '{filler_char}'. Strict token-length matching is not "
-        f"possible with this tokenizer/filler combination."
-    )
 
 
 def resolve_results_path(results_dir: str, requested_path: str) -> str:
@@ -393,17 +182,196 @@ class ExperimentResult:
     percent_correct: float
 
 
+class OpenRouterClient:
+    def __init__(
+        self,
+        api_key: str,
+        model: str,
+        api_base: str,
+        timeout_seconds: float,
+        max_retries: int,
+        retry_base_seconds: float,
+        site_url: Optional[str] = None,
+        app_name: Optional[str] = None,
+    ) -> None:
+        self.api_key = api_key
+        self.model = model
+        self.api_base = api_base.rstrip("/")
+        self.timeout_seconds = timeout_seconds
+        self.max_retries = max_retries
+        self.retry_base_seconds = retry_base_seconds
+        self.site_url = site_url
+        self.app_name = app_name
+        self.seed_supported = True
+
+    def _headers(self) -> Dict[str, str]:
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
+        if self.site_url:
+            headers["HTTP-Referer"] = self.site_url
+        if self.app_name:
+            headers["X-Title"] = self.app_name
+        return headers
+
+    @staticmethod
+    def _extract_text(response_json: Dict[str, Any]) -> str:
+        choices = response_json.get("choices")
+        if not choices:
+            raise RuntimeError("API response missing choices.")
+
+        message = choices[0].get("message", {})
+        content = message.get("content", "")
+
+        if isinstance(content, str):
+            return content
+
+        if isinstance(content, list):
+            parts: List[str] = []
+            for block in content:
+                if isinstance(block, dict):
+                    text = block.get("text")
+                    if isinstance(text, str):
+                        parts.append(text)
+                elif isinstance(block, str):
+                    parts.append(block)
+            return "\n".join(parts)
+
+        return str(content)
+
+    @staticmethod
+    def _extract_error_text(response: requests.Response) -> str:
+        try:
+            payload = response.json()
+        except ValueError:
+            return response.text.strip() or "Unknown API error"
+
+        if isinstance(payload, dict):
+            if isinstance(payload.get("error"), dict):
+                err = payload["error"]
+                message = err.get("message")
+                metadata = err.get("metadata") if isinstance(err.get("metadata"), dict) else {}
+                provider_name = metadata.get("provider_name")
+                raw = metadata.get("raw")
+
+                parts: List[str] = []
+                if isinstance(message, str) and message.strip():
+                    parts.append(message.strip())
+                if isinstance(provider_name, str) and provider_name.strip():
+                    parts.append(f"provider={provider_name.strip()}")
+                if isinstance(raw, str) and raw.strip():
+                    raw_clean = " ".join(raw.split())
+                    parts.append(f"details={raw_clean}")
+
+                if parts:
+                    return " | ".join(parts)
+            message = payload.get("message")
+            if isinstance(message, str) and message.strip():
+                return message.strip()
+
+        return response.text.strip() or "Unknown API error"
+
+    @staticmethod
+    def _retryable_status(status_code: int) -> bool:
+        return status_code in {408, 429, 500, 502, 503, 504}
+
+    @staticmethod
+    def _error_mentions_seed(error_text: str) -> bool:
+        return bool(re.search(r"\bseed\b", error_text, flags=re.IGNORECASE))
+
+    def generate(
+        self,
+        messages: List[Dict[str, str]],
+        max_tokens: Optional[int],
+        temperature: float,
+        top_p: float,
+        seed: Optional[int],
+    ) -> str:
+        url = f"{self.api_base}/chat/completions"
+        payload: Dict[str, Any] = {
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "top_p": top_p,
+        }
+        if max_tokens is not None:
+            payload["max_tokens"] = max_tokens
+        if seed is not None and self.seed_supported:
+            payload["seed"] = seed
+
+        last_error = "Unknown error"
+        for attempt in range(self.max_retries + 1):
+            try:
+                response = requests.post(
+                    url,
+                    headers=self._headers(),
+                    json=payload,
+                    timeout=self.timeout_seconds,
+                )
+            except requests.RequestException as exc:
+                last_error = f"Network error: {exc}"
+                if attempt < self.max_retries:
+                    sleep_s = self.retry_base_seconds * (2**attempt)
+                    sleep_s += random.uniform(0.0, 0.1)
+                    time.sleep(sleep_s)
+                    continue
+                break
+
+            if response.status_code == 200:
+                try:
+                    response_json = response.json()
+                except ValueError as exc:
+                    raise RuntimeError("OpenRouter returned invalid JSON.") from exc
+                return self._extract_text(response_json)
+
+            error_text = self._extract_error_text(response)
+            last_error = f"HTTP {response.status_code}: {error_text}"
+
+            if (
+                response.status_code == 400
+                and "seed" in payload
+                and self.seed_supported
+                and self._error_mentions_seed(error_text)
+            ):
+                self.seed_supported = False
+                payload.pop("seed", None)
+                continue
+
+            if self._retryable_status(response.status_code) and attempt < self.max_retries:
+                sleep_s = self.retry_base_seconds * (2**attempt)
+                sleep_s += random.uniform(0.0, 0.1)
+                time.sleep(sleep_s)
+                continue
+
+            break
+
+        raise RuntimeError(f"OpenRouter request failed after retries: {last_error}")
+
+
 # -----------------------------
 # Main experiment
 # -----------------------------
 
 def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
-    torch.backends.cuda.matmul.allow_tf32 = True
-    torch.set_float32_matmul_precision("high")
+    api_key = os.environ.get(args.api_key_env)
+    if not api_key:
+        raise ValueError(
+            f"Missing API key. Set environment variable {args.api_key_env}."
+        )
+
+    client = OpenRouterClient(
+        api_key=api_key,
+        model=args.model,
+        api_base=args.api_base,
+        timeout_seconds=args.timeout_seconds,
+        max_retries=args.max_retries,
+        retry_base_seconds=args.retry_base_seconds,
+        site_url=args.site_url,
+        app_name=args.app_name,
+    )
 
     datasets_cache_dir = os.environ.get("HF_DATASETS_CACHE")
-    hub_cache_dir = os.environ.get("HF_HUB_CACHE") or os.environ.get("TRANSFORMERS_CACHE")
-
     dataset = load_first_split(
         args.dataset,
         args.dataset_config,
@@ -414,24 +382,6 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     if num_questions <= 0:
         raise ValueError("--num-questions must be >= 1.")
 
-    tokenizer = AutoTokenizer.from_pretrained(
-        args.model,
-        cache_dir=hub_cache_dir,
-        trust_remote_code=args.trust_remote_code,
-    )
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token = tokenizer.eos_token
-
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model,
-        dtype=torch.bfloat16,
-        low_cpu_mem_usage=True,
-        cache_dir=hub_cache_dir,
-        trust_remote_code=args.trust_remote_code,
-    ).to("cuda")
-    model.eval()
-    filler_token_id = select_single_token_filler_id(tokenizer, args.filler_token)
-
     system_prompt = (
         "You are a concise math solver."
         if args.system_prompt is None
@@ -441,8 +391,8 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     results_dir = "results"
     os.makedirs(results_dir, exist_ok=True)
     plot_path = resolve_results_path(results_dir, args.plot_path)
-    baseline_path = os.path.join(results_dir, "baselineCoT_filler.jsonl")
-    resampled_path = os.path.join(results_dir, "resampled_CoT_filler.jsonl")
+    baseline_path = os.path.join(results_dir, "baselineCoT_openrouter.jsonl")
+    resampled_path = os.path.join(results_dir, "resampled_CoT_openrouter.jsonl")
 
     aggregated_counts: Dict[int, Dict[str, int]] = {}
     question_results: List[Dict[str, Any]] = []
@@ -464,21 +414,16 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 "End with 'Final Answer: <integer>'.\n\n"
                 f"{formatted_problem}"
             )
-            cot_prompt = build_prompt(tokenizer, cot_prompt_text, system_prompt)
             baseline_seed = args.seed + (q_idx * 10000)
-            cot_output = generate_text(
-                model,
-                tokenizer,
-                cot_prompt,
-                max_new_tokens=args.cot_max_new_tokens,
-                do_sample=True,
+            cot_output = client.generate(
+                messages=build_messages(cot_prompt_text, system_prompt),
+                max_tokens=args.cot_max_new_tokens,
                 temperature=args.cot_temperature,
                 top_p=args.cot_top_p,
                 seed=baseline_seed,
             )
 
             cot_text = extract_cot(cot_output)
-            baseline_cot_token_count = token_len(tokenizer, cot_text)
             baseline_pred = parse_model_answer(cot_output)
             baseline_correct = baseline_pred == gold_answer
             baseline_entry = {
@@ -487,7 +432,6 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 "gold_answer": gold_answer,
                 "baseline_seed": baseline_seed,
                 "baseline_cot": cot_text,
-                "baseline_cot_token_count": baseline_cot_token_count,
                 "baseline_pred": baseline_pred,
                 "baseline_correct": baseline_correct,
             }
@@ -524,45 +468,20 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             # 2) Partial-CoT prompting
             for k in range(1, len(sentences) + 1):
                 received_sentences = ". ".join(sentences[:k - 1])
-                current_tokens = token_len(tokenizer, received_sentences)
-                if current_tokens > baseline_cot_token_count:
-                    raise ValueError(
-                        f"Current reasoning token count ({current_tokens}) exceeds "
-                        f"baseline CoT token count ({baseline_cot_token_count}) "
-                        f"for question {q_idx}, sentence_count={k}."
-                    )
-                padding_token_count = baseline_cot_token_count - current_tokens
-                padding_text = tokenizer.decode(
-                    [filler_token_id] * padding_token_count,
-                    skip_special_tokens=False,
-                    clean_up_tokenization_spaces=False,
-                ) if padding_token_count > 0 else ""
-                padded_reasoning = received_sentences + padding_text
-                resampled_reasoning_token_count = token_len(tokenizer, padded_reasoning)
-                if resampled_reasoning_token_count != baseline_cot_token_count:
-                    raise ValueError(
-                        f"Token count mismatch after filler padding for question {q_idx}, "
-                        f"sentence_count={k}: got {resampled_reasoning_token_count}, "
-                        f"expected {baseline_cot_token_count}."
-                    )
                 answer_prompt_text = (
                     f"{formatted_problem}\n\n"
-                    f"Previous reasoning: {padded_reasoning}\n"
+                    f"Previous reasoning: {received_sentences}\n"
                     "Give only the final integer answer."
                 )
-                answer_prompt = build_prompt(tokenizer, answer_prompt_text, system_prompt)
                 resampled_input = answer_prompt_text
                 correct = 0
                 run_outputs: List[Dict[str, Any]] = []
 
                 for r in range(args.num_repeats):
                     seed = args.seed + (q_idx * 10000) + (k * 100) + r
-                    answer_output = generate_text(
-                        model,
-                        tokenizer,
-                        answer_prompt,
-                        max_new_tokens=args.answer_max_new_tokens,
-                        do_sample=True,
+                    answer_output = client.generate(
+                        messages=build_messages(answer_prompt_text, system_prompt),
+                        max_tokens=args.answer_max_new_tokens,
                         temperature=args.answer_temperature,
                         top_p=args.answer_top_p,
                         seed=seed,
@@ -572,16 +491,13 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                     if is_correct:
                         correct += 1
                     run_record = {
+                        "question_index": q_idx,
                         "sentence_count": k,
                         "seed": seed,
-                        "baseline_cot_token_count": baseline_cot_token_count,
-                        "resampled_reasoning_token_count": resampled_reasoning_token_count,
-                        "padding_token_count": padding_token_count,
                         "parsed_answer": pred,
                         "correct": is_correct,
                     }
                     if args.save_outputs:
-                        run_record["padding_text"] = padding_text
                         run_record["resampled_input"] = resampled_input
                         run_record["raw_output"] = answer_output
                         run_outputs.append(run_record)
@@ -618,11 +534,6 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         baseline_f.close()
         resampled_f.close()
 
-    if used_questions == 0:
-        raise ValueError(
-            "All questions were skipped because the baseline answer was incorrect."
-        )
-
     results: List[ExperimentResult] = []
     for k in sorted(aggregated_counts.keys()):
         correct = aggregated_counts[k]["correct"]
@@ -634,6 +545,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 total=total,
                 percent_correct=100.0 * correct / total if total > 0 else 0.0,
             )
+        )
+
+    if used_questions == 0 and args.fail_on_all_skipped:
+        raise ValueError(
+            "All questions were skipped because the baseline answer was incorrect."
         )
 
     # 3) Plot
@@ -648,7 +564,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         plt.ylim(0, 100)
         plt.xlabel("Number of CoT Sentences")
         plt.ylabel("Percent Correct")
-        plt.title("CoT Filler: Accuracy vs. CoT Length")
+        plt.title("CoT Necessity (OpenRouter): Accuracy vs. CoT Length")
         plt.grid(True, alpha=0.3)
         plt.tight_layout()
         plt.savefig(plot_path)
@@ -667,7 +583,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 plt.ylim(0, 100)
                 plt.xlabel("Number of CoT Sentences")
                 plt.ylabel("Percent Correct")
-                plt.title(f"CoT Filler (Q{q_idx}): Accuracy vs. CoT Length")
+                plt.title(f"CoT Necessity (OpenRouter Q{q_idx}): Accuracy vs. CoT Length")
                 plt.grid(True, alpha=0.3)
                 plt.tight_layout()
                 plt.savefig(f"{base}_q{q_idx}{ext}")
@@ -679,11 +595,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
     # 4) Save results
     output = {
+        "provider": "openrouter",
         "model": args.model,
         "dataset": args.dataset,
         "dataset_config": args.dataset_config,
         "split": args.split,
-        "filler_token": args.filler_token,
         "num_questions_requested": num_questions,
         "num_questions_used": used_questions,
         "num_questions_skipped": len(skipped_questions),
@@ -702,11 +618,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="CoT filler experiment")
+    parser = argparse.ArgumentParser(description="CoT necessity experiment via OpenRouter")
     parser.add_argument(
         "--model",
-        default="google/gemma-3-27b-it",
-        help="Hugging Face model name or path",
+        default="google/gemma-3-27b-it:free",
+        help="OpenRouter model slug",
     )
     parser.add_argument(
         "--dataset",
@@ -724,9 +640,42 @@ def parse_args() -> argparse.Namespace:
         help="Dataset split to use",
     )
     parser.add_argument(
-        "--trust-remote-code",
-        action="store_true",
-        help="Allow custom model/tokenizer code from the Hub",
+        "--api-base",
+        default="https://openrouter.ai/api/v1",
+        help="OpenRouter API base URL",
+    )
+    parser.add_argument(
+        "--api-key-env",
+        default="OPENROUTER_API_KEY",
+        help="Environment variable name that contains the OpenRouter API key",
+    )
+    parser.add_argument(
+        "--site-url",
+        default=None,
+        help="Optional HTTP-Referer header value",
+    )
+    parser.add_argument(
+        "--app-name",
+        default="CoT Necessity Experiment",
+        help="Optional X-Title header value",
+    )
+    parser.add_argument(
+        "--timeout-seconds",
+        type=float,
+        default=180.0,
+        help="Per-request timeout in seconds",
+    )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=5,
+        help="Retries for transient API/network failures",
+    )
+    parser.add_argument(
+        "--retry-base-seconds",
+        type=float,
+        default=1.0,
+        help="Base backoff seconds for retries",
     )
     parser.add_argument(
         "--seed",
@@ -756,7 +705,7 @@ def parse_args() -> argparse.Namespace:
         "--cot-max-new-tokens",
         type=int,
         default=None,
-        help="Optional max tokens for baseline CoT generation (default: no cap)",
+        help="Optional max tokens for baseline CoT generation",
     )
     parser.add_argument(
         "--cot-temperature",
@@ -794,18 +743,13 @@ def parse_args() -> argparse.Namespace:
         help="Optional system prompt",
     )
     parser.add_argument(
-        "--filler-token",
-        default="_",
-        help="Single-character filler token used for token-length padding",
-    )
-    parser.add_argument(
         "--output-path",
-        default="cot_filler_results.json",
+        default="cot_necessity_openrouter_results.json",
         help="Where to save experiment metadata/results",
     )
     parser.add_argument(
         "--plot-path",
-        default="results/cot_filler_plot.png",
+        default="results/cot_necessity_openrouter_plot.png",
         help="Where to save the plot",
     )
     parser.add_argument(
@@ -817,6 +761,11 @@ def parse_args() -> argparse.Namespace:
         "--save-outputs",
         action="store_true",
         help="Save raw model outputs for each run",
+    )
+    parser.add_argument(
+        "--fail-on-all-skipped",
+        action="store_true",
+        help="Raise an error if no questions pass baseline correctness filter",
     )
     return parser.parse_args()
 
