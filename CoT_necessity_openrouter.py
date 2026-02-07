@@ -20,10 +20,21 @@ import random
 import re
 import time
 from dataclasses import dataclass
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, List, Optional
 
 import requests
-from datasets import load_dataset
+from experiment_dataset import (
+    DEFAULT_COT_ANSWER_INSTRUCTION,
+    DEFAULT_DATASET_CONFIG,
+    DEFAULT_DATASET_NAME,
+    DEFAULT_DATASET_SPLIT,
+    DEFAULT_DIRECT_ANSWER_INSTRUCTION,
+    answers_match,
+    extract_question_text,
+    get_gold_answer,
+    load_experiment_dataset,
+    parse_model_answer,
+)
 
 
 # -----------------------------
@@ -59,38 +70,6 @@ def extract_cot(text: str) -> str:
     return text.strip()
 
 
-def normalize_answer(value: Any) -> Optional[str]:
-    if value is None:
-        return None
-    text = str(value).strip()
-    if not text:
-        return None
-
-    boxed_matches = re.findall(r"\\boxed\{([^{}]+)\}", text)
-    if boxed_matches:
-        text = boxed_matches[-1].strip()
-
-    marker_match = re.search(
-        r"(?:final\s+answer|answer)\s*(?:is|:|-|=)?\s*[-+]?(\d+)",
-        text,
-        flags=re.IGNORECASE,
-    )
-    if marker_match:
-        return str(int(marker_match.group(1)))
-
-    integers = re.findall(r"[-+]?\d+", text)
-    if integers:
-        return str(int(integers[-1]))
-
-    return text
-
-
-def parse_model_answer(text: str) -> Optional[str]:
-    if not text:
-        return None
-    return normalize_answer(text)
-
-
 def resolve_results_path(results_dir: str, requested_path: str) -> str:
     if not requested_path:
         return requested_path
@@ -105,73 +84,8 @@ def resolve_results_path(results_dir: str, requested_path: str) -> str:
     return os.path.join(results_dir, os.path.basename(requested_path))
 
 
-# -----------------------------
-# Dataset parsing
-# -----------------------------
-
-def _first_nonempty(example: Dict[str, Any], keys: Iterable[str]) -> Optional[str]:
-    for k in keys:
-        if k in example and example[k] is not None:
-            val = example[k]
-            if isinstance(val, str) and val.strip() == "":
-                continue
-            return str(val)
-    return None
-
-
-def extract_question_text(example: Dict[str, Any]) -> str:
-    question_keys = ["problem", "question", "prompt", "input", "query"]
-    question = _first_nonempty(example, question_keys)
-    if not question:
-        raise ValueError(
-            f"Could not find a question field. Available keys: {list(example.keys())}"
-        )
-    return question
-
-
-def get_gold_answer(example: Dict[str, Any]) -> str:
-    answer_keys = [
-        "answer",
-        "final_answer",
-        "label",
-        "correct_answer",
-        "gold",
-        "gold_answer",
-    ]
-    ans = None
-    for k in answer_keys:
-        if k in example:
-            ans = example[k]
-            break
-
-    normalized = normalize_answer(ans)
-    if normalized is None:
-        raise ValueError(
-            f"Could not parse answer value from keys {answer_keys}. "
-            f"Available keys: {list(example.keys())}"
-        )
-    return normalized
-
-
 def format_problem(question: str) -> str:
     return question.strip()
-
-
-def load_first_split(
-    dataset_name: str,
-    dataset_config: Optional[str],
-    split: Optional[str],
-    cache_dir: Optional[str] = None,
-):
-    if not split:
-        raise ValueError("split is required for this experiment.")
-    if isinstance(dataset_config, str):
-        normalized = dataset_config.strip()
-        if normalized.lower() in {"", "none", "null"}:
-            dataset_config = None
-        else:
-            dataset_config = normalized
-    return load_dataset(dataset_name, dataset_config, split=split, cache_dir=cache_dir)
 
 
 @dataclass
@@ -372,7 +286,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     )
 
     datasets_cache_dir = os.environ.get("HF_DATASETS_CACHE")
-    dataset = load_first_split(
+    dataset = load_experiment_dataset(
         args.dataset,
         args.dataset_config,
         args.split,
@@ -411,7 +325,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
             # 1) Baseline CoT
             cot_prompt_text = (
                 "Solve this math problem briefly. "
-                "End with 'Final Answer: <integer>'.\n\n"
+                f"{DEFAULT_COT_ANSWER_INSTRUCTION}\n\n"
                 f"{formatted_problem}"
             )
             baseline_seed = args.seed + (q_idx * 10000)
@@ -425,7 +339,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
 
             cot_text = extract_cot(cot_output)
             baseline_pred = parse_model_answer(cot_output)
-            baseline_correct = baseline_pred == gold_answer
+            baseline_correct = answers_match(baseline_pred, gold_answer)
             baseline_entry = {
                 "question_index": q_idx,
                 "question": question,
@@ -471,7 +385,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 answer_prompt_text = (
                     f"{formatted_problem}\n\n"
                     f"Previous reasoning: {received_sentences}\n"
-                    "Give only the final integer answer."
+                    f"{DEFAULT_DIRECT_ANSWER_INSTRUCTION}"
                 )
                 resampled_input = answer_prompt_text
                 correct = 0
@@ -487,7 +401,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                         seed=seed,
                     )
                     pred = parse_model_answer(answer_output)
-                    is_correct = pred == gold_answer
+                    is_correct = answers_match(pred, gold_answer)
                     if is_correct:
                         correct += 1
                     run_record = {
@@ -626,17 +540,17 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--dataset",
-        default="HuggingFaceH4/aime_2024",
+        default=DEFAULT_DATASET_NAME,
         help="Hugging Face dataset name",
     )
     parser.add_argument(
         "--dataset-config",
-        default=None,
+        default=DEFAULT_DATASET_CONFIG,
         help="Dataset configuration name (leave unset for default)",
     )
     parser.add_argument(
         "--split",
-        default="train",
+        default=DEFAULT_DATASET_SPLIT,
         help="Dataset split to use",
     )
     parser.add_argument(
@@ -722,7 +636,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--answer-max-new-tokens",
         type=int,
-        default=16,
+        default=64,
         help="Max tokens for answer generation",
     )
     parser.add_argument(
