@@ -1,0 +1,167 @@
+{
+  "model": "google/gemma-3-27b-it",
+  "dataset": "gpqa_diamond",
+  "dataset_config": null,
+  "split": "test",
+  "category_filter": null,
+  "num_questions_available_after_filter": 198,
+  "num_questions_requested": 3,
+  "num_questions_used": 1,
+  "num_questions_skipped": 2,
+  "plot_path": "results/cot_necessity_plot.png",
+  "baseline_cot_path": "results/baselineCoT.jsonl",
+  "resampled_cot_path": "results/resampled_CoT.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 0,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 15,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 20,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 25,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 30,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 35,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 40,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 41,
+      "correct": 0,
+      "total": 3,
+      "percent_correct": 0.0
+    }
+  ],
+  "question_results": [
+    {
+      "question_index": 1,
+      "question": "Observations of structures located at a distance of about 2.1 gigaparsecs (2.1 Gpc) are being carried out. The detected absorption line energy equivalent is about 3.9 micro electron volts (3.9 * 10^-6 eV).\n\nWhat is most likely to be observed with this absorption line in the Milky Way?\n\nA. Warm atomic interstellar medium.\nB. Cold molecular interstellar medium.\nC. Cold atomic interstellar medium.\nD. Warm molecular interstellar medium.",
+      "gold_answer": "C",
+      "baseline_cot": "The energy equivalent of 3.9 $\\mu$eV corresponds to absorption by neutral hydrogen (HI) in the 21-cm line. This line is prominent in cold, neutral atomic hydrogen.",
+      "baseline_cot_token_count": 41,
+      "cot_sentences": [
+        "The energy equivalent of 3.9 $\\mu$eV corresponds to absorption by neutral hydrogen (HI) in the 21-cm line.",
+        "This line is prominent in cold, neutral atomic hydrogen."
+      ],
+      "reasoning_mode": "underscore_token_sweep",
+      "token_stride": 5,
+      "results": [
+        {
+          "sentence_count": 0,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 3,
+          "percent_correct": 0.0
+        }
+      ]
+    }
+  ],
+  "skipped_questions": [
+    {
+      "question_index": 0,
+      "gold_answer": "D",
+      "baseline_pred": "B",
+      "reason": "baseline_incorrect"
+    },
+    {
+      "question_index": 2,
+      "gold_answer": "D",
+      "baseline_pred": "~ 10.4",
+      "reason": "baseline_incorrect"
+    }
+  ]
+}

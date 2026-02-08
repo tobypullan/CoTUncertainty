@@ -1,9 +1,0 @@
-{"sentence_count": 1, "seed": 1334, "parsed_answer": "9", "correct": false}
-{"sentence_count": 2, "seed": 1434, "parsed_answer": "9", "correct": false}
-{"sentence_count": 3, "seed": 1534, "parsed_answer": "9", "correct": false}
-{"sentence_count": 4, "seed": 1634, "parsed_answer": "9", "correct": false}
-{"sentence_count": 5, "seed": 1734, "parsed_answer": "9", "correct": false}
-{"sentence_count": 6, "seed": 1834, "parsed_answer": "216", "correct": false}
-{"sentence_count": 7, "seed": 1934, "parsed_answer": "300", "correct": false}
-{"sentence_count": 8, "seed": 2034, "parsed_answer": "180", "correct": false}
-{"sentence_count": 9, "seed": 2134, "parsed_answer": "204", "correct": true}

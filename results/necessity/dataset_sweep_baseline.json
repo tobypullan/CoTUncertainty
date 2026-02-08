@@ -1,0 +1,1093 @@
+{
+  "model": "google/gemma-3-27b-it",
+  "system_prompt": "You are a concise math solver.",
+  "num_questions_per_variant": 4,
+  "long_sentence_threshold": 4,
+  "cot_temperature": 0.7,
+  "cot_top_p": 0.9,
+  "total_elapsed_sec": 1939.69,
+  "ranking": [
+    {
+      "id": "hendrycks_counting_and_probability",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "counting_and_probability",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 4,
+      "long_correct_rate": 1.0,
+      "correct_count": 4,
+      "correct_rate": 1.0,
+      "long_count": 4,
+      "long_rate": 1.0,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 14,
+      "elapsed_sec": 164.82
+    },
+    {
+      "id": "hendrycks_number_theory",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "number_theory",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 3,
+      "long_correct_rate": 0.75,
+      "correct_count": 4,
+      "correct_rate": 1.0,
+      "long_count": 3,
+      "long_rate": 0.75,
+      "long_given_correct_rate": 0.75,
+      "avg_sentence_count": 6.5,
+      "elapsed_sec": 110.46
+    },
+    {
+      "id": "hendrycks_algebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "algebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 3,
+      "long_correct_rate": 0.75,
+      "correct_count": 4,
+      "correct_rate": 1.0,
+      "long_count": 3,
+      "long_rate": 0.75,
+      "long_given_correct_rate": 0.75,
+      "avg_sentence_count": 5.75,
+      "elapsed_sec": 72.66
+    },
+    {
+      "id": "hendrycks_geometry",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "geometry",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 3,
+      "long_correct_rate": 0.75,
+      "correct_count": 3,
+      "correct_rate": 0.75,
+      "long_count": 4,
+      "long_rate": 1.0,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 10.25,
+      "elapsed_sec": 120.18
+    },
+    {
+      "id": "hendrycks_prealgebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "prealgebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 2,
+      "long_correct_rate": 0.5,
+      "correct_count": 3,
+      "correct_rate": 0.75,
+      "long_count": 3,
+      "long_rate": 0.75,
+      "long_given_correct_rate": 0.6666666666666666,
+      "avg_sentence_count": 23,
+      "elapsed_sec": 115.44
+    },
+    {
+      "id": "aime2025_ii_test",
+      "dataset": "opencompass/AIME2025",
+      "dataset_config": "AIME2025-II",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 2,
+      "long_correct_rate": 0.5,
+      "correct_count": 3,
+      "correct_rate": 0.75,
+      "long_count": 3,
+      "long_rate": 0.75,
+      "long_given_correct_rate": 0.6666666666666666,
+      "avg_sentence_count": 16,
+      "elapsed_sec": 207.4
+    },
+    {
+      "id": "aime2025_i_test",
+      "dataset": "opencompass/AIME2025",
+      "dataset_config": "AIME2025-I",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 2,
+      "long_correct_rate": 0.5,
+      "correct_count": 2,
+      "correct_rate": 0.5,
+      "long_count": 4,
+      "long_rate": 1.0,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 18,
+      "elapsed_sec": 244.84
+    },
+    {
+      "id": "hendrycks_precalculus",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "precalculus",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 1,
+      "long_correct_rate": 0.25,
+      "correct_count": 3,
+      "correct_rate": 0.75,
+      "long_count": 2,
+      "long_rate": 0.5,
+      "long_given_correct_rate": 0.3333333333333333,
+      "avg_sentence_count": 6,
+      "elapsed_sec": 256.24
+    },
+    {
+      "id": "hendrycks_intermediate_algebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "intermediate_algebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 1,
+      "long_correct_rate": 0.25,
+      "correct_count": 1,
+      "correct_rate": 0.25,
+      "long_count": 4,
+      "long_rate": 1.0,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 11,
+      "elapsed_sec": 333.01
+    },
+    {
+      "id": "mmlu_physics_only",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "physics"
+      ],
+      "num_questions": 4,
+      "long_correct_count": 0,
+      "long_correct_rate": 0.0,
+      "correct_count": 3,
+      "correct_rate": 0.75,
+      "long_count": 0,
+      "long_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 1.5,
+      "elapsed_sec": 11.19
+    },
+    {
+      "id": "gpqa_test",
+      "dataset": "fingertap/GPQA-Diamond",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "long_correct_count": 0,
+      "long_correct_rate": 0.0,
+      "correct_count": 1,
+      "correct_rate": 0.25,
+      "long_count": 3,
+      "long_rate": 0.75,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 15.75,
+      "elapsed_sec": 265.61
+    },
+    {
+      "id": "mmlu_math_physics",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "math",
+        "physics"
+      ],
+      "num_questions": 4,
+      "long_correct_count": 0,
+      "long_correct_rate": 0.0,
+      "correct_count": 1,
+      "correct_rate": 0.25,
+      "long_count": 1,
+      "long_rate": 0.25,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 2.5,
+      "elapsed_sec": 19.35
+    },
+    {
+      "id": "mmlu_math_only",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "math"
+      ],
+      "num_questions": 4,
+      "long_correct_count": 0,
+      "long_correct_rate": 0.0,
+      "correct_count": 1,
+      "correct_rate": 0.25,
+      "long_count": 0,
+      "long_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 2,
+      "elapsed_sec": 18.49
+    }
+  ],
+  "results": [
+    {
+      "id": "gpqa_test",
+      "dataset": "fingertap/GPQA-Diamond",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 1,
+      "long_count": 3,
+      "long_correct_count": 0,
+      "correct_rate": 0.25,
+      "long_rate": 0.75,
+      "long_correct_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 15.75,
+      "sentence_counts": [
+        15,
+        2,
+        21,
+        25
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 1234,
+          "gold_answer": "D",
+          "pred": "B",
+          "correct": false,
+          "sentence_count": 15,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 11234,
+          "gold_answer": "C",
+          "pred": "C",
+          "correct": true,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 21234,
+          "gold_answer": "D",
+          "pred": "~ 10.4",
+          "correct": false,
+          "sentence_count": 21,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 31234,
+          "gold_answer": "C",
+          "pred": "A",
+          "correct": false,
+          "sentence_count": 25,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 265.61
+    },
+    {
+      "id": "mmlu_math_physics",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "math",
+        "physics"
+      ],
+      "num_questions": 4,
+      "correct_count": 1,
+      "long_count": 1,
+      "long_correct_count": 0,
+      "correct_rate": 0.25,
+      "long_rate": 0.25,
+      "long_correct_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 2.5,
+      "sentence_counts": [
+        2,
+        4,
+        2,
+        2
+      ],
+      "details": [
+        {
+          "question_index": 7504,
+          "seed": 101234,
+          "gold_answer": "H",
+          "pred": "A",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7505,
+          "seed": 111234,
+          "gold_answer": "H",
+          "pred": "C",
+          "correct": false,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7506,
+          "seed": 121234,
+          "gold_answer": "C",
+          "pred": "C",
+          "correct": true,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7507,
+          "seed": 131234,
+          "gold_answer": "H",
+          "pred": "E",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 19.35
+    },
+    {
+      "id": "mmlu_math_only",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "math"
+      ],
+      "num_questions": 4,
+      "correct_count": 1,
+      "long_count": 0,
+      "long_correct_count": 0,
+      "correct_rate": 0.25,
+      "long_rate": 0.0,
+      "long_correct_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 2,
+      "sentence_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "details": [
+        {
+          "question_index": 7504,
+          "seed": 201234,
+          "gold_answer": "H",
+          "pred": "A",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7505,
+          "seed": 211234,
+          "gold_answer": "H",
+          "pred": "E",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7506,
+          "seed": 221234,
+          "gold_answer": "C",
+          "pred": "C",
+          "correct": true,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 7507,
+          "seed": 231234,
+          "gold_answer": "H",
+          "pred": "E",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 18.49
+    },
+    {
+      "id": "mmlu_physics_only",
+      "dataset": "TIGER-Lab/MMLU-Pro",
+      "dataset_config": null,
+      "split": "test",
+      "mmlu_categories": [
+        "physics"
+      ],
+      "num_questions": 4,
+      "correct_count": 3,
+      "long_count": 0,
+      "long_correct_count": 0,
+      "correct_rate": 0.75,
+      "long_rate": 0.0,
+      "long_correct_rate": 0.0,
+      "long_given_correct_rate": 0.0,
+      "avg_sentence_count": 1.5,
+      "sentence_counts": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "details": [
+        {
+          "question_index": 8855,
+          "seed": 301234,
+          "gold_answer": "I",
+          "pred": "E",
+          "correct": false,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 8856,
+          "seed": 311234,
+          "gold_answer": "D",
+          "pred": "D",
+          "correct": true,
+          "sentence_count": 1,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 8857,
+          "seed": 321234,
+          "gold_answer": "D",
+          "pred": "D",
+          "correct": true,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 8858,
+          "seed": 331234,
+          "gold_answer": "B",
+          "pred": "B",
+          "correct": true,
+          "sentence_count": 1,
+          "long_cot": false,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 11.19
+    },
+    {
+      "id": "aime2025_i_test",
+      "dataset": "opencompass/AIME2025",
+      "dataset_config": "AIME2025-I",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 2,
+      "long_count": 4,
+      "long_correct_count": 2,
+      "correct_rate": 0.5,
+      "long_rate": 1.0,
+      "long_correct_rate": 0.5,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 18,
+      "sentence_counts": [
+        10,
+        34,
+        10,
+        18
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 401234,
+          "gold_answer": "70",
+          "pred": "70",
+          "correct": true,
+          "sentence_count": 10,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 411234,
+          "gold_answer": "588",
+          "pred": "300",
+          "correct": false,
+          "sentence_count": 34,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 421234,
+          "gold_answer": "16",
+          "pred": "2016",
+          "correct": false,
+          "sentence_count": 10,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 431234,
+          "gold_answer": "117",
+          "pred": "117",
+          "correct": true,
+          "sentence_count": 18,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 244.84
+    },
+    {
+      "id": "aime2025_ii_test",
+      "dataset": "opencompass/AIME2025",
+      "dataset_config": "AIME2025-II",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 3,
+      "long_count": 3,
+      "long_correct_count": 2,
+      "correct_rate": 0.75,
+      "long_rate": 0.75,
+      "long_correct_rate": 0.5,
+      "long_given_correct_rate": 0.6666666666666666,
+      "avg_sentence_count": 16,
+      "sentence_counts": [
+        16,
+        10,
+        35,
+        3
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 501234,
+          "gold_answer": "468",
+          "pred": "468",
+          "correct": true,
+          "sentence_count": 16,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 511234,
+          "gold_answer": "49",
+          "pred": "49",
+          "correct": true,
+          "sentence_count": 10,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 521234,
+          "gold_answer": "82",
+          "pred": "96",
+          "correct": false,
+          "sentence_count": 35,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 531234,
+          "gold_answer": "106",
+          "pred": "106",
+          "correct": true,
+          "sentence_count": 3,
+          "long_cot": false,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 207.4
+    },
+    {
+      "id": "hendrycks_algebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "algebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 4,
+      "long_count": 3,
+      "long_correct_count": 3,
+      "correct_rate": 1.0,
+      "long_rate": 0.75,
+      "long_correct_rate": 0.75,
+      "long_given_correct_rate": 0.75,
+      "avg_sentence_count": 5.75,
+      "sentence_counts": [
+        4,
+        3,
+        11,
+        5
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 601234,
+          "gold_answer": "2",
+          "pred": "2",
+          "correct": true,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 611234,
+          "gold_answer": "10",
+          "pred": "10",
+          "correct": true,
+          "sentence_count": 3,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 621234,
+          "gold_answer": "\\frac{9}{7}",
+          "pred": "\\frac{9}{7}",
+          "correct": true,
+          "sentence_count": 11,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 631234,
+          "gold_answer": "i",
+          "pred": "i",
+          "correct": true,
+          "sentence_count": 5,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 72.66
+    },
+    {
+      "id": "hendrycks_counting_and_probability",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "counting_and_probability",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 4,
+      "long_count": 4,
+      "long_correct_count": 4,
+      "correct_rate": 1.0,
+      "long_rate": 1.0,
+      "long_correct_rate": 1.0,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 14,
+      "sentence_counts": [
+        5,
+        11,
+        6,
+        34
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 701234,
+          "gold_answer": "\\frac{10}{11}",
+          "pred": "\\frac{10}{11}",
+          "correct": true,
+          "sentence_count": 5,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 711234,
+          "gold_answer": "4",
+          "pred": "4",
+          "correct": true,
+          "sentence_count": 11,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 721234,
+          "gold_answer": "380",
+          "pred": "380",
+          "correct": true,
+          "sentence_count": 6,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 731234,
+          "gold_answer": "29",
+          "pred": "29",
+          "correct": true,
+          "sentence_count": 34,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 164.82
+    },
+    {
+      "id": "hendrycks_geometry",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "geometry",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 3,
+      "long_count": 4,
+      "long_correct_count": 3,
+      "correct_rate": 0.75,
+      "long_rate": 1.0,
+      "long_correct_rate": 0.75,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 10.25,
+      "sentence_counts": [
+        7,
+        4,
+        4,
+        26
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 801234,
+          "gold_answer": "\\frac34",
+          "pred": "\\frac{3}{4}",
+          "correct": false,
+          "sentence_count": 7,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 811234,
+          "gold_answer": "\\frac{4}{5}",
+          "pred": "\\frac{4}{5}",
+          "correct": true,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 821234,
+          "gold_answer": "\\frac{40}{9}",
+          "pred": "\\frac{40}{9}",
+          "correct": true,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 831234,
+          "gold_answer": "135",
+          "pred": "135",
+          "correct": true,
+          "sentence_count": 26,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 120.18
+    },
+    {
+      "id": "hendrycks_intermediate_algebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "intermediate_algebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 1,
+      "long_count": 4,
+      "long_correct_count": 1,
+      "correct_rate": 0.25,
+      "long_rate": 1.0,
+      "long_correct_rate": 0.25,
+      "long_given_correct_rate": 1.0,
+      "avg_sentence_count": 11,
+      "sentence_counts": [
+        12,
+        4,
+        9,
+        19
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 901234,
+          "gold_answer": "\\sqrt{74}",
+          "pred": "120",
+          "correct": false,
+          "sentence_count": 12,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 911234,
+          "gold_answer": "\\text{neither}",
+          "pred": "neither",
+          "correct": false,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 921234,
+          "gold_answer": "43",
+          "pred": "123",
+          "correct": false,
+          "sentence_count": 9,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 931234,
+          "gold_answer": "3",
+          "pred": "3",
+          "correct": true,
+          "sentence_count": 19,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 333.01
+    },
+    {
+      "id": "hendrycks_number_theory",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "number_theory",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 4,
+      "long_count": 3,
+      "long_correct_count": 3,
+      "correct_rate": 1.0,
+      "long_rate": 0.75,
+      "long_correct_rate": 0.75,
+      "long_given_correct_rate": 0.75,
+      "avg_sentence_count": 6.5,
+      "sentence_counts": [
+        11,
+        4,
+        3,
+        8
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 1001234,
+          "gold_answer": "\\frac{1}{11}",
+          "pred": "\\frac{1}{11}",
+          "correct": true,
+          "sentence_count": 11,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 1011234,
+          "gold_answer": "499",
+          "pred": "499",
+          "correct": true,
+          "sentence_count": 4,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 1021234,
+          "gold_answer": "70",
+          "pred": "70",
+          "correct": true,
+          "sentence_count": 3,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 1031234,
+          "gold_answer": "44",
+          "pred": "44",
+          "correct": true,
+          "sentence_count": 8,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 110.46
+    },
+    {
+      "id": "hendrycks_prealgebra",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "prealgebra",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 3,
+      "long_count": 3,
+      "long_correct_count": 2,
+      "correct_rate": 0.75,
+      "long_rate": 0.75,
+      "long_correct_rate": 0.5,
+      "long_given_correct_rate": 0.6666666666666666,
+      "avg_sentence_count": 23,
+      "sentence_counts": [
+        79,
+        6,
+        2,
+        5
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 1101234,
+          "gold_answer": "4",
+          "pred": "4",
+          "correct": true,
+          "sentence_count": 79,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 1111234,
+          "gold_answer": "-30",
+          "pred": "-30",
+          "correct": true,
+          "sentence_count": 6,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 1121234,
+          "gold_answer": "2520",
+          "pred": "2520",
+          "correct": true,
+          "sentence_count": 2,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 1131234,
+          "gold_answer": "\\frac{270}7\\text{ degrees}",
+          "pred": "\\frac{270}{7}",
+          "correct": false,
+          "sentence_count": 5,
+          "long_cot": true,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 115.44
+    },
+    {
+      "id": "hendrycks_precalculus",
+      "dataset": "EleutherAI/hendrycks_math",
+      "dataset_config": "precalculus",
+      "split": "test",
+      "mmlu_categories": null,
+      "num_questions": 4,
+      "correct_count": 3,
+      "long_count": 2,
+      "long_correct_count": 1,
+      "correct_rate": 0.75,
+      "long_rate": 0.5,
+      "long_correct_rate": 0.25,
+      "long_given_correct_rate": 0.3333333333333333,
+      "avg_sentence_count": 6,
+      "sentence_counts": [
+        7,
+        3,
+        13,
+        1
+      ],
+      "details": [
+        {
+          "question_index": 0,
+          "seed": 1201234,
+          "gold_answer": "0",
+          "pred": "0",
+          "correct": true,
+          "sentence_count": 7,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 1,
+          "seed": 1211234,
+          "gold_answer": "\\frac{1}{4}",
+          "pred": "\\frac{1}{4}",
+          "correct": true,
+          "sentence_count": 3,
+          "long_cot": false,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 2,
+          "seed": 1221234,
+          "gold_answer": "\\text{B, E, G}",
+          "pred": "E, G",
+          "correct": false,
+          "sentence_count": 13,
+          "long_cot": true,
+          "has_final_marker": true
+        },
+        {
+          "question_index": 3,
+          "seed": 1231234,
+          "gold_answer": "45^\\circ, 135^\\circ",
+          "pred": "45, 135",
+          "correct": true,
+          "sentence_count": 1,
+          "long_cot": false,
+          "has_final_marker": true
+        }
+      ],
+      "elapsed_sec": 256.24
+    }
+  ]
+}
