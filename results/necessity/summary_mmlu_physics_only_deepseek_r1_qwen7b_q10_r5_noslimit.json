@@ -1,0 +1,3624 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "dataset": "TIGER-Lab/MMLU-Pro",
+  "dataset_config": null,
+  "split": "test",
+  "category_filter": [
+    "physics"
+  ],
+  "num_questions_available_after_filter": 1299,
+  "num_questions_requested": 10,
+  "num_questions_used": 5,
+  "num_questions_skipped": 5,
+  "output_path": "results/necessity/summary_mmlu_physics_only_deepseek_r1_qwen7b_q10_r5_noslimit.json",
+  "plot_path": "results/necessity/plot_mmlu_physics_only_deepseek_r1_qwen7b_q10_r5_noslimit.png",
+  "plot_paths_by_mode": {
+    "sentence_prefix": "results/necessity/plot_mmlu_physics_only_deepseek_r1_qwen7b_q10_r5_noslimit.png",
+    "underscore_token_sweep": null
+  },
+  "primary_plot_mode": "sentence_prefix",
+  "mode_usage": {
+    "sentence_prefix": 5,
+    "underscore_token_sweep": 0
+  },
+  "repeat_batch_size": 5,
+  "underscore_token_sweep_triggered": false,
+  "sentence_prefix_triggered": true,
+  "baseline_cot_path": "results/necessity/baseline_cot.jsonl",
+  "resampled_cot_path": "results/necessity/resampled_cot.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 2,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 3,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 4,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 7,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 8,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 9,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 11,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 12,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 13,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 14,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 15,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 16,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 17,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 18,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 19,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 20,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 21,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 22,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 23,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 24,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 25,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 26,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 27,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 28,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 29,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 30,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 31,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 32,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 33,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 34,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 35,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 36,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 37,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 38,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 39,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 40,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 41,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 42,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 43,
+      "correct": 0,
+      "total": 25,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 44,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 45,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 46,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 47,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 48,
+      "correct": 0,
+      "total": 20,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 49,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 50,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 51,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 52,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 53,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 54,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 55,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 56,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 57,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 58,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 59,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 60,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 61,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 62,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 63,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 64,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 65,
+      "correct": 0,
+      "total": 10,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 66,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 67,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 68,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 69,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 70,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 71,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 72,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 73,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 74,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 75,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 76,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 77,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 78,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 79,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 80,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 81,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 82,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 83,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 84,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 85,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 86,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 87,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 88,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 89,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 90,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 91,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 92,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 93,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 94,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 95,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 96,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 97,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 98,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 99,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 100,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 101,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    }
+  ],
+  "aggregated_results_by_mode": {
+    "sentence_prefix": [
+      {
+        "sentence_count": 1,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 2,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 3,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 4,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 5,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 6,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 7,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 8,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 9,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 10,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 11,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 12,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 13,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 14,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 15,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 16,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 17,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 18,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 19,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 20,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 21,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 22,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 23,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 24,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 25,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 26,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 27,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 28,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 29,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 30,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 31,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 32,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 33,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 34,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 35,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 36,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 37,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 38,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 39,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 40,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 41,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 42,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 43,
+        "correct": 0,
+        "total": 25,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 44,
+        "correct": 0,
+        "total": 20,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 45,
+        "correct": 0,
+        "total": 20,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 46,
+        "correct": 0,
+        "total": 20,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 47,
+        "correct": 0,
+        "total": 20,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 48,
+        "correct": 0,
+        "total": 20,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 49,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 50,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 51,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 52,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 53,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 54,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 55,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 56,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 57,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 58,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 59,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 60,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 61,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 62,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 63,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 64,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 65,
+        "correct": 0,
+        "total": 10,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 66,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 67,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 68,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 69,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 70,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 71,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 72,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 73,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 74,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 75,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 76,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 77,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 78,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 79,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 80,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 81,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 82,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 83,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 84,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 85,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 86,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 87,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 88,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 89,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 90,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 91,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 92,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 93,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 94,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 95,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 96,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 97,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 98,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 99,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 100,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 101,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      }
+    ],
+    "underscore_token_sweep": []
+  },
+  "question_results": [
+    {
+      "question_index": 8857,
+      "question": "What about asteroids makes them stand out in sky surveys searching for them?",
+      "gold_answer": "D",
+      "baseline_cot": "Okay, so I'm trying to figure out why asteroids stand out in the sky during surveys. I remember learning that asteroids are small rocky bodies orbiting the Sun. But why do they show up so prominently in the night sky?\n\nLooking at the options, A says they reflect enough sunlight to be brighter than stars. Well, asteroids do reflect sunlight, but I think most stars are much brighter, so maybe that's not the main reason.\n\nOption B mentions their rotation speed. I know that some asteroids rotate quickly, which can cause them to be more visible because of their brightness changes, but I'm not sure if that's the primary reason they stand out.\n\nOption C says they're larger than most celestial bodies. Wait, asteroids are small, so that might not be the main reason. If anything, being larger would make them more noticeable, but I don't think that's the main factor.\n\nOption D talks about their motion relative to background stars. I think this is about their movement in the sky. If they move quickly against the stars, it might make them more noticeable. But I'm not entirely sure if it's about their speed or their position.\n\nOption E is about color. I know asteroids have various colors, but I don't think color is the main reason they stand out in surveys. It might make them more visible in some conditions, but not the primary reason.\n\nOption F says they emit a lot of their own radiation. I don't think asteroids emit a significant amount of their own light; they reflect sunlight. So this might not be correct.\n\nOption G mentions high heat emission. I don't recall asteroids emitting a lot of heat. They do get heated by the sun, but I don't think that's why they're detected in surveys.\n\nOption H is about emitting a unique sound. I don't think asteroids produce sound; they're just rocks, so this seems unrelated.\n\nOption I says they emit pulsed radiation. I'm not familiar with asteroids emitting pulsed radiation. It sounds more like something like pulsars or quasars.\n\nGoing back, the main reason asteroids are visible is probably because they reflect sunlight, making them appear bright in the sky. But looking at the options, A says they're brighter than most stars. Wait, but stars are much brighter. Maybe A is not the right answer.\n\nWait, maybe it's about their motion. If asteroids move quickly across the sky, they stand out because they're moving against the background. That makes sense. So option D might be correct.\n\nAlternatively, I've heard that the asteroid belt is a prominent feature in the solar system, so their movement might make them more noticeable. Or maybe because they're moving, they create a trail or are more dynamic in the sky.\n\nWait, another thought: when we look at the night sky, asteroids are more noticeable because they are small and move quickly, making them appear as moving points against the stars. So their substantial motion relative to the background stars (option D) would make them stand out.\n\nI think that's the main reason. So the answer should be D.\n</think>\n\nThe primary reason asteroids stand out in the sky is due to their substantial motion relative to the background stars, making them more noticeable.",
+      "baseline_cot_token_count": 652,
+      "cot_sentences": [
+        "Okay, so I'm trying to figure out why asteroids stand out in the sky during surveys.",
+        "I remember learning that asteroids are small rocky bodies orbiting the Sun.",
+        "But why do they show up so prominently in the night sky?",
+        "Looking at the options, A says they reflect enough sunlight to be brighter than stars.",
+        "Well, asteroids do reflect sunlight, but I think most stars are much brighter, so maybe that's not the main reason.",
+        "Option B mentions their rotation speed.",
+        "I know that some asteroids rotate quickly, which can cause them to be more visible because of their brightness changes, but I'm not sure if that's the primary reason they stand out.",
+        "Option C says they're larger than most celestial bodies.",
+        "Wait, asteroids are small, so that might not be the main reason.",
+        "If anything, being larger would make them more noticeable, but I don't think that's the main factor.",
+        "Option D talks about their motion relative to background stars.",
+        "I think this is about their movement in the sky.",
+        "If they move quickly against the stars, it might make them more noticeable.",
+        "But I'm not entirely sure if it's about their speed or their position.",
+        "Option E is about color.",
+        "I know asteroids have various colors, but I don't think color is the main reason they stand out in surveys.",
+        "It might make them more visible in some conditions, but not the primary reason.",
+        "Option F says they emit a lot of their own radiation.",
+        "I don't think asteroids emit a significant amount of their own light; they reflect sunlight.",
+        "So this might not be correct.",
+        "Option G mentions high heat emission.",
+        "I don't recall asteroids emitting a lot of heat.",
+        "They do get heated by the sun, but I don't think that's why they're detected in surveys.",
+        "Option H is about emitting a unique sound.",
+        "I don't think asteroids produce sound; they're just rocks, so this seems unrelated.",
+        "Option I says they emit pulsed radiation.",
+        "I'm not familiar with asteroids emitting pulsed radiation.",
+        "It sounds more like something like pulsars or quasars.",
+        "Going back, the main reason asteroids are visible is probably because they reflect sunlight, making them appear bright in the sky.",
+        "But looking at the options, A says they're brighter than most stars.",
+        "Wait, but stars are much brighter.",
+        "Maybe A is not the right answer.",
+        "Wait, maybe it's about their motion.",
+        "If asteroids move quickly across the sky, they stand out because they're moving against the background.",
+        "That makes sense.",
+        "So option D might be correct.",
+        "Alternatively, I've heard that the asteroid belt is a prominent feature in the solar system, so their movement might make them more noticeable.",
+        "Or maybe because they're moving, they create a trail or are more dynamic in the sky.",
+        "Wait, another thought: when we look at the night sky, asteroids are more noticeable because they are small and move quickly, making them appear as moving points against the stars.",
+        "So their substantial motion relative to the background stars (option D) would make them stand out.",
+        "I think that's the main reason.",
+        "So the answer should be D.",
+        "</think> The primary reason asteroids stand out in the sky is due to their substantial motion relative to the background stars, making them more noticeable."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 36,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 37,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 38,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 39,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 42,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 43,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9046,
+      "options": [
+        "They reflect enough of the sun's light to make them brighter than most background stars",
+        "Asteroids rotate at a high speed, making them stand out",
+        "Asteroids are larger than most celestial bodies, hence easier to spot",
+        "Asteroids have substantial motion relative to the background stars",
+        "Asteroids have a distinct color that makes them stand out",
+        "Asteroids emit a lot of their own radiation",
+        "They emit a high amount of heat, making them detectable",
+        "They emit a unique sound frequency that can be detected",
+        "Asteroids emit pulsed radiation"
+      ],
+      "answer_index": 3,
+      "category": "physics"
+    },
+    {
+      "question_index": 8860,
+      "question": "How does the greenhouse effect work?",
+      "gold_answer": "F",
+      "baseline_cot": "Okay, so I need to figure out how the greenhouse effect works. I remember from school that greenhouse gases play a role in regulating the Earth's temperature. Let me think about what I know.\n\nFirst, the greenhouse effect is related to how heat is retained in the atmosphere. I think it has something to do with gases like carbon dioxide and methane. These gases allow certain types of light to pass through but absorb others.\n\nWhen the Sun's radiation reaches Earth, part of it is reflected back and part is absorbed. The absorbed part warms the Earth's surface. Then, the Earth emits heat back into the atmosphere as infrared radiation. Without greenhouse gases, this heat would escape into space, and the Earth would be much colder.\n\nNow, the greenhouse gases come into play. They absorb the infrared radiation that the Earth emits. By absorbing this heat, the gases trap it within the atmosphere. This means that when the gases absorb the infrared, they re-emit it in all directions, including back towards the Earth's surface. This process keeps the Earth's temperature more stable than it would be otherwise.\n\nLooking at the options:\n\nA. Ozone absorbs infrared and re-emits, heating the atmosphere. I'm not sure about ozone being the main greenhouse gas. Ozone is more about UV absorption and臭氧层问题, not the main greenhouse effect.\n\nB. Greenhouse gases absorb UV. But UV is a type of ultraviolet, and I think the main issue is with infrared. So probably not.\n\nC. Ozone transmits visible, absorbs IR. Again, ozone isn't the main greenhouse gas. Plus, it's talking about visible light, which might not be relevant here.\n\nD. Greenhouse gases absorb visible light, prevent heating. Wait, that doesn't make sense. Greenhouse gases don't absorb visible light; they absorb infrared. Also, preventing heating would be the opposite of what they do.\n\nE. X-rays and UV absorbed. No, the greenhouse effect is about infrared, not X or UV.\n\nF. Greenhouse gases transmit visible, absorb IR. This sounds closer. They let visible light pass through to heat the surface, then absorb the IR, trapping the heat. That makes sense.\n\nG. Ozone absorbs visible, emits IR. Ozone isn't the main issue, and it's about visible, not the main IR trapping.\n\nH. Greenhouse gases absorb IR from Sun. No, they absorb IR emitted by Earth, not from the Sun.\n\nI. Absorb all Sun's light. That's not right; they only absorb certain wavelengths.\n\nJ. Ozone transmits visible, heats surface, emits IR. Again, ozone isn't the main factor, and it's about visible, not the main process.\n\nSo, option F seems correct. Greenhouse gases let visible light in, which warms the surface, then absorb the infrared, trapping the heat. That's how the greenhouse effect works.\n</think>\n\nThe greenhouse effect works by allowing visible light to pass through the atmosphere, heating the surface. Greenhouse gases then absorb the emitted infrared radiation, trapping heat and maintaining Earth's temperature.",
+      "baseline_cot_token_count": 630,
+      "cot_sentences": [
+        "Okay, so I need to figure out how the greenhouse effect works.",
+        "I remember from school that greenhouse gases play a role in regulating the Earth's temperature.",
+        "Let me think about what I know.",
+        "First, the greenhouse effect is related to how heat is retained in the atmosphere.",
+        "I think it has something to do with gases like carbon dioxide and methane.",
+        "These gases allow certain types of light to pass through but absorb others.",
+        "When the Sun's radiation reaches Earth, part of it is reflected back and part is absorbed.",
+        "The absorbed part warms the Earth's surface.",
+        "Then, the Earth emits heat back into the atmosphere as infrared radiation.",
+        "Without greenhouse gases, this heat would escape into space, and the Earth would be much colder.",
+        "Now, the greenhouse gases come into play.",
+        "They absorb the infrared radiation that the Earth emits.",
+        "By absorbing this heat, the gases trap it within the atmosphere.",
+        "This means that when the gases absorb the infrared, they re-emit it in all directions, including back towards the Earth's surface.",
+        "This process keeps the Earth's temperature more stable than it would be otherwise.",
+        "Looking at the options: A.",
+        "Ozone absorbs infrared and re-emits, heating the atmosphere.",
+        "I'm not sure about ozone being the main greenhouse gas.",
+        "Ozone is more about UV absorption and臭氧层问题, not the main greenhouse effect.",
+        "B.",
+        "Greenhouse gases absorb UV.",
+        "But UV is a type of ultraviolet, and I think the main issue is with infrared.",
+        "So probably not.",
+        "C.",
+        "Ozone transmits visible, absorbs IR.",
+        "Again, ozone isn't the main greenhouse gas.",
+        "Plus, it's talking about visible light, which might not be relevant here.",
+        "D.",
+        "Greenhouse gases absorb visible light, prevent heating.",
+        "Wait, that doesn't make sense.",
+        "Greenhouse gases don't absorb visible light; they absorb infrared.",
+        "Also, preventing heating would be the opposite of what they do.",
+        "E.",
+        "X-rays and UV absorbed.",
+        "No, the greenhouse effect is about infrared, not X or UV.",
+        "F.",
+        "Greenhouse gases transmit visible, absorb IR.",
+        "This sounds closer.",
+        "They let visible light pass through to heat the surface, then absorb the IR, trapping the heat.",
+        "That makes sense.",
+        "G.",
+        "Ozone absorbs visible, emits IR.",
+        "Ozone isn't the main issue, and it's about visible, not the main IR trapping.",
+        "H.",
+        "Greenhouse gases absorb IR from Sun.",
+        "No, they absorb IR emitted by Earth, not from the Sun.",
+        "I.",
+        "Absorb all Sun's light.",
+        "That's not right; they only absorb certain wavelengths.",
+        "J.",
+        "Ozone transmits visible, heats surface, emits IR.",
+        "Again, ozone isn't the main factor, and it's about visible, not the main process.",
+        "So, option F seems correct.",
+        "Greenhouse gases let visible light in, which warms the surface, then absorb the infrared, trapping the heat.",
+        "That's how the greenhouse effect works.",
+        "</think> The greenhouse effect works by allowing visible light to pass through the atmosphere, heating the surface.",
+        "Greenhouse gases then absorb the emitted infrared radiation, trapping heat and maintaining Earth's temperature."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 36,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 37,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 38,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 39,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 42,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 43,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 44,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 45,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 46,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 47,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 48,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 49,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 50,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 51,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 52,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 53,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 54,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 55,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 56,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 57,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9049,
+      "options": [
+        "Ozone absorbs infrared light from the Sun and then re-emits it, heating the atmosphere and the surface.",
+        "Greenhouse gases absorb ultraviolet light from the Sun which then heats the atmosphere and the surface.",
+        "Ozone transmits visible light allowing it to heat the surface but then absorbs most of the infrared heat trapping the heat near the surface.",
+        "Greenhouse gases absorb visible light and prevent it from heating the surface, but allow infrared light from Earth to escape into space.",
+        "Greenhouse gases absorb X-rays and ultraviolet light from the Sun which then heat the atmosphere and the surface.",
+        "Greenhouse gases transmit visible light allowing it to heat the surface but then absorb infrared light from Earth trapping the heat near the surface.",
+        "Ozone absorbs visible light, preventing it from heating the surface and then emits infrared heat into space.",
+        "Greenhouse gases absorb infrared light from the Sun which then heats the atmosphere and the surface.",
+        "Greenhouse gases absorb all light from the Sun, causing the atmosphere and the surface to heat up.",
+        "Ozone transmits visible light allowing it to heat the surface but then emits most of the infrared heat into space."
+      ],
+      "answer_index": 5,
+      "category": "physics"
+    },
+    {
+      "question_index": 8861,
+      "question": "White light is normally incident on a puddle of water (index of refraction 1.33). A thin (500 nm) layer of oil (index of refraction 1.5) floats on the surface of the puddle. Of the following, the most strongly reflected wavelength is",
+      "gold_answer": "G",
+      "baseline_cot": "Okay, so I've got this problem here about light reflecting off layers of oil and water. Hmm, let me try to visualize it. There's white light hitting a puddle of water, and on top of that water, there's a thin layer of oil. The oil has a thickness of 500 nm, and its index of refraction is 1.5. The water has an index of 1.33. They're asking which wavelength is most strongly reflected.\n\nAlright, I remember that when light hits a boundary between two media, some of it reflects, and some goes into the second medium. The reflection can cause interference, either constructive or destructive. Since we're looking for the most strongly reflected, that's probably constructive interference.\n\nSo, the oil layer is between air (which has an index of refraction of 1.0) and water (1.33). The light first goes from air to oil, then oil to water. Now, for reflection, if the light goes from a lower to a higher index, it undergoes a phase shift of 180 degrees (or λ/2). If it goes from higher to lower, no phase shift.\n\nSo, first reflection is air to oil: 1.0 to 1.5. Higher index, so phase shift of λ/2. Second reflection is oil to water: 1.5 to 1.33. Lower index, so no phase shift. So total phase shift from reflections is λ/2 (from first reflection) plus 0 (from second) = λ/2.\n\nBut wait, also, the light that goes through the oil layer and reflects off the water will travel an extra distance. The thickness of the oil is 500 nm. So the path difference is 2*t, where t is 500 nm. But because of the phase shifts, the effective path difference might change.\n\nWait, let me think again. When light reflects off a medium with higher refractive index, it gets a phase shift. So, first reflection: air to oil, higher index, phase shift of λ/2. Second reflection: oil to water, lower index, no phase shift. So the total phase shift due to reflection is λ/2.\n\nNow, the path difference for the two reflected rays (the one that reflects off the oil and the one that goes through oil and reflects off water) is 2*t*(2π/λ), but since we're dealing with phase shifts, maybe it's better to think in terms of wavelength in the medium.\n\nWait, the wavelength in the oil is λ/n, where n is the refractive index. So, the physical thickness t is 500 nm. So the optical path length is t*n, which is 500 nm *1.5=750 nm. But since it's going down and back up, it's 2*t*n = 1500 nm. But in terms of wavelength, it's 1500 nm / (λ in oil). Hmm, maybe I'm complicating it.\n\nAlternatively, the condition for constructive interference for reflected light is when the path difference plus any phase shifts equals an integer multiple of the wavelength. Since the first reflection has a phase shift of λ/2, and the second doesn't, the total phase shift is λ/2. So, the condition is that the path difference (2*t*(n)) should be equal to (m + 1/2)*λ, where m is an integer.\n\nWait, let me write it down:\n\nPath difference = 2*t*(n_oil) = 2*500 nm*1.5 = 1500 nm.\n\nPhase shift from reflection: λ/2.\n\nSo, for constructive interference, the total phase shift (from path difference and reflection) should be an integer multiple of 2π, but in terms of wavelength, it's when the path difference plus the phase shift equals mλ.\n\nWait, maybe it's better to use the formula for thin film interference. The general condition is:\n\n2nt = (m + 1/2)λ, if there's a phase shift (which there is, because of the first reflection). Or 2nt = mλ if there's no phase shift.\n\nIn this case, since there's a phase shift of λ/2, the condition is 2nt = (m + 1/2)λ.\n\nSo plugging in n=1.5, t=500 nm:\n\n2*1.5*500 = 1500 nm = (m + 1/2)λ.\n\nSo λ = 1500 / (m + 0.5).\n\nWe need to find which λ among the options matches this for some integer m.\n\nLooking at the options: A is 750 nm, B 350, C 450, D 650, E 550, F 500, G 600, H 400, I 700, J 800.\n\nLet me try m=0: λ=1500/(0.5)=3000 nm, way too big.\n\nm=1: λ=1500/1.5=1000 nm, not an option.\n\nm=2: 1500/(2.5)=600 nm. That's option G.\n\nm=3: 1500/(3.5)≈428.57 nm, not an option.\n\nSo the only matching option is 600 nm, which is option G.\n\nWait, but let me check if I did that correctly. The formula is 2nt = (m + 1/2)λ. So for m=2, 2*1.5*500=1500= (2.5)λ → λ=600 nm. Yep, that's correct.\n\nSo the most strongly reflected wavelength is 600 nm, option G.\n</think>\n\nThe problem involves determining the most strongly reflected wavelength when white light reflects off a thin oil layer (500 nm, n=1.5) on water (n=1.33). The oil layer causes interference due to reflections. The first reflection (air to oil) causes a phase shift of λ/2, while the second (oil to water) does not. Constructive interference occurs when the path difference equals an odd multiple of half the wavelength. Calculating, 2*1.5*500 nm = 1500 nm = (m + 0.5)λ. For m=2, λ=600 nm, which matches option G.",
+      "baseline_cot_token_count": 1419,
+      "cot_sentences": [
+        "Okay, so I've got this problem here about light reflecting off layers of oil and water.",
+        "Hmm, let me try to visualize it.",
+        "There's white light hitting a puddle of water, and on top of that water, there's a thin layer of oil.",
+        "The oil has a thickness of 500 nm, and its index of refraction is 1.5.",
+        "The water has an index of 1.33.",
+        "They're asking which wavelength is most strongly reflected.",
+        "Alright, I remember that when light hits a boundary between two media, some of it reflects, and some goes into the second medium.",
+        "The reflection can cause interference, either constructive or destructive.",
+        "Since we're looking for the most strongly reflected, that's probably constructive interference.",
+        "So, the oil layer is between air (which has an index of refraction of 1.0) and water (1.33).",
+        "The light first goes from air to oil, then oil to water.",
+        "Now, for reflection, if the light goes from a lower to a higher index, it undergoes a phase shift of 180 degrees (or λ/2).",
+        "If it goes from higher to lower, no phase shift.",
+        "So, first reflection is air to oil: 1.0 to 1.5.",
+        "Higher index, so phase shift of λ/2.",
+        "Second reflection is oil to water: 1.5 to 1.33.",
+        "Lower index, so no phase shift.",
+        "So total phase shift from reflections is λ/2 (from first reflection) plus 0 (from second) = λ/2.",
+        "But wait, also, the light that goes through the oil layer and reflects off the water will travel an extra distance.",
+        "The thickness of the oil is 500 nm.",
+        "So the path difference is 2*t, where t is 500 nm.",
+        "But because of the phase shifts, the effective path difference might change.",
+        "Wait, let me think again.",
+        "When light reflects off a medium with higher refractive index, it gets a phase shift.",
+        "So, first reflection: air to oil, higher index, phase shift of λ/2.",
+        "Second reflection: oil to water, lower index, no phase shift.",
+        "So the total phase shift due to reflection is λ/2.",
+        "Now, the path difference for the two reflected rays (the one that reflects off the oil and the one that goes through oil and reflects off water) is 2*t*(2π/λ), but since we're dealing with phase shifts, maybe it's better to think in terms of wavelength in the medium.",
+        "Wait, the wavelength in the oil is λ/n, where n is the refractive index.",
+        "So, the physical thickness t is 500 nm.",
+        "So the optical path length is t*n, which is 500 nm *1.5=750 nm.",
+        "But since it's going down and back up, it's 2*t*n = 1500 nm.",
+        "But in terms of wavelength, it's 1500 nm / (λ in oil).",
+        "Hmm, maybe I'm complicating it.",
+        "Alternatively, the condition for constructive interference for reflected light is when the path difference plus any phase shifts equals an integer multiple of the wavelength.",
+        "Since the first reflection has a phase shift of λ/2, and the second doesn't, the total phase shift is λ/2.",
+        "So, the condition is that the path difference (2*t*(n)) should be equal to (m + 1/2)*λ, where m is an integer.",
+        "Wait, let me write it down: Path difference = 2*t*(n_oil) = 2*500 nm*1.5 = 1500 nm.",
+        "Phase shift from reflection: λ/2.",
+        "So, for constructive interference, the total phase shift (from path difference and reflection) should be an integer multiple of 2π, but in terms of wavelength, it's when the path difference plus the phase shift equals mλ.",
+        "Wait, maybe it's better to use the formula for thin film interference.",
+        "The general condition is: 2nt = (m + 1/2)λ, if there's a phase shift (which there is, because of the first reflection).",
+        "Or 2nt = mλ if there's no phase shift.",
+        "In this case, since there's a phase shift of λ/2, the condition is 2nt = (m + 1/2)λ.",
+        "So plugging in n=1.5, t=500 nm: 2*1.5*500 = 1500 nm = (m + 1/2)λ.",
+        "So λ = 1500 / (m + 0.5).",
+        "We need to find which λ among the options matches this for some integer m.",
+        "Looking at the options: A is 750 nm, B 350, C 450, D 650, E 550, F 500, G 600, H 400, I 700, J 800.",
+        "Let me try m=0: λ=1500/(0.5)=3000 nm, way too big.",
+        "m=1: λ=1500/1.5=1000 nm, not an option.",
+        "m=2: 1500/(2.5)=600 nm.",
+        "That's option G.",
+        "m=3: 1500/(3.5)≈428.57 nm, not an option.",
+        "So the only matching option is 600 nm, which is option G.",
+        "Wait, but let me check if I did that correctly.",
+        "The formula is 2nt = (m + 1/2)λ.",
+        "So for m=2, 2*1.5*500=1500= (2.5)λ → λ=600 nm.",
+        "Yep, that's correct.",
+        "So the most strongly reflected wavelength is 600 nm, option G.",
+        "</think> The problem involves determining the most strongly reflected wavelength when white light reflects off a thin oil layer (500 nm, n=1.5) on water (n=1.33).",
+        "The oil layer causes interference due to reflections.",
+        "The first reflection (air to oil) causes a phase shift of λ/2, while the second (oil to water) does not.",
+        "Constructive interference occurs when the path difference equals an odd multiple of half the wavelength.",
+        "Calculating, 2*1.5*500 nm = 1500 nm = (m + 0.5)λ.",
+        "For m=2, λ=600 nm, which matches option G."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 36,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 37,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 38,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 39,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 42,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 43,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 44,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 45,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 46,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 47,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 48,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 49,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 50,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 51,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 52,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 53,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 54,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 55,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 56,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 57,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 58,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 59,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 60,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 61,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 62,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 63,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 64,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 65,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9050,
+      "options": [
+        "750 nm",
+        "350 nm",
+        "450 nm",
+        "650 nm",
+        "550 nm",
+        "500 nm",
+        "600 nm",
+        "400 nm",
+        "700 nm",
+        "800 nm"
+      ],
+      "answer_index": 6,
+      "category": "physics"
+    },
+    {
+      "question_index": 8862,
+      "question": "The coefficient of static friction between a small coin and the surface of a turntable is 0.30. The turntable rotates at 33.3 revolutions per minute. What is the maximum distance from the center of the turntable at which the coin will not slide?",
+      "gold_answer": "E",
+      "baseline_cot": "Okay, so I have this physics problem here about a coin on a turntable. The coefficient of static friction is given as 0.30, and the turntable rotates at 33.3 revolutions per minute. I need to find the maximum distance from the center where the coin won't slide. Hmm, let me think about how to approach this.\n\nFirst, I remember that when an object is rotating in a circle, there's a centripetal force acting towards the center. The maximum distance the coin can be from the center before it starts sliding should relate to the frictional force and the centripetal force.\n\nThe formula for centripetal force is F = m * v² / r, where m is mass, v is velocity, and r is the radius or distance from the center. But wait, the frictional force is what's providing the centripetal force here. So the maximum frictional force before slipping occurs is the coefficient of static friction times the normal force. Since the coin is on a horizontal surface, the normal force is equal to the weight of the coin, which is m * g. So frictional force F_friction = μ * m * g.\n\nSetting these equal because the frictional force provides the centripetal force needed: μ * m * g = m * v² / r. Oh, the mass m cancels out, which is good because it's not given.\n\nNow, I need to find v, the linear velocity. The turntable is rotating at 33.3 revolutions per minute. I should convert that to radians per second because the formula for velocity is usually in terms of angular velocity. \n\nFirst, convert revolutions per minute to radians per minute. Since one revolution is 2π radians, 33.3 rpm is 33.3 * 2π rad/min. Then, convert minutes to seconds by dividing by 60. So ω = (33.3 * 2π) / 60 rad/s.\n\nCalculating that: 33.3 * 2 = 66.6, times π is approximately 210.0, divided by 60 is about 3.5 radians per second. Wait, let me double-check that calculation. 33.3 * 2π is 33.3 * 6.283 ≈ 209.3 radians per minute. Divided by 60 gives approximately 3.488 rad/s. Let's say approximately 3.49 rad/s for simplicity.\n\nNow, the linear velocity v is ω * r, so v = ω * r. Substituting back into the equation μ * g = v² / r, we get μ * g = (ω * r)² / r = ω² * r. So solving for r, we have r = μ * g / ω².\n\nWait, let me make sure that's correct. So from μ * m * g = m * v² / r, cancel m: μ * g = v² / r. Then v = ω * r, so v² = ω² * r². Plugging that in: μ * g = (ω² * r²) / r = ω² * r. So yes, r = μ * g / ω².\n\nOkay, plugging in the numbers. μ is 0.30, g is 9.8 m/s². ω is approximately 3.49 rad/s.\n\nSo r = (0.30 * 9.8) / (3.49)^2.\n\nCalculating numerator: 0.3 * 9.8 = 2.94.\n\nDenominator: 3.49 squared. Let's compute that: 3.49 * 3.49. 3 * 3 is 9, 3 * 0.49 is 1.47, 0.49 * 3 is another 1.47, and 0.49 * 0.49 is ~0.2401. Adding those up: 9 + 1.47 + 1.47 + 0.2401 = 12.1801. So approximately 12.18.\n\nSo r = 2.94 / 12.18 ≈ 0.241 meters. Looking at the options, E is 0.242 m, which is very close. So the answer should be E.\n</think>\n\nThe maximum distance is found using the formula \\( r = \\frac{\\mu g}{\\omega^2} \\), where \\( \\omega \\) is calculated from the given RPM. After substituting the values, the distance comes out to approximately 0.242 m.",
+      "baseline_cot_token_count": 1025,
+      "cot_sentences": [
+        "Okay, so I have this physics problem here about a coin on a turntable.",
+        "The coefficient of static friction is given as 0.30, and the turntable rotates at 33.3 revolutions per minute.",
+        "I need to find the maximum distance from the center where the coin won't slide.",
+        "Hmm, let me think about how to approach this.",
+        "First, I remember that when an object is rotating in a circle, there's a centripetal force acting towards the center.",
+        "The maximum distance the coin can be from the center before it starts sliding should relate to the frictional force and the centripetal force.",
+        "The formula for centripetal force is F = m * v² / r, where m is mass, v is velocity, and r is the radius or distance from the center.",
+        "But wait, the frictional force is what's providing the centripetal force here.",
+        "So the maximum frictional force before slipping occurs is the coefficient of static friction times the normal force.",
+        "Since the coin is on a horizontal surface, the normal force is equal to the weight of the coin, which is m * g.",
+        "So frictional force F_friction = μ * m * g.",
+        "Setting these equal because the frictional force provides the centripetal force needed: μ * m * g = m * v² / r.",
+        "Oh, the mass m cancels out, which is good because it's not given.",
+        "Now, I need to find v, the linear velocity.",
+        "The turntable is rotating at 33.3 revolutions per minute.",
+        "I should convert that to radians per second because the formula for velocity is usually in terms of angular velocity.",
+        "First, convert revolutions per minute to radians per minute.",
+        "Since one revolution is 2π radians, 33.3 rpm is 33.3 * 2π rad/min.",
+        "Then, convert minutes to seconds by dividing by 60.",
+        "So ω = (33.3 * 2π) / 60 rad/s.",
+        "Calculating that: 33.3 * 2 = 66.6, times π is approximately 210.0, divided by 60 is about 3.5 radians per second.",
+        "Wait, let me double-check that calculation.",
+        "33.3 * 2π is 33.3 * 6.283 ≈ 209.3 radians per minute.",
+        "Divided by 60 gives approximately 3.488 rad/s.",
+        "Let's say approximately 3.49 rad/s for simplicity.",
+        "Now, the linear velocity v is ω * r, so v = ω * r.",
+        "Substituting back into the equation μ * g = v² / r, we get μ * g = (ω * r)² / r = ω² * r.",
+        "So solving for r, we have r = μ * g / ω².",
+        "Wait, let me make sure that's correct.",
+        "So from μ * m * g = m * v² / r, cancel m: μ * g = v² / r.",
+        "Then v = ω * r, so v² = ω² * r².",
+        "Plugging that in: μ * g = (ω² * r²) / r = ω² * r.",
+        "So yes, r = μ * g / ω².",
+        "Okay, plugging in the numbers.",
+        "μ is 0.30, g is 9.8 m/s².",
+        "ω is approximately 3.49 rad/s.",
+        "So r = (0.30 * 9.8) / (3.49)^2.",
+        "Calculating numerator: 0.3 * 9.8 = 2.94.",
+        "Denominator: 3.49 squared.",
+        "Let's compute that: 3.49 * 3.49.",
+        "3 * 3 is 9, 3 * 0.49 is 1.47, 0.49 * 3 is another 1.47, and 0.49 * 0.49 is ~0.2401.",
+        "Adding those up: 9 + 1.47 + 1.47 + 0.2401 = 12.1801.",
+        "So approximately 12.18.",
+        "So r = 2.94 / 12.18 ≈ 0.241 meters.",
+        "Looking at the options, E is 0.242 m, which is very close.",
+        "So the answer should be E.",
+        "</think> The maximum distance is found using the formula \\( r = \\frac{\\mu g}{\\omega^2} \\), where \\( \\omega \\) is calculated from the given RPM.",
+        "After substituting the values, the distance comes out to approximately 0.242 m."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 36,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 37,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 38,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 39,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 42,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 43,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 44,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 45,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 46,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 47,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 48,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9051,
+      "options": [
+        "0.300 m",
+        "0.150 m",
+        "0.121 m",
+        "0.10 m",
+        "0.242 m",
+        "0.048 m",
+        "0.200 m",
+        "0.500 m",
+        "0.024 m",
+        "0.362 m"
+      ],
+      "answer_index": 4,
+      "category": "physics"
+    },
+    {
+      "question_index": 8863,
+      "question": "A proton moves in the +z-direction after being accelerated from rest through a potential difference V. The proton then passes through a region with a uniform electric field E in the +x-direction and a uniform magnetic field B in the +y-direction, but the proton’s trajectory is not affected. If the experiment were repeated using a potential difference of 2V, the proton would then be",
+      "gold_answer": "C",
+      "baseline_cot": "Okay, so I've got this physics problem here about a proton moving through electric and magnetic fields. Hmm, let me try to break it down step by step.\n\nFirst, the problem says a proton is accelerated from rest through a potential difference V. I remember that when a charge moves through a potential difference, it gains kinetic energy. The formula for that is qV = (1/2)mv², where q is the charge, V is the potential, m is mass, and v is velocity. So, the proton gains some speed in the +z-direction.\n\nThen, it passes through a region where there's an electric field E in the +x-direction and a magnetic field B in the +y-direction. The proton's trajectory isn't affected by this. Wait, that's interesting. If the trajectory isn't affected, that probably means the net force on the proton is zero. Because if the net force is zero, there's no acceleration, so the path remains straight.\n\nSo, the electric force is F_e = qE, and the magnetic force is F_m = q(v × B). Since the proton is moving in the +z-direction, its velocity vector is along +z. The magnetic field is in +y. The cross product of +z and +y should be... Let me recall, the cross product of z and y is -x, because the right-hand rule says z cross y is -x. So, F_m would be qvB in the -x-direction.\n\nThe electric force is in +x, so F_e = qE. For the forces to cancel, F_e must equal F_m in magnitude and opposite in direction. So, qE = qvB. The q's cancel, so E = vB. That gives the velocity v = E/B. But wait, from the first part, v is also determined by the potential V. So, the proton's velocity after being accelerated is v = sqrt(2qV/m). So, combining both, E/B = sqrt(2qV/m). I don't know if that's necessary right now, but maybe it's useful later.\n\nNow, the question is, what happens if we use a potential difference of 2V instead of V? The proton's kinetic energy would double because the potential energy becomes 2qV. So, the velocity would increase. Let me calculate the new velocity. Using the same formula, v' = sqrt(2q*(2V)/m) = sqrt(2*2qV/m) = sqrt(2)*sqrt(2qV/m) = sqrt(2)*v. So, the velocity becomes sqrt(2) times the original velocity.\n\nBut wait, the original condition was that the net force was zero. Now, if the velocity changes, does that affect the magnetic force? Let me see. The magnetic force is F_m = q(v × B), so if v increases, the force would also increase proportionally. But the electric force F_e is still qE, which was equal to qvB before. Now, with the new velocity v' = sqrt(2)v, F_m would be q*(sqrt(2)v)*B = sqrt(2) qvB. But the electric force F_e is still qE. So, the magnetic force is now sqrt(2) times larger than the electric force.\n\nWait, but that can't be right because in the original setup, F_e and F_m were equal and opposite. Now, if v increases, F_m increases, but F_e remains the same. So, the net force would be F_net = F_e - F_m (since they're in opposite directions). So, F_net = qE - qv'B. Substituting v' = sqrt(2)v, which was E/B before, so v = E/B. Therefore, v' = sqrt(2)E/B.\n\nSo, F_net = qE - q*(sqrt(2)E/B)*B = qE - q*sqrt(2)E = qE(1 - sqrt(2)). Since sqrt(2) is about 1.414, 1 - 1.414 is negative, so F_net is negative, meaning the net force is in the -x direction because F_m was in -x and F_e in +x.\n\nWait, but that's only if F_m is larger than F_e. So, the net force would cause an acceleration in the -x direction. But wait, the problem says that when the proton passed through the region, its trajectory wasn't affected. So, maybe the initial setup was such that F_e and F_m balanced each other. So, if we change V, the velocity changes, which changes F_m, and since F_e is fixed (E is the same), F_m becomes larger than F_e, causing a net force in the -x direction.\n\nBut wait, the problem is asking what happens when we use 2V. So, in the original case, the net force was zero. Now, when we double V, the velocity increases, making F_m larger than F_e, so the net force is in the -x direction. So, the proton would start to accelerate in the -x direction, causing it to deflect in that direction.\n\nBut wait, the original setup had E in +x and B in +y. The proton's velocity was in +z. So, when we double V, velocity increases, making F_m stronger. So, F_net is in -x. So, the proton would start moving in the -x direction, causing a deflection. But wait, the original motion was in +z, so the deflection would be in the plane perpendicular to z, right? So, the trajectory would curve in the x-y plane.\n\nWait, but the question is about the direction of deflection. So, the proton's velocity is in +z, but the net force is in -x, so the acceleration is in -x. So, the proton would start moving in the -x direction while continuing in +z. So, the trajectory would curve downward in the x-y plane, meaning it would deflect in the -x direction, right? Or wait, maybe it's a combination of motion.\n\nWait, but the problem says that when the experiment is repeated with 2V, what happens. The options are various directions. So, if the net force is in -x, the proton would accelerate in that direction, causing a deflection in the -x direction.\n\nWait, but let me think again. The original setup had E in +x and B in +y, and the proton's velocity was in +z. So, the magnetic force was in -x, balancing the electric force in +x. So, net force zero.\n\nNow, with 2V, the velocity increases, so F_m becomes sqrt(2) times larger than before, so F_m is now sqrt(2) qvB, which is sqrt(2) times the original F_m. Since F_e was qE, and F_m was qvB = qE (from the original condition), so with v increasing, F_m becomes sqrt(2) qE. So, F_net = F_e - F_m = qE - sqrt(2) qE = qE(1 - sqrt(2)) which is negative, so net force in -x direction.\n\nTherefore, the proton will experience a force in the -x direction, causing it to deflect in that direction. So, the answer would be C: deflected in the -x-direction.\n\nWait, but let me double-check. When the proton enters the region, it's moving in +z. The electric field is +x, so F_e is +x. The magnetic force is q(v × B), which with v in +z and B in +y, is q*(+z × +y) = q*(-x). So, F_m is -x. So, F_e = +x, F_m = -x. When the proton's velocity is such that F_e = F_m, they cancel, so net force zero.\n\nWhen we increase the potential to 2V, the velocity becomes sqrt(2) times higher, so F_m becomes sqrt(2) times larger. So, F_e is +x, F_m is -x but stronger. So, net force is F_e + F_m = qE - qv'B. Since v' is sqrt(2) v, and v was E/B, so v' = sqrt(2) E/B. So, F_net = qE - q*(sqrt(2) E/B)*B = qE(1 - sqrt(2)).\n\nSo, F_net is negative in the x-direction, meaning the proton accelerates in the -x direction. So, the proton's trajectory would curve in the -x direction relative to its original motion in +z. So, it's deflected in the -x direction. So, the answer is C.\n</think>\n\nThe problem involves a proton accelerated through a potential difference and then subjected to electric and magnetic fields. Initially, the proton's velocity balances the electric and magnetic forces, resulting in no net force. When the potential is doubled, the velocity increases, causing the magnetic force to exceed the electric force, leading to a net force in the -x direction. This results in deflection in the -x-direction.",
+      "baseline_cot_token_count": 1956,
+      "cot_sentences": [
+        "Okay, so I've got this physics problem here about a proton moving through electric and magnetic fields.",
+        "Hmm, let me try to break it down step by step.",
+        "First, the problem says a proton is accelerated from rest through a potential difference V.",
+        "I remember that when a charge moves through a potential difference, it gains kinetic energy.",
+        "The formula for that is qV = (1/2)mv², where q is the charge, V is the potential, m is mass, and v is velocity.",
+        "So, the proton gains some speed in the +z-direction.",
+        "Then, it passes through a region where there's an electric field E in the +x-direction and a magnetic field B in the +y-direction.",
+        "The proton's trajectory isn't affected by this.",
+        "Wait, that's interesting.",
+        "If the trajectory isn't affected, that probably means the net force on the proton is zero.",
+        "Because if the net force is zero, there's no acceleration, so the path remains straight.",
+        "So, the electric force is F_e = qE, and the magnetic force is F_m = q(v × B).",
+        "Since the proton is moving in the +z-direction, its velocity vector is along +z.",
+        "The magnetic field is in +y.",
+        "The cross product of +z and +y should be...",
+        "Let me recall, the cross product of z and y is -x, because the right-hand rule says z cross y is -x.",
+        "So, F_m would be qvB in the -x-direction.",
+        "The electric force is in +x, so F_e = qE.",
+        "For the forces to cancel, F_e must equal F_m in magnitude and opposite in direction.",
+        "So, qE = qvB.",
+        "The q's cancel, so E = vB.",
+        "That gives the velocity v = E/B.",
+        "But wait, from the first part, v is also determined by the potential V.",
+        "So, the proton's velocity after being accelerated is v = sqrt(2qV/m).",
+        "So, combining both, E/B = sqrt(2qV/m).",
+        "I don't know if that's necessary right now, but maybe it's useful later.",
+        "Now, the question is, what happens if we use a potential difference of 2V instead of V?",
+        "The proton's kinetic energy would double because the potential energy becomes 2qV.",
+        "So, the velocity would increase.",
+        "Let me calculate the new velocity.",
+        "Using the same formula, v' = sqrt(2q*(2V)/m) = sqrt(2*2qV/m) = sqrt(2)*sqrt(2qV/m) = sqrt(2)*v.",
+        "So, the velocity becomes sqrt(2) times the original velocity.",
+        "But wait, the original condition was that the net force was zero.",
+        "Now, if the velocity changes, does that affect the magnetic force?",
+        "Let me see.",
+        "The magnetic force is F_m = q(v × B), so if v increases, the force would also increase proportionally.",
+        "But the electric force F_e is still qE, which was equal to qvB before.",
+        "Now, with the new velocity v' = sqrt(2)v, F_m would be q*(sqrt(2)v)*B = sqrt(2) qvB.",
+        "But the electric force F_e is still qE.",
+        "So, the magnetic force is now sqrt(2) times larger than the electric force.",
+        "Wait, but that can't be right because in the original setup, F_e and F_m were equal and opposite.",
+        "Now, if v increases, F_m increases, but F_e remains the same.",
+        "So, the net force would be F_net = F_e - F_m (since they're in opposite directions).",
+        "So, F_net = qE - qv'B.",
+        "Substituting v' = sqrt(2)v, which was E/B before, so v = E/B.",
+        "Therefore, v' = sqrt(2)E/B.",
+        "So, F_net = qE - q*(sqrt(2)E/B)*B = qE - q*sqrt(2)E = qE(1 - sqrt(2)).",
+        "Since sqrt(2) is about 1.414, 1 - 1.414 is negative, so F_net is negative, meaning the net force is in the -x direction because F_m was in -x and F_e in +x.",
+        "Wait, but that's only if F_m is larger than F_e.",
+        "So, the net force would cause an acceleration in the -x direction.",
+        "But wait, the problem says that when the proton passed through the region, its trajectory wasn't affected.",
+        "So, maybe the initial setup was such that F_e and F_m balanced each other.",
+        "So, if we change V, the velocity changes, which changes F_m, and since F_e is fixed (E is the same), F_m becomes larger than F_e, causing a net force in the -x direction.",
+        "But wait, the problem is asking what happens when we use 2V.",
+        "So, in the original case, the net force was zero.",
+        "Now, when we double V, the velocity increases, making F_m larger than F_e, so the net force is in the -x direction.",
+        "So, the proton would start to accelerate in the -x direction, causing it to deflect in that direction.",
+        "But wait, the original setup had E in +x and B in +y.",
+        "The proton's velocity was in +z.",
+        "So, when we double V, velocity increases, making F_m stronger.",
+        "So, F_net is in -x.",
+        "So, the proton would start moving in the -x direction, causing a deflection.",
+        "But wait, the original motion was in +z, so the deflection would be in the plane perpendicular to z, right?",
+        "So, the trajectory would curve in the x-y plane.",
+        "Wait, but the question is about the direction of deflection.",
+        "So, the proton's velocity is in +z, but the net force is in -x, so the acceleration is in -x.",
+        "So, the proton would start moving in the -x direction while continuing in +z.",
+        "So, the trajectory would curve downward in the x-y plane, meaning it would deflect in the -x direction, right?",
+        "Or wait, maybe it's a combination of motion.",
+        "Wait, but the problem says that when the experiment is repeated with 2V, what happens.",
+        "The options are various directions.",
+        "So, if the net force is in -x, the proton would accelerate in that direction, causing a deflection in the -x direction.",
+        "Wait, but let me think again.",
+        "The original setup had E in +x and B in +y, and the proton's velocity was in +z.",
+        "So, the magnetic force was in -x, balancing the electric force in +x.",
+        "So, net force zero.",
+        "Now, with 2V, the velocity increases, so F_m becomes sqrt(2) times larger than before, so F_m is now sqrt(2) qvB, which is sqrt(2) times the original F_m.",
+        "Since F_e was qE, and F_m was qvB = qE (from the original condition), so with v increasing, F_m becomes sqrt(2) qE.",
+        "So, F_net = F_e - F_m = qE - sqrt(2) qE = qE(1 - sqrt(2)) which is negative, so net force in -x direction.",
+        "Therefore, the proton will experience a force in the -x direction, causing it to deflect in that direction.",
+        "So, the answer would be C: deflected in the -x-direction.",
+        "Wait, but let me double-check.",
+        "When the proton enters the region, it's moving in +z.",
+        "The electric field is +x, so F_e is +x.",
+        "The magnetic force is q(v × B), which with v in +z and B in +y, is q*(+z × +y) = q*(-x).",
+        "So, F_m is -x.",
+        "So, F_e = +x, F_m = -x.",
+        "When the proton's velocity is such that F_e = F_m, they cancel, so net force zero.",
+        "When we increase the potential to 2V, the velocity becomes sqrt(2) times higher, so F_m becomes sqrt(2) times larger.",
+        "So, F_e is +x, F_m is -x but stronger.",
+        "So, net force is F_e + F_m = qE - qv'B.",
+        "Since v' is sqrt(2) v, and v was E/B, so v' = sqrt(2) E/B.",
+        "So, F_net = qE - q*(sqrt(2) E/B)*B = qE(1 - sqrt(2)).",
+        "So, F_net is negative in the x-direction, meaning the proton accelerates in the -x direction.",
+        "So, the proton's trajectory would curve in the -x direction relative to its original motion in +z.",
+        "So, it's deflected in the -x direction.",
+        "So, the answer is C.",
+        "</think> The problem involves a proton accelerated through a potential difference and then subjected to electric and magnetic fields.",
+        "Initially, the proton's velocity balances the electric and magnetic forces, resulting in no net force.",
+        "When the potential is doubled, the velocity increases, causing the magnetic force to exceed the electric force, leading to a net force in the -x direction.",
+        "This results in deflection in the -x-direction."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 33,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 34,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 35,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 36,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 37,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 38,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 39,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 40,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 41,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 42,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 43,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 44,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 45,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 46,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 47,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 48,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 49,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 50,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 51,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 52,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 53,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 54,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 55,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 56,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 57,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 58,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 59,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 60,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 61,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 62,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 63,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 64,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 65,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 66,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 67,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 68,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 69,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 70,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 71,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 72,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 73,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 74,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 75,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 76,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 77,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 78,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 79,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 80,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 81,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 82,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 83,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 84,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 85,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 86,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 87,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 88,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 89,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 90,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 91,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 92,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 93,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 94,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 95,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 96,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 97,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 98,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 99,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 100,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 101,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9052,
+      "options": [
+        "deflected in the -y-direction",
+        "deflected in both the +x and +y directions",
+        "deflected in the -x-direction",
+        "deflected in the +x-direction",
+        "deflected in the -z-direction",
+        "deflected in the +y-direction",
+        "not deflected at all",
+        "deflected in both the -x and -y directions",
+        "deflected in a direction dependent on the initial velocity of the proton",
+        "deflected in the +z-direction"
+      ],
+      "answer_index": 2,
+      "category": "physics"
+    }
+  ],
+  "skipped_questions": [
+    {
+      "question_index": 8855,
+      "gold_answer": "I",
+      "baseline_pred": "E",
+      "reason": "baseline_incorrect",
+      "question_id": 9044,
+      "answer_index": 8
+    },
+    {
+      "question_index": 8856,
+      "gold_answer": "D",
+      "baseline_pred": "H",
+      "reason": "baseline_incorrect",
+      "question_id": 9045,
+      "answer_index": 3
+    },
+    {
+      "question_index": 8858,
+      "gold_answer": "B",
+      "baseline_pred": "C",
+      "reason": "baseline_incorrect",
+      "question_id": 9047,
+      "answer_index": 1
+    },
+    {
+      "question_index": 8859,
+      "gold_answer": "J",
+      "baseline_pred": "H**",
+      "reason": "baseline_incorrect",
+      "question_id": 9048,
+      "answer_index": 9
+    },
+    {
+      "question_index": 8864,
+      "gold_answer": "J",
+      "baseline_pred": "J**",
+      "reason": "baseline_incorrect",
+      "question_id": 9053,
+      "answer_index": 9
+    }
+  ]
+}

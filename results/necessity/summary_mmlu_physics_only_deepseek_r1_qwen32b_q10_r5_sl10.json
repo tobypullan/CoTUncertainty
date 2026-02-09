@@ -1,0 +1,505 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+  "dataset": "TIGER-Lab/MMLU-Pro",
+  "dataset_config": null,
+  "split": "test",
+  "category_filter": [
+    "physics"
+  ],
+  "num_questions_available_after_filter": 1299,
+  "num_questions_requested": 10,
+  "num_questions_used": 3,
+  "num_questions_skipped": 7,
+  "output_path": "results/necessity/summary_mmlu_physics_only_deepseek_r1_qwen32b_q10_r5_sl10.json",
+  "plot_path": "results/necessity/plot_mmlu_physics_only_deepseek_r1_qwen32b_q10_r5_sl10.png",
+  "plot_paths_by_mode": {
+    "sentence_prefix": "results/necessity/plot_mmlu_physics_only_deepseek_r1_qwen32b_q10_r5_sl10.png",
+    "underscore_token_sweep": null
+  },
+  "primary_plot_mode": "sentence_prefix",
+  "mode_usage": {
+    "sentence_prefix": 3,
+    "underscore_token_sweep": 0
+  },
+  "underscore_token_sweep_triggered": false,
+  "sentence_prefix_triggered": true,
+  "baseline_cot_path": "results/necessity/baseline_cot.jsonl",
+  "resampled_cot_path": "results/necessity/resampled_cot.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 2,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 3,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 4,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 7,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 8,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 9,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 15,
+      "percent_correct": 0.0
+    }
+  ],
+  "aggregated_results_by_mode": {
+    "sentence_prefix": [
+      {
+        "sentence_count": 1,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 2,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 3,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 4,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 5,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 6,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 7,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 8,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 9,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 10,
+        "correct": 0,
+        "total": 15,
+        "percent_correct": 0.0
+      }
+    ],
+    "underscore_token_sweep": []
+  },
+  "question_results": [
+    {
+      "question_index": 8856,
+      "question": "We were first able to accurately measure the diameter of Pluto from:",
+      "gold_answer": "D",
+      "baseline_cot": "Okay, so I have this question about when we first accurately measured the diameter of Pluto. Let me think through this step by step.\n\nFirst, I remember that Pluto is a dwarf planet, and it's pretty far from Earth, which makes it hard to observe. So, the methods used to measure its diameter would likely involve some advanced technology or spacecraft.\n\nLooking at the options:\n\nA. Lunar-based observations from Apollo. Hmm, the Apollo missions were in the late 60s to early 70s, and they were focused on the Moon. I don't think they had instruments to measure Pluto's diameter accurately. Plus, being on the Moon doesn't really give a better view of Pluto than Earth-based telescopes.\n\nB. Voyager 2 flyby in the 80s. Voyager 2 did fly by Neptune and its moons, but I don't recall it going anywhere near Pluto. Its trajectory was different, so it probably didn't provide data on Pluto.\n\nC. Chandra X-ray Observatory. Chandra is for X-rays, and while it's a powerful tool, I don't think it's used for measuring diameters of planets. More for things like black holes and supernovas.\n\nD. Brightness during mutual eclipses with Charon. This sounds plausible. Pluto and its moon Charon eclipse each other from our point of view. By measuring the brightness changes during these eclipses, scientists can calculate the size of Pluto. I think this method was used before more direct observations were possible.\n\nE. Mars Rover's telescope. The Mars Rovers have limited instruments, and their main focus is on Mars, not distant objects like Pluto. Plus, the distance from Mars to Pluto doesn't make it easier.\n\nF. Radar from Arecibo. Radar can measure distances, but I'm not sure if it's been used for Pluto. It might have been used for other objects like asteroids, but I don't recall it being the first for Pluto.\n\nG. Spitzer Space Telescope. Spitzer is an infrared telescope. It's used for various things, but I'm not certain if it was the first to measure Pluto's diameter. It might have contributed, but maybe not the first.\n\nH. Hubble Space Telescope images. Hubble can resolve small objects, and I think it did provide images of Pluto, but when? I think Hubble was launched in the 90s, so maybe after other methods were already used.\n\nI. New Horizons in the 90s. Wait, New Horizons was launched in 2006, so an option in the 90s doesn't make sense. Maybe this is a trick option, so I can probably eliminate it.\n\nJ. Kepler Space Telescope. Kepler is for exoplanets, using the transit method. It's not designed for measuring the size of objects in our solar system like Pluto.\n\nSo, narrowing it down, option D seems the most likely because mutual eclipses of Pluto and Charon allow for measuring their sizes based on the duration and depth of the eclipses. This method was used before more direct imaging was possible, especially since Pluto is so distant and small.\n\nI think the Hubble Space Telescope (option H) did resolve Pluto's disk, but that was later, after the initial accurate measurements were made through the eclipses. So the first accurate measurement was probably via the eclipses.\n</think>\n\nThe first accurate measurement of Pluto's diameter was achieved through observations of mutual eclipses with its moon Charon. This method allowed scientists to calculate Pluto's size based on the brightness changes during the eclipses.",
+      "baseline_cot_token_count": 733,
+      "cot_sentences": [
+        "Okay, so I have this question about when we first accurately measured the diameter of Pluto.",
+        "Let me think through this step by step.",
+        "First, I remember that Pluto is a dwarf planet, and it's pretty far from Earth, which makes it hard to observe.",
+        "So, the methods used to measure its diameter would likely involve some advanced technology or spacecraft.",
+        "Looking at the options: A.",
+        "Lunar-based observations from Apollo.",
+        "Hmm, the Apollo missions were in the late 60s to early 70s, and they were focused on the Moon.",
+        "I don't think they had instruments to measure Pluto's diameter accurately.",
+        "Plus, being on the Moon doesn't really give a better view of Pluto than Earth-based telescopes.",
+        "B."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9045,
+      "options": [
+        "Lunar-based observations made during NASA's Apollo missions",
+        "The Voyager 2 spacecraft flyby in the 1980s",
+        "Observations made by the Chandra X-ray Observatory",
+        "brightness measurements made during mutual eclipses of Pluto and Charon",
+        "The Mars Rover's telescope observations of Pluto",
+        "radar observations made by the Arecibo telescope",
+        "Observations made by the Spitzer Space Telescope",
+        "Hubble Space Telescope images that resolved Pluto's disk",
+        "a New Horizons flyby in the 1990s",
+        "Images captured by the Kepler Space Telescope"
+      ],
+      "answer_index": 3,
+      "category": "physics"
+    },
+    {
+      "question_index": 8857,
+      "question": "What about asteroids makes them stand out in sky surveys searching for them?",
+      "gold_answer": "D",
+      "baseline_cot": "Okay, so I need to figure out why asteroids stand out in sky surveys. The question gives me several options, and I have to choose the correct one. Let me think through each option.\n\nOption A says asteroids reflect enough sunlight to be brighter than most stars. I know that asteroids are relatively small and don't emit their own light, so they might not be brighter than stars. Plus, stars can vary in brightness, so maybe this isn't the main reason.\n\nOption B suggests high rotation speed makes them stand out. While some asteroids do rotate quickly, I'm not sure if that's what makes them noticeable in surveys. I think surveys look for movement over time rather than rotation.\n\nOption C claims asteroids are larger, making them easier to spot. But I remember that many asteroids are actually small, so this doesn't seem right. Size alone probably isn't the main factor.\n\nOption D says asteroids have substantial motion relative to background stars. This makes sense because asteroids orbit the Sun, moving faster across the sky compared to more distant stars. Sky surveys track this motion, which helps distinguish them from stars.\n\nOption E mentions a distinct color. I'm not sure about this. While asteroids might have certain spectral characteristics, I don't think color is the primary reason they're detected.\n\nOption F states they emit a lot of their own radiation. No, asteroids don't emit radiation; they reflect sunlight. So this isn't correct.\n\nOption G talks about emitting a lot of heat. Again, asteroids don't emit heat; they reflect sunlight. Plus, most surveys detect visible light, not heat.\n\nOption H suggests emitting a unique sound. That doesn't make sense because sound doesn't travel in space. So this is incorrect.\n\nOption I says they emit pulsed radiation. I don't recall asteroids emitting radiation in pulses. This seems unrelated.\n\nSo, putting it all together, the main reason asteroids stand out is their motion relative to background stars. Sky surveys can track this movement, making it easier to identify them. Therefore, the correct answer should be D.\n</think>\n\nAsteroids stand out in sky surveys primarily because of their motion relative to background stars. Sky surveys detect this movement, allowing them to identify asteroids effectively.",
+      "baseline_cot_token_count": 446,
+      "cot_sentences": [
+        "Okay, so I need to figure out why asteroids stand out in sky surveys.",
+        "The question gives me several options, and I have to choose the correct one.",
+        "Let me think through each option.",
+        "Option A says asteroids reflect enough sunlight to be brighter than most stars.",
+        "I know that asteroids are relatively small and don't emit their own light, so they might not be brighter than stars.",
+        "Plus, stars can vary in brightness, so maybe this isn't the main reason.",
+        "Option B suggests high rotation speed makes them stand out.",
+        "While some asteroids do rotate quickly, I'm not sure if that's what makes them noticeable in surveys.",
+        "I think surveys look for movement over time rather than rotation.",
+        "Option C claims asteroids are larger, making them easier to spot."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9046,
+      "options": [
+        "They reflect enough of the sun's light to make them brighter than most background stars",
+        "Asteroids rotate at a high speed, making them stand out",
+        "Asteroids are larger than most celestial bodies, hence easier to spot",
+        "Asteroids have substantial motion relative to the background stars",
+        "Asteroids have a distinct color that makes them stand out",
+        "Asteroids emit a lot of their own radiation",
+        "They emit a high amount of heat, making them detectable",
+        "They emit a unique sound frequency that can be detected",
+        "Asteroids emit pulsed radiation"
+      ],
+      "answer_index": 3,
+      "category": "physics"
+    },
+    {
+      "question_index": 8859,
+      "question": "What is the source of the material that causes meteor showers?",
+      "gold_answer": "J",
+      "baseline_cot": "Okay, so I need to figure out the source of the material that causes meteor showers. The options are from A to J, so I'll go through each one and see which makes the most sense.\n\nMeteor showers are something I remember from science class. They happen when the Earth passes through a stream of debris left by a comet. When the debris enters the atmosphere, they burn up, creating the bright streaks we see as meteors.\n\nLooking at the options:\n\nA. Large meteorites disintegrate... I think meteorites are larger and meteor showers are from smaller particles, so this might not be right.\n\nB. Near-Earth asteroids disintegrate... I don't recall asteroids being the main source of meteor showers. Comets are more common for that.\n\nC. Asteroid impacts elsewhere... That sounds like it's about impacts on other bodies, but meteor showers are from debris that the Earth passes through, not from other impacts.\n\nD. Disintegration of planets... Planets don't disintegrate, so this is probably wrong.\n\nE. Moon's gravity ejecting rocks... I don't think the moon ejects enough material to cause meteor showers.\n\nF. Earth passing through a comet's tail... This rings a bell. Comets leave a trail of dust and ice, and when Earth passes through, that's when we get meteor showers.\n\nG. Dust from disintegrating stars... That's too far and not relevant to our solar system.\n\nH. Near-Earth asteroids creating meteors... Again, I think comets are the main source, not asteroids for meteor showers.\n\nI. Satellites disintegrating... That's space debris, but meteor showers are natural, not from human-made objects.\n\nJ. Comet nuclei disintegrate... This also sounds correct. Comets shed material as they orbit, and Earth passes through those streams.\n\nWait, both F and J seem correct. F says it's the tail, J says it's the nucleus disintegrating along the orbit. Which is more accurate?\n\nI think meteor showers come from the debris left by the comet's nucleus as it orbits. When the comet approaches the Sun, it releases material which spreads out along its orbit. So when Earth crosses that path, we get a meteor shower.\n\nSo J might be the better answer because it's about the comet's nucleus disintegrating and spreading out along the orbit. F mentions the tail, which is more about the immediate debris around the comet, but the streams that cause meteor showers are from the comet's past orbits.\n\nWait, but I'm a bit confused. The tail is the part that's visible, but the actual debris stream that causes meteor showers is the trail left behind as the comet orbits. So maybe J is more accurate because it's about the spread along the orbit.\n\nAlternatively, F says \"the tail of a comet,\" but I think the tail is more about the gas and dust around the comet, while the debris stream is more like a trail of particles left behind over time.\n\nSo I'm leaning towards F or J. Let me think again.\n\nMeteor showers are caused when Earth passes through the debris field left by a comet. That debris field is created as the comet sheds material over its orbit. So the source is the comet's nucleus disintegrating and spreading along its path. So J is correct.\n\nWait, but option F says \"the tail of a comet,\" which is the part that's visible when the comet is near the Sun. The debris that causes meteor showers is from the comet's past visits, so it's more about the spread along the orbit rather than the current tail.\n\nSo J is correct because it's about the comet's nucleus disintegrating along its orbital path, and Earth passing through that path.\n\nWait, but I'm not entirely sure. Let me check another angle. The Perseid meteor shower, for example, is caused by the debris from Comet Swift-Tuttle. As the comet orbits, it leaves a trail of debris. When Earth passes through that trail, we get the meteor shower. So the source is the comet's nucleus shedding material along its orbit.\n\nTherefore, J is the correct answer because it's about the comet's nucleus disintegrating and spreading along the orbit. When Earth passes through, we get the meteor shower.\n\nWait, but F says \"the tail of a comet.\" The tail is more about the current release of material as the comet approaches the Sun. The debris stream that causes meteor showers is from the comet's past orbits, so it's more about the spread along the orbit, not the tail itself.\n\nSo J is the better answer.\n</think>\n\nMeteor showers occur when Earth passes through debris streams left by comets. These streams form as the comet's nucleus disintegrates and spreads particles along its orbital path. When Earth intersects this path, the particles burn up in the atmosphere, creating meteors. Option J accurately describes this process.",
+      "baseline_cot_token_count": 1000,
+      "cot_sentences": [
+        "Okay, so I need to figure out the source of the material that causes meteor showers.",
+        "The options are from A to J, so I'll go through each one and see which makes the most sense.",
+        "Meteor showers are something I remember from science class.",
+        "They happen when the Earth passes through a stream of debris left by a comet.",
+        "When the debris enters the atmosphere, they burn up, creating the bright streaks we see as meteors.",
+        "Looking at the options: A.",
+        "Large meteorites disintegrate...",
+        "I think meteorites are larger and meteor showers are from smaller particles, so this might not be right.",
+        "B.",
+        "Near-Earth asteroids disintegrate..."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ],
+      "question_id": 9048,
+      "options": [
+        "Large meteorites disintegrate in the Earth's atmosphere, creating smaller particles that cause a meteor shower.",
+        "Near-Earth asteroids gradually disintegrate and spread out along their orbital paths. When the Earth passes through the orbit of an asteroid we are bombarded by sand-sized particles that cause a meteor shower.",
+        "Asteroid impacts elsewhere in the solar system throw sand-sized particles into space and occasionally the Earth passes through a cloud of these particles which burn up in our atmosphere and cause a meteor shower.",
+        "Meteor showers are caused by the Earth passing through a cloud of dust and debris left behind by the disintegration of planets in our solar system.",
+        "The gravitational pull of the moon causes rocks on its surface to be ejected into space. These rocks then enter Earth's atmosphere and cause a meteor shower.",
+        "Meteor showers are caused by the Earth passing through the tail of a comet, where dust and ice particles are left behind.",
+        "Meteor showers are caused by the Earth passing through a cloud of dust and debris left behind by the disintegration of distant stars.",
+        "Near-Earth asteroids disintegrate as they enter Earth's atmosphere creating hundreds of bright meteors that appear to radiate from a single location in the sky.",
+        "Meteor showers are caused by the disintegration of satellites and space debris as they re-enter the Earth's atmosphere.",
+        "The nuclei of comets gradually disintegrate and spread out along their orbital paths. When the Earth passes through the orbit of an comet we are bombarded by sand-sized particles that cause a meteor shower."
+      ],
+      "answer_index": 9,
+      "category": "physics"
+    }
+  ],
+  "skipped_questions": [
+    {
+      "question_index": 8855,
+      "gold_answer": "I",
+      "baseline_pred": "B**",
+      "reason": "baseline_incorrect",
+      "question_id": 9044,
+      "answer_index": 8
+    },
+    {
+      "question_index": 8858,
+      "gold_answer": "B",
+      "baseline_pred": "B**",
+      "reason": "baseline_incorrect",
+      "question_id": 9047,
+      "answer_index": 1
+    },
+    {
+      "question_index": 8860,
+      "gold_answer": "F",
+      "baseline_pred": "F**",
+      "reason": "baseline_incorrect",
+      "question_id": 9049,
+      "answer_index": 5
+    },
+    {
+      "question_index": 8861,
+      "gold_answer": "G",
+      "baseline_pred": "Wait, maybe I got the formula wrong. Let me double-check. The condition for constructive interference when there's a phase shift of λ/2 is 2nt = (m + 0.5)λ. So yes",
+      "reason": "baseline_incorrect",
+      "question_id": 9050,
+      "answer_index": 6
+    },
+    {
+      "question_index": 8862,
+      "gold_answer": "E",
+      "baseline_pred": "Looking at the options, E is 0.242 m, which matches my calculation. But wait, let me double-check because sometimes I might",
+      "reason": "baseline_incorrect",
+      "question_id": 9051,
+      "answer_index": 4
+    },
+    {
+      "question_index": 8863,
+      "gold_answer": "C",
+      "baseline_pred": null,
+      "reason": "baseline_incorrect",
+      "question_id": 9052,
+      "answer_index": 2
+    },
+    {
+      "question_index": 8864,
+      "gold_answer": "J",
+      "baseline_pred": "should be J",
+      "reason": "baseline_incorrect",
+      "question_id": 9053,
+      "answer_index": 9
+    }
+  ]
+}

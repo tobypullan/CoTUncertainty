@@ -1,168 +1,64 @@
-{"question_index": 0, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 1334, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 1335, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 1336, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 1434, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 1435, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 1436, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 1534, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 1535, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 1536, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 1634, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 1635, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 1636, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 1734, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 1735, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 0, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 1736, "parsed_answer": "\\frac{10}{11}", "correct": true}
-{"question_index": 1, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 11334, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 11335, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 11336, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 11434, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 11435, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 11436, "parsed_answer": "n=5", "correct": false}
-{"question_index": 1, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 11534, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 11535, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 11536, "parsed_answer": "5", "correct": false}
-{"question_index": 1, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 11634, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 11635, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 11636, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 11734, "parsed_answer": "n=5", "correct": false}
-{"question_index": 1, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 11735, "parsed_answer": "n=5", "correct": false}
-{"question_index": 1, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 11736, "parsed_answer": "n=5", "correct": false}
-{"question_index": 1, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 11834, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 11835, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 11836, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 11934, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 11935, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 11936, "parsed_answer": "6", "correct": false}
-{"question_index": 1, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 12034, "parsed_answer": "n=4", "correct": false}
-{"question_index": 1, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 12035, "parsed_answer": "n=4", "correct": false}
-{"question_index": 1, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 12036, "parsed_answer": "4", "correct": true}
-{"question_index": 1, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 12134, "parsed_answer": "4", "correct": true}
-{"question_index": 1, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 12135, "parsed_answer": "4", "correct": true}
-{"question_index": 1, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 12136, "parsed_answer": "n=4", "correct": false}
-{"question_index": 2, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 21334, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 21335, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 21336, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 21434, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 21435, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 21436, "parsed_answer": "20 \\cdot 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 21534, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 21535, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 21536, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 21634, "parsed_answer": "20 \\cdot 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 21635, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 21636, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 21734, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 21735, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 21736, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 21834, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 2, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 21835, "parsed_answer": "380", "correct": true}
-{"question_index": 2, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 21836, "parsed_answer": "20 \\times 19 = 380", "correct": false}
-{"question_index": 5, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 51334, "parsed_answer": "35", "correct": false}
-{"question_index": 5, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 51335, "parsed_answer": "35", "correct": false}
-{"question_index": 5, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 51336, "parsed_answer": "35", "correct": false}
-{"question_index": 5, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 51434, "parsed_answer": "14", "correct": false}
-{"question_index": 5, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 51435, "parsed_answer": "14", "correct": false}
-{"question_index": 5, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 51436, "parsed_answer": "14", "correct": false}
-{"question_index": 5, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 51534, "parsed_answer": "49", "correct": false}
-{"question_index": 5, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 51535, "parsed_answer": "49", "correct": false}
-{"question_index": 5, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 51536, "parsed_answer": "49", "correct": false}
-{"question_index": 5, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 51634, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 51635, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 51636, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 51734, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 51735, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 51736, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 51834, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 51835, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 51836, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 51934, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 51935, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 51936, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 52034, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 52035, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 52036, "parsed_answer": "28", "correct": false}
-{"question_index": 5, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 52134, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 52135, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 52136, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 52234, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 52235, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 52236, "parsed_answer": "22", "correct": false}
-{"question_index": 5, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 52334, "parsed_answer": "21", "correct": false}
-{"question_index": 5, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 52335, "parsed_answer": "21", "correct": false}
-{"question_index": 5, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 52336, "parsed_answer": "21", "correct": false}
-{"question_index": 5, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 52434, "parsed_answer": "21", "correct": false}
-{"question_index": 5, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 52435, "parsed_answer": "21", "correct": false}
-{"question_index": 5, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 52436, "parsed_answer": "21", "correct": false}
-{"question_index": 6, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 61334, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 61335, "parsed_answer": "19680", "correct": false}
-{"question_index": 6, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 61336, "parsed_answer": "19680", "correct": false}
-{"question_index": 6, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 61434, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 61435, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 61436, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 61534, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 61535, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 61536, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 61634, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 61635, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 61636, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 61734, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 61735, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 61736, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 61834, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 61835, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 61836, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 61934, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 61935, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 61936, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 62034, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 62035, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 6, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 62036, "parsed_answer": "26^3 - 25^3 = 17576 - 15625 = 1951", "correct": false}
-{"question_index": 7, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 71334, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 71335, "parsed_answer": "28", "correct": true}
-{"question_index": 7, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 71336, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 71434, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 71435, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 71436, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 71534, "parsed_answer": "28", "correct": true}
-{"question_index": 7, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 71535, "parsed_answer": "28", "correct": true}
-{"question_index": 7, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 71536, "parsed_answer": "28", "correct": true}
-{"question_index": 7, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 71634, "parsed_answer": "\\binom{6+3-1}{3-1} = \\binom{8}{2} = \\frac{8 \\times 7}{2 \\times 1} = 28", "correct": false}
-{"question_index": 7, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 71635, "parsed_answer": "The final answer is $\\boxed{2", "correct": false}
-{"question_index": 7, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 71636, "parsed_answer": "The final answer is $\\boxed{2", "correct": false}
-{"question_index": 9, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 91334, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 91335, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 91336, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 91434, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 91435, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 91436, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 91534, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 91535, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 91536, "parsed_answer": "240", "correct": false}
-{"question_index": 9, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 91634, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 91635, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 91636, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 91734, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 91735, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 91736, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 91834, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 91835, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 91836, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 91934, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 91935, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 91936, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 92034, "parsed_answer": "6! - 2 \\cdot 5! = 720 - 2 \\cdot 120 = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 92035, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 92036, "parsed_answer": "6! - 2 \\cdot 5! = 720 - 2 \\cdot 120 = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 92134, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 92135, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 92136, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 92234, "parsed_answer": "Thus, the number of ways to stack the 6 books such that the two math books are not next", "correct": false}
-{"question_index": 9, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 92235, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 92236, "parsed_answer": "720 - 2 \\cdot 5! = 720 - 2 \\cdot 120 = 720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 92334, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 92335, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 92336, "parsed_answer": "720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 92434, "parsed_answer": "720 - 240 = 480", "correct": false}
-{"question_index": 9, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 92435, "parsed_answer": "480", "correct": true}
-{"question_index": 9, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 92436, "parsed_answer": "720 - 240 = 480", "correct": false}
+{"question_index": 0, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 1334, "parsed_answer": "Okay, so I need to convert the rectangular coordinates (0, 3) to polar coordinates. Hmm, let me remember how to do this. I think polar coordinates are represented as (r, θ), where r is the distance from the origin and θ is the angle made with the positive x-axis", "correct": false}
+{"question_index": 0, "sentence_count": 1, "reasoning_mode": "sentence_prefix", "seed": 1335, "parsed_answer": "Okay, so I need to convert the rectangular coordinates (0, 3) to polar coordinates. Hmm, let me remember how to do this. I think polar coordinates are represented as (r, θ), where r is the distance from the origin and θ is the angle made with the positive x-axis", "correct": false}
+{"question_index": 0, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 1434, "parsed_answer": "First, I should", "correct": false}
+{"question_index": 0, "sentence_count": 2, "reasoning_mode": "sentence_prefix", "seed": 1435, "parsed_answer": "First, I should recall the", "correct": false}
+{"question_index": 0, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 1534, "parsed_answer": "First, I remember that in polar coordinates, a point is represented by (r, θ), where r is the distance from the origin to the", "correct": false}
+{"question_index": 0, "sentence_count": 3, "reasoning_mode": "sentence_prefix", "seed": 1535, "parsed_answer": "First, I think about how to find", "correct": false}
+{"question_index": 0, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 1634, "parsed_answer": "First", "correct": false}
+{"question_index": 0, "sentence_count": 4, "reasoning_mode": "sentence_prefix", "seed": 1635, "parsed_answer": "First, I", "correct": false}
+{"question_index": 0, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 1734, "parsed_answer": "First, I should find r. I", "correct": false}
+{"question_index": 0, "sentence_count": 5, "reasoning_mode": "sentence_prefix", "seed": 1735, "parsed_answer": "First, I need", "correct": false}
+{"question_index": 0, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 1834, "parsed_answer": "First, the formula for r is the square root of (x squared plus y squared). So, r = sqrt(x² + y²). In this case", "correct": false}
+{"question_index": 0, "sentence_count": 6, "reasoning_mode": "sentence_prefix", "seed": 1835, "parsed_answer": "First", "correct": false}
+{"question_index": 0, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 1934, "parsed_answer": "First, I need to find", "correct": false}
+{"question_index": 0, "sentence_count": 7, "reasoning_mode": "sentence_prefix", "seed": 1935, "parsed_answer": "First, I'll calculate r using", "correct": false}
+{"question_index": 0, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 2034, "parsed_answer": "First, I'll calculate r using the", "correct": false}
+{"question_index": 0, "sentence_count": 8, "reasoning_mode": "sentence_prefix", "seed": 2035, "parsed_answer": "First, I remember that to find r, I", "correct": false}
+{"question_index": 0, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 2134, "parsed_answer": "First, I'll figure out r", "correct": false}
+{"question_index": 0, "sentence_count": 9, "reasoning_mode": "sentence_prefix", "seed": 2135, "parsed_answer": "First", "correct": false}
+{"question_index": 0, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 2234, "parsed_answer": "First, I", "correct": false}
+{"question_index": 0, "sentence_count": 10, "reasoning_mode": "sentence_prefix", "seed": 2235, "parsed_answer": "First, I'll calculate r. The formula for", "correct": false}
+{"question_index": 0, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 2334, "parsed_answer": "First, I'll calculate", "correct": false}
+{"question_index": 0, "sentence_count": 11, "reasoning_mode": "sentence_prefix", "seed": 2335, "parsed_answer": "First, I'll calculate r using the formula r =", "correct": false}
+{"question_index": 0, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 2434, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 12, "reasoning_mode": "sentence_prefix", "seed": 2435, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 13, "reasoning_mode": "sentence_prefix", "seed": 2534, "parsed_answer": "First, let me find r", "correct": false}
+{"question_index": 0, "sentence_count": 13, "reasoning_mode": "sentence_prefix", "seed": 2535, "parsed_answer": "First, let's find r", "correct": false}
+{"question_index": 0, "sentence_count": 14, "reasoning_mode": "sentence_prefix", "seed": 2634, "parsed_answer": "First, the formula for r is straightforward. It's the distance from the origin to the point, which can be found using the Pythagorean theorem. So", "correct": false}
+{"question_index": 0, "sentence_count": 14, "reasoning_mode": "sentence_prefix", "seed": 2635, "parsed_answer": "First, I'll find r. The formula for", "correct": false}
+{"question_index": 0, "sentence_count": 15, "reasoning_mode": "sentence_prefix", "seed": 2734, "parsed_answer": "First, I need to find r. The", "correct": false}
+{"question_index": 0, "sentence_count": 15, "reasoning_mode": "sentence_prefix", "seed": 2735, "parsed_answer": "First, I'll calculate", "correct": false}
+{"question_index": 0, "sentence_count": 16, "reasoning_mode": "sentence_prefix", "seed": 2834, "parsed_answer": "First, I'll calculate r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 16, "reasoning_mode": "sentence_prefix", "seed": 2835, "parsed_answer": "First, the radius r is calculated using the formula r = sqrt(x² + y²). In this case, the point is (0, 3)", "correct": false}
+{"question_index": 0, "sentence_count": 17, "reasoning_mode": "sentence_prefix", "seed": 2934, "parsed_answer": "First, I'll calculate r using the formula r", "correct": false}
+{"question_index": 0, "sentence_count": 17, "reasoning_mode": "sentence_prefix", "seed": 2935, "parsed_answer": "First, I'll calculate r using the formula r", "correct": false}
+{"question_index": 0, "sentence_count": 18, "reasoning_mode": "sentence_prefix", "seed": 3034, "parsed_answer": "First, I'll calculate r. The formula for", "correct": false}
+{"question_index": 0, "sentence_count": 18, "reasoning_mode": "sentence_prefix", "seed": 3035, "parsed_answer": "First, let's find r. The formula for", "correct": false}
+{"question_index": 0, "sentence_count": 19, "reasoning_mode": "sentence_prefix", "seed": 3134, "parsed_answer": "First, I'll calculate r using the formula r", "correct": false}
+{"question_index": 0, "sentence_count": 19, "reasoning_mode": "sentence_prefix", "seed": 3135, "parsed_answer": "First, I know that the radius r in polar coordinates is found using the Pythagorean theorem. The formula is r = sqrt(x² + y²). Here", "correct": false}
+{"question_index": 0, "sentence_count": 20, "reasoning_mode": "sentence_prefix", "seed": 3234, "parsed_answer": "First, I'll calculate r using the formula r", "correct": false}
+{"question_index": 0, "sentence_count": 20, "reasoning_mode": "sentence_prefix", "seed": 3235, "parsed_answer": "First, polar coordinates are given as (r, θ), where r is the distance from the origin, and θ is the angle measured from the positive", "correct": false}
+{"question_index": 0, "sentence_count": 21, "reasoning_mode": "sentence_prefix", "seed": 3334, "parsed_answer": "First, I'll calculate r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 21, "reasoning_mode": "sentence_prefix", "seed": 3335, "parsed_answer": "First, the radius r is calculated using the Pythagorean theorem. The formula is r = sqrt(x² + y²). In this case, x is", "correct": false}
+{"question_index": 0, "sentence_count": 22, "reasoning_mode": "sentence_prefix", "seed": 3434, "parsed_answer": "First, I'll find r using the formula r =", "correct": false}
+{"question_index": 0, "sentence_count": 22, "reasoning_mode": "sentence_prefix", "seed": 3435, "parsed_answer": "First, I'll calculate", "correct": false}
+{"question_index": 0, "sentence_count": 23, "reasoning_mode": "sentence_prefix", "seed": 3534, "parsed_answer": "First, I'll find r. The", "correct": false}
+{"question_index": 0, "sentence_count": 23, "reasoning_mode": "sentence_prefix", "seed": 3535, "parsed_answer": "First, I'll calculate r. The formula for r", "correct": false}
+{"question_index": 0, "sentence_count": 24, "reasoning_mode": "sentence_prefix", "seed": 3634, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 24, "reasoning_mode": "sentence_prefix", "seed": 3635, "parsed_answer": "First, I'll calculate r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 25, "reasoning_mode": "sentence_prefix", "seed": 3734, "parsed_answer": "First, I'll calculate r using the formula r = sqrt(x", "correct": false}
+{"question_index": 0, "sentence_count": 25, "reasoning_mode": "sentence_prefix", "seed": 3735, "parsed_answer": "First, I'll calculate r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 26, "reasoning_mode": "sentence_prefix", "seed": 3834, "parsed_answer": "First, I'll calculate r using the", "correct": false}
+{"question_index": 0, "sentence_count": 26, "reasoning_mode": "sentence_prefix", "seed": 3835, "parsed_answer": "First, I'll calculate r using the formula r", "correct": false}
+{"question_index": 0, "sentence_count": 27, "reasoning_mode": "sentence_prefix", "seed": 3934, "parsed_answer": "First, I", "correct": false}
+{"question_index": 0, "sentence_count": 27, "reasoning_mode": "sentence_prefix", "seed": 3935, "parsed_answer": "r = \\sqrt{x^", "correct": false}
+{"question_index": 0, "sentence_count": 28, "reasoning_mode": "sentence_prefix", "seed": 4034, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 28, "reasoning_mode": "sentence_prefix", "seed": 4035, "parsed_answer": "First", "correct": false}
+{"question_index": 0, "sentence_count": 29, "reasoning_mode": "sentence_prefix", "seed": 4134, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 29, "reasoning_mode": "sentence_prefix", "seed": 4135, "parsed_answer": "First, I'll calculate r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 30, "reasoning_mode": "sentence_prefix", "seed": 4234, "parsed_answer": "First", "correct": false}
+{"question_index": 0, "sentence_count": 30, "reasoning_mode": "sentence_prefix", "seed": 4235, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 31, "reasoning_mode": "sentence_prefix", "seed": 4334, "parsed_answer": "First, I'll calculate r using the formula \\(", "correct": false}
+{"question_index": 0, "sentence_count": 31, "reasoning_mode": "sentence_prefix", "seed": 4335, "parsed_answer": "First, I'll find r using the formula", "correct": false}
+{"question_index": 0, "sentence_count": 32, "reasoning_mode": "sentence_prefix", "seed": 4434, "parsed_answer": "First, I'll calculate r. The formula", "correct": false}
+{"question_index": 0, "sentence_count": 32, "reasoning_mode": "sentence_prefix", "seed": 4435, "parsed_answer": "First, I need to find", "correct": false}

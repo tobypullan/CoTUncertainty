@@ -192,37 +192,131 @@ def generate_text(
     seed: Optional[int] = None,
     allowed_token_ids: Optional[List[int]] = None,
 ) -> str:
+    outputs = generate_text_samples(
+        model=model,
+        tokenizer=tokenizer,
+        prompt=prompt,
+        max_new_tokens=max_new_tokens,
+        do_sample=do_sample,
+        temperature=temperature,
+        top_p=top_p,
+        seed=seed,
+        allowed_token_ids=allowed_token_ids,
+        num_samples=1,
+    )
+    return outputs[0]
+
+
+def _resolve_max_new_tokens(
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
+    prompt_token_count: int,
+    max_new_tokens: Optional[int],
+) -> int:
+    if max_new_tokens is not None:
+        return max_new_tokens
+
+    limit = getattr(model.config, "max_position_embeddings", None)
+    if not isinstance(limit, int) or limit <= 0:
+        limit = getattr(tokenizer, "model_max_length", None)
+    if not isinstance(limit, int) or limit <= 0 or limit > 100000:
+        limit = 4096
+    return max(1, limit - prompt_token_count)
+
+
+def generate_text_samples(
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
+    prompt: str,
+    max_new_tokens: Optional[int],
+    do_sample: bool,
+    temperature: float,
+    top_p: float,
+    seed: Optional[int] = None,
+    allowed_token_ids: Optional[List[int]] = None,
+    num_samples: int = 1,
+) -> List[str]:
+    if num_samples < 1:
+        raise ValueError("num_samples must be >= 1.")
+
     if seed is not None:
         set_seed(seed)
+
     inputs = tokenizer(prompt, return_tensors="pt")
     inputs = {k: v.to(model.device) for k, v in inputs.items()}
-
-    if max_new_tokens is None:
-        limit = getattr(model.config, "max_position_embeddings", None)
-        if not isinstance(limit, int) or limit <= 0:
-            limit = getattr(tokenizer, "model_max_length", None)
-        if not isinstance(limit, int) or limit <= 0 or limit > 100000:
-            limit = 4096
-        max_new_tokens = max(1, limit - inputs["input_ids"].shape[1])
+    prompt_token_count = inputs["input_ids"].shape[1]
+    resolved_max_new_tokens = _resolve_max_new_tokens(
+        model=model,
+        tokenizer=tokenizer,
+        prompt_token_count=prompt_token_count,
+        max_new_tokens=max_new_tokens,
+    )
 
     gen_kwargs = {
-        "max_new_tokens": max_new_tokens,
+        "max_new_tokens": resolved_max_new_tokens,
         "do_sample": do_sample,
         "pad_token_id": tokenizer.eos_token_id,
     }
+    if num_samples > 1:
+        gen_kwargs["num_return_sequences"] = num_samples
     if do_sample:
         gen_kwargs["temperature"] = temperature
         gen_kwargs["top_p"] = top_p
+
     if allowed_token_ids:
         def _allowed(_batch_id: int, _input_ids: torch.Tensor) -> List[int]:
             return allowed_token_ids
+
         gen_kwargs["prefix_allowed_tokens_fn"] = _allowed
 
     with torch.inference_mode():
         output_ids = model.generate(**inputs, **gen_kwargs)
 
-    generated = output_ids[0, inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated, skip_special_tokens=True)
+    generated_ids = output_ids[:, prompt_token_count:]
+    return [
+        tokenizer.decode(sequence, skip_special_tokens=True)
+        for sequence in generated_ids
+    ]
+
+
+def generate_repeated_samples(
+    model: AutoModelForCausalLM,
+    tokenizer: AutoTokenizer,
+    prompt: str,
+    max_new_tokens: Optional[int],
+    temperature: float,
+    top_p: float,
+    num_samples: int,
+    seed_base: int,
+    sample_batch_size: int,
+) -> List[str]:
+    if num_samples < 1:
+        raise ValueError("num_samples must be >= 1.")
+
+    effective_batch_size = sample_batch_size
+    if effective_batch_size <= 0:
+        effective_batch_size = num_samples
+
+    outputs: List[str] = []
+    produced = 0
+    while produced < num_samples:
+        current_batch = min(effective_batch_size, num_samples - produced)
+        chunk_seed = seed_base + produced
+        outputs.extend(
+            generate_text_samples(
+                model=model,
+                tokenizer=tokenizer,
+                prompt=prompt,
+                max_new_tokens=max_new_tokens,
+                do_sample=True,
+                temperature=temperature,
+                top_p=top_p,
+                seed=chunk_seed,
+                num_samples=current_batch,
+            )
+        )
+        produced += current_batch
+    return outputs
 
 
 def split_sentences(text: str) -> List[str]:
@@ -434,6 +528,11 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
     torch.set_float32_matmul_precision("high")
     if args.token_stride < 1:
         raise ValueError("--token-stride must be >= 1.")
+    if args.num_repeats < 1:
+        raise ValueError("--num-repeats must be >= 1.")
+    repeat_batch_size = args.repeat_batch_size
+    if repeat_batch_size <= 0:
+        repeat_batch_size = args.num_repeats
 
     datasets_cache_dir = os.environ.get("HF_DATASETS_CACHE")
     hub_cache_dir = os.environ.get("HF_HUB_CACHE") or os.environ.get("TRANSFORMERS_CACHE")
@@ -627,19 +726,21 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                     resampled_input = answer_prompt_text
                     correct = 0
                     run_outputs: List[Dict[str, Any]] = []
+                    seed_base = args.seed + (run_idx * 10000) + (k * 100)
+                    answer_outputs = generate_repeated_samples(
+                        model=model,
+                        tokenizer=tokenizer,
+                        prompt=answer_prompt,
+                        max_new_tokens=args.answer_max_new_tokens,
+                        temperature=args.answer_temperature,
+                        top_p=args.answer_top_p,
+                        num_samples=args.num_repeats,
+                        seed_base=seed_base,
+                        sample_batch_size=repeat_batch_size,
+                    )
 
-                    for r in range(args.num_repeats):
-                        seed = args.seed + (run_idx * 10000) + (k * 100) + r
-                        answer_output = generate_text(
-                            model,
-                            tokenizer,
-                            answer_prompt,
-                            max_new_tokens=args.answer_max_new_tokens,
-                            do_sample=True,
-                            temperature=args.answer_temperature,
-                            top_p=args.answer_top_p,
-                            seed=seed,
-                        )
+                    for r, answer_output in enumerate(answer_outputs):
+                        seed = seed_base + r
                         pred = parse_model_answer(answer_output)
                         is_correct = answers_match(pred, gold_answer)
                         if is_correct:
@@ -730,19 +831,21 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
                 resampled_input = answer_prompt_text
                 correct = 0
                 run_outputs: List[Dict[str, Any]] = []
+                seed_base = args.seed + (run_idx * 10000) + (k * 100)
+                answer_outputs = generate_repeated_samples(
+                    model=model,
+                    tokenizer=tokenizer,
+                    prompt=answer_prompt,
+                    max_new_tokens=args.answer_max_new_tokens,
+                    temperature=args.answer_temperature,
+                    top_p=args.answer_top_p,
+                    num_samples=args.num_repeats,
+                    seed_base=seed_base,
+                    sample_batch_size=repeat_batch_size,
+                )
 
-                for r in range(args.num_repeats):
-                    seed = args.seed + (run_idx * 10000) + (k * 100) + r
-                    answer_output = generate_text(
-                        model,
-                        tokenizer,
-                        answer_prompt,
-                        max_new_tokens=args.answer_max_new_tokens,
-                        do_sample=True,
-                        temperature=args.answer_temperature,
-                        top_p=args.answer_top_p,
-                        seed=seed,
-                    )
+                for r, answer_output in enumerate(answer_outputs):
+                    seed = seed_base + r
                     pred = parse_model_answer(answer_output)
                     is_correct = answers_match(pred, gold_answer)
                     if is_correct:
@@ -915,6 +1018,7 @@ def run_experiment(args: argparse.Namespace) -> Dict[str, Any]:
         },
         "primary_plot_mode": primary_plot_mode,
         "mode_usage": mode_usage,
+        "repeat_batch_size": repeat_batch_size,
         "underscore_token_sweep_triggered": mode_usage["underscore_token_sweep"] > 0,
         "sentence_prefix_triggered": mode_usage["sentence_prefix"] > 0,
         "baseline_cot_path": display_path(baseline_path),
@@ -980,6 +1084,15 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=5,
         help="Number of samples per x-axis step (sentence or token step)",
+    )
+    parser.add_argument(
+        "--repeat-batch-size",
+        type=int,
+        default=0,
+        help=(
+            "How many repeat samples to generate per `model.generate` call. "
+            "Use 0 to auto-batch all repeats together."
+        ),
     )
     parser.add_argument(
         "--num-questions",

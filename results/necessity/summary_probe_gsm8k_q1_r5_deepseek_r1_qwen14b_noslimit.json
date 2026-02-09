@@ -1,0 +1,238 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+  "dataset": "openai/gsm8k",
+  "dataset_config": "main",
+  "split": "test",
+  "category_filter": null,
+  "num_questions_available_after_filter": 1319,
+  "num_questions_requested": 1,
+  "num_questions_used": 1,
+  "num_questions_skipped": 0,
+  "output_path": "results/necessity/summary_probe_gsm8k_q1_r5_deepseek_r1_qwen14b_noslimit.json",
+  "plot_path": "results/necessity/plot_probe_gsm8k_q1_r5_deepseek_r1_qwen14b_noslimit.png",
+  "plot_paths_by_mode": {
+    "sentence_prefix": "results/necessity/plot_probe_gsm8k_q1_r5_deepseek_r1_qwen14b_noslimit.png",
+    "underscore_token_sweep": null
+  },
+  "primary_plot_mode": "sentence_prefix",
+  "mode_usage": {
+    "sentence_prefix": 1,
+    "underscore_token_sweep": 0
+  },
+  "underscore_token_sweep_triggered": false,
+  "sentence_prefix_triggered": true,
+  "baseline_cot_path": "results/necessity/baseline_cot.jsonl",
+  "resampled_cot_path": "results/necessity/resampled_cot.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 2,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 3,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 4,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 7,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 8,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 9,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    }
+  ],
+  "aggregated_results_by_mode": {
+    "sentence_prefix": [
+      {
+        "sentence_count": 1,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 2,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 3,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 4,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 5,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 6,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 7,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 8,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 9,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 10,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      }
+    ],
+    "underscore_token_sweep": []
+  },
+  "question_results": [
+    {
+      "question_index": 0,
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "gold_answer": "18",
+      "baseline_cot": "First, I need to determine the total number of eggs Janet's ducks lay each day, which is 16 eggs.\n\nNext, I'll calculate the number of eggs Janet uses every day. She eats 3 eggs for breakfast and uses 4 eggs for baking muffins, so she uses a total of 3 + 4 = 7 eggs daily.\n\nThen, I'll find out how many eggs are left after her daily use by subtracting the eggs used from the total eggs laid: 16 - 7 = 9 eggs.\n\nFinally, I'll calculate Janet's daily earnings by multiplying the number of eggs she sells by the price per egg: 9 eggs * $2/egg = $18.\n</think>\n\nTo determine how much Janet makes at the farmers' market each day, follow these steps:\n\n1. **Total eggs laid per day:**  \n   \\(16\\) eggs\n\n2. **Eggs used daily:**  \n   - Breakfast: \\(3\\) eggs  \n   - Baking muffins: \\(4\\) eggs  \n   **Total:** \\(3 + 4 = 7\\) eggs\n\n3. **Eggs available for sale:**  \n   \\(16 - 7 = 9\\) eggs\n\n4. **Earnings from selling eggs:**  \n   \\(9 \\text{ eggs} \\times \\$2/\\text{egg} = \\$18\\)\n\n**Final Answer:** \\boxed{18}",
+      "baseline_cot_token_count": 297,
+      "cot_sentences": [
+        "First, I need to determine the total number of eggs Janet's ducks lay each day, which is 16 eggs.",
+        "Next, I'll calculate the number of eggs Janet uses every day.",
+        "She eats 3 eggs for breakfast and uses 4 eggs for baking muffins, so she uses a total of 3 + 4 = 7 eggs daily.",
+        "Then, I'll find out how many eggs are left after her daily use by subtracting the eggs used from the total eggs laid: 16 - 7 = 9 eggs.",
+        "Finally, I'll calculate Janet's daily earnings by multiplying the number of eggs she sells by the price per egg: 9 eggs * $2/egg = $18.",
+        "</think> To determine how much Janet makes at the farmers' market each day, follow these steps: 1.",
+        "**Total eggs laid per day:** \\(16\\) eggs 2.",
+        "**Eggs used daily:** - Breakfast: \\(3\\) eggs - Baking muffins: \\(4\\) eggs **Total:** \\(3 + 4 = 7\\) eggs 3.",
+        "**Eggs available for sale:** \\(16 - 7 = 9\\) eggs 4.",
+        "**Earnings from selling eggs:** \\(9 \\text{ eggs} \\times \\$2/\\text{egg} = \\$18\\) **Final Answer:** \\boxed{18}"
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ]
+    }
+  ],
+  "skipped_questions": []
+}

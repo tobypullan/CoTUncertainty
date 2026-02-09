@@ -1,0 +1,657 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+  "dataset": "HuggingFaceH4/MATH-500",
+  "dataset_config": null,
+  "split": "test",
+  "category_filter": null,
+  "num_questions_available_after_filter": 500,
+  "num_questions_requested": 1,
+  "num_questions_used": 1,
+  "num_questions_skipped": 0,
+  "output_path": "results/necessity/summary.json",
+  "plot_path": "results/necessity/plot.png",
+  "plot_paths_by_mode": {
+    "sentence_prefix": "results/necessity/plot.png",
+    "underscore_token_sweep": null
+  },
+  "primary_plot_mode": "sentence_prefix",
+  "mode_usage": {
+    "sentence_prefix": 1,
+    "underscore_token_sweep": 0
+  },
+  "repeat_batch_size": 2,
+  "underscore_token_sweep_triggered": false,
+  "sentence_prefix_triggered": true,
+  "baseline_cot_path": "results/necessity/baseline_cot.jsonl",
+  "resampled_cot_path": "results/necessity/resampled_cot.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 2,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 3,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 4,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 7,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 8,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 9,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 11,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 12,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 13,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 14,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 15,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 16,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 17,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 18,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 19,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 20,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 21,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 22,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 23,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 24,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 25,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 26,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 27,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 28,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 29,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 30,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 31,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 32,
+      "correct": 0,
+      "total": 2,
+      "percent_correct": 0.0
+    }
+  ],
+  "aggregated_results_by_mode": {
+    "sentence_prefix": [
+      {
+        "sentence_count": 1,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 2,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 3,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 4,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 5,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 6,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 7,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 8,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 9,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 10,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 11,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 12,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 13,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 14,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 15,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 16,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 17,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 18,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 19,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 20,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 21,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 22,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 23,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 24,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 25,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 26,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 27,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 28,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 29,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 30,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 31,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 32,
+        "correct": 0,
+        "total": 2,
+        "percent_correct": 0.0
+      }
+    ],
+    "underscore_token_sweep": []
+  },
+  "question_results": [
+    {
+      "question_index": 0,
+      "question": "Convert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$",
+      "gold_answer": "( 3, \\frac{\\pi}{2} )",
+      "baseline_cot": "Okay, so I have to convert the rectangular coordinates (0, 3) to polar coordinates. Hmm, I remember that polar coordinates are represented as (r, θ), where r is the distance from the origin and θ is the angle made with the positive x-axis.\n\nFirst, let me recall the formulas for converting from rectangular (x, y) to polar (r, θ). I think r is calculated using the Pythagorean theorem, so r = sqrt(x² + y²). That makes sense because r is the hypotenuse of the right triangle formed by x and y.\n\nIn this case, the point is (0, 3), so x is 0 and y is 3. Plugging into the formula, r = sqrt(0² + 3²) = sqrt(0 + 9) = sqrt(9) = 3. Okay, so r is 3. That seems straightforward.\n\nNow, I need to find θ. The formula for θ is usually θ = arctan(y/x), right? But wait, in this case, x is 0, so I can't just do arctan(3/0) because division by zero is undefined. Hmm, so I need to think about what angle θ corresponds to the point (0, 3) in polar coordinates.\n\nSince x is 0, the point lies on the y-axis. If I imagine the unit circle, the point (0, 1) is at θ = π/2. So, scaling that up, (0, 3) should be in the same direction, just further out. Therefore, θ should be π/2 radians.\n\nWait, let me confirm. When x is 0 and y is positive, the angle is indeed π/2. If x were 0 and y negative, it would be 3π/2. So, yes, θ is π/2 here.\n\nSo putting it all together, the polar coordinates are (3, π/2). Let me just visualize this to make sure. Starting from the origin, moving 3 units in the direction of π/2 radians, which is straight up along the y-axis. Yep, that lands at (0, 3) in rectangular coordinates. So that checks out.\n\nI don't think I made any mistakes here. The calculation for r was simple, and recognizing the position on the y-axis gave me θ without needing to compute arctan, which would have been undefined in this case. So I'm confident the answer is correct.\n</think>\n\nTo convert the point (0, 3) to polar coordinates:\n\n1. Calculate \\( r \\) using \\( r = \\sqrt{x^2 + y^2} \\):\n   \\[\n   r = \\sqrt{0^2 + 3^2} = \\sqrt{9} = 3\n   \\]\n\n2. Determine \\( \\theta \\) since the point lies on the positive y-axis:\n   \\[\n   \\theta = \\frac{\\pi}{2}\n   \\]\n\nThus, the polar coordinates are \\( (3, \\frac{\\pi}{2}) \\).",
+      "baseline_cot_token_count": 657,
+      "cot_sentences": [
+        "Okay, so I have to convert the rectangular coordinates (0, 3) to polar coordinates.",
+        "Hmm, I remember that polar coordinates are represented as (r, θ), where r is the distance from the origin and θ is the angle made with the positive x-axis.",
+        "First, let me recall the formulas for converting from rectangular (x, y) to polar (r, θ).",
+        "I think r is calculated using the Pythagorean theorem, so r = sqrt(x² + y²).",
+        "That makes sense because r is the hypotenuse of the right triangle formed by x and y.",
+        "In this case, the point is (0, 3), so x is 0 and y is 3.",
+        "Plugging into the formula, r = sqrt(0² + 3²) = sqrt(0 + 9) = sqrt(9) = 3.",
+        "Okay, so r is 3.",
+        "That seems straightforward.",
+        "Now, I need to find θ.",
+        "The formula for θ is usually θ = arctan(y/x), right?",
+        "But wait, in this case, x is 0, so I can't just do arctan(3/0) because division by zero is undefined.",
+        "Hmm, so I need to think about what angle θ corresponds to the point (0, 3) in polar coordinates.",
+        "Since x is 0, the point lies on the y-axis.",
+        "If I imagine the unit circle, the point (0, 1) is at θ = π/2.",
+        "So, scaling that up, (0, 3) should be in the same direction, just further out.",
+        "Therefore, θ should be π/2 radians.",
+        "Wait, let me confirm.",
+        "When x is 0 and y is positive, the angle is indeed π/2.",
+        "If x were 0 and y negative, it would be 3π/2.",
+        "So, yes, θ is π/2 here.",
+        "So putting it all together, the polar coordinates are (3, π/2).",
+        "Let me just visualize this to make sure.",
+        "Starting from the origin, moving 3 units in the direction of π/2 radians, which is straight up along the y-axis.",
+        "Yep, that lands at (0, 3) in rectangular coordinates.",
+        "So that checks out.",
+        "I don't think I made any mistakes here.",
+        "The calculation for r was simple, and recognizing the position on the y-axis gave me θ without needing to compute arctan, which would have been undefined in this case.",
+        "So I'm confident the answer is correct.",
+        "</think> To convert the point (0, 3) to polar coordinates: 1.",
+        "Calculate \\( r \\) using \\( r = \\sqrt{x^2 + y^2} \\): \\[ r = \\sqrt{0^2 + 3^2} = \\sqrt{9} = 3 \\] 2.",
+        "Determine \\( \\theta \\) since the point lies on the positive y-axis: \\[ \\theta = \\frac{\\pi}{2} \\] Thus, the polar coordinates are \\( (3, \\frac{\\pi}{2}) \\)."
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 14,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 15,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 16,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 17,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 18,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 19,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 20,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 21,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 22,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 23,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 24,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 25,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 26,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 27,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 28,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 29,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 30,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 31,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 32,
+          "correct": 0,
+          "total": 2,
+          "percent_correct": 0.0
+        }
+      ]
+    }
+  ],
+  "skipped_questions": []
+}

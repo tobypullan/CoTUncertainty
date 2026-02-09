@@ -258,6 +258,8 @@ def _strip_math_wrappers(text: str) -> str:
 
 def _normalize_math_text(text: str) -> str:
     normalized = text.strip()
+    # GSM8K answers are often formatted as "#### <answer>".
+    normalized = re.sub(r"^\s*#{2,}\s*", "", normalized)
     normalized = normalized.replace("−", "-")
     normalized = normalized.replace("\\left", "")
     normalized = normalized.replace("\\right", "")

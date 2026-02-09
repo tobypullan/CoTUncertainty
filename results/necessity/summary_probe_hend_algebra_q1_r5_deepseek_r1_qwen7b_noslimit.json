@@ -1,0 +1,296 @@
+{
+  "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+  "dataset": "EleutherAI/hendrycks_math",
+  "dataset_config": "algebra",
+  "split": "test",
+  "category_filter": null,
+  "num_questions_available_after_filter": 1187,
+  "num_questions_requested": 1,
+  "num_questions_used": 1,
+  "num_questions_skipped": 0,
+  "output_path": "results/necessity/summary_probe_hend_algebra_q1_r5_deepseek_r1_qwen7b_noslimit.json",
+  "plot_path": "results/necessity/plot_probe_hend_algebra_q1_r5_deepseek_r1_qwen7b_noslimit.png",
+  "plot_paths_by_mode": {
+    "sentence_prefix": "results/necessity/plot_probe_hend_algebra_q1_r5_deepseek_r1_qwen7b_noslimit.png",
+    "underscore_token_sweep": null
+  },
+  "primary_plot_mode": "sentence_prefix",
+  "mode_usage": {
+    "sentence_prefix": 1,
+    "underscore_token_sweep": 0
+  },
+  "repeat_batch_size": 5,
+  "underscore_token_sweep_triggered": false,
+  "sentence_prefix_triggered": true,
+  "baseline_cot_path": "results/necessity/baseline_cot.jsonl",
+  "resampled_cot_path": "results/necessity/resampled_cot.jsonl",
+  "aggregated_results": [
+    {
+      "sentence_count": 1,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 2,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 3,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 4,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 5,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 6,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 7,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 8,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 9,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 10,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 11,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 12,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    },
+    {
+      "sentence_count": 13,
+      "correct": 0,
+      "total": 5,
+      "percent_correct": 0.0
+    }
+  ],
+  "aggregated_results_by_mode": {
+    "sentence_prefix": [
+      {
+        "sentence_count": 1,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 2,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 3,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 4,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 5,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 6,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 7,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 8,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 9,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 10,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 11,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 12,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      },
+      {
+        "sentence_count": 13,
+        "correct": 0,
+        "total": 5,
+        "percent_correct": 0.0
+      }
+    ],
+    "underscore_token_sweep": []
+  },
+  "question_results": [
+    {
+      "question_index": 0,
+      "question": "How many vertical asymptotes does the graph of $y=\\frac{2}{x^2+x-6}$ have?",
+      "gold_answer": "2",
+      "baseline_cot": "To determine the number of vertical asymptotes for the function \\( y = \\frac{2}{x^2 + x - 6} \\), I first identify the denominator and set it equal to zero to find its roots.\n\nFactoring the denominator \\( x^2 + x - 6 \\) gives \\( (x + 3)(x - 2) \\). This means the denominator equals zero when \\( x = -3 \\) and \\( x = 2 \\).\n\nSince the numerator is a constant (2) and doesn't cancel out with any factors in the denominator, each root of the denominator corresponds to a vertical asymptote.\n\nTherefore, the function has vertical asymptotes at \\( x = -3 \\) and \\( x = 2 \\), resulting in a total of two vertical asymptotes.\n</think>\n\nTo determine the number of vertical asymptotes for the function \\( y = \\frac{2}{x^2 + x - 6} \\), follow these steps:\n\n1. **Identify the denominator and set it equal to zero:**\n   \\[\n   x^2 + x - 6 = 0\n   \\]\n\n2. **Factor the quadratic equation:**\n   \\[\n   x^2 + x - 6 = (x + 3)(x - 2) = 0\n   \\]\n\n3. **Find the roots of the equation:**\n   \\[\n   x + 3 = 0 \\quad \\Rightarrow \\quad x = -3\n   \\]\n   \\[\n   x - 2 = 0 \\quad \\Rightarrow \\quad x = 2\n   \\]\n\n4. **Determine the vertical asymptotes:**\n   Since the numerator \\( 2 \\) does not cancel out any factors in the denominator, the function has vertical asymptotes at \\( x = -3 \\) and \\( x = 2 \\).\n\n5. **Count the number of vertical asymptotes:**\n   There are **two** vertical asymptotes.\n\n**Final Answer:**\n\n\\boxed{2}",
+      "baseline_cot_token_count": 420,
+      "cot_sentences": [
+        "To determine the number of vertical asymptotes for the function \\( y = \\frac{2}{x^2 + x - 6} \\), I first identify the denominator and set it equal to zero to find its roots.",
+        "Factoring the denominator \\( x^2 + x - 6 \\) gives \\( (x + 3)(x - 2) \\).",
+        "This means the denominator equals zero when \\( x = -3 \\) and \\( x = 2 \\).",
+        "Since the numerator is a constant (2) and doesn't cancel out with any factors in the denominator, each root of the denominator corresponds to a vertical asymptote.",
+        "Therefore, the function has vertical asymptotes at \\( x = -3 \\) and \\( x = 2 \\), resulting in a total of two vertical asymptotes.",
+        "</think> To determine the number of vertical asymptotes for the function \\( y = \\frac{2}{x^2 + x - 6} \\), follow these steps: 1.",
+        "**Identify the denominator and set it equal to zero:** \\[ x^2 + x - 6 = 0 \\] 2.",
+        "**Factor the quadratic equation:** \\[ x^2 + x - 6 = (x + 3)(x - 2) = 0 \\] 3.",
+        "**Find the roots of the equation:** \\[ x + 3 = 0 \\quad \\Rightarrow \\quad x = -3 \\] \\[ x - 2 = 0 \\quad \\Rightarrow \\quad x = 2 \\] 4.",
+        "**Determine the vertical asymptotes:** Since the numerator \\( 2 \\) does not cancel out any factors in the denominator, the function has vertical asymptotes at \\( x = -3 \\) and \\( x = 2 \\).",
+        "5.",
+        "**Count the number of vertical asymptotes:** There are **two** vertical asymptotes.",
+        "**Final Answer:** \\boxed{2}"
+      ],
+      "reasoning_mode": "sentence_prefix",
+      "results": [
+        {
+          "sentence_count": 1,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 2,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 3,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 4,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 5,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 6,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 7,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 8,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 9,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 10,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 11,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 12,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        },
+        {
+          "sentence_count": 13,
+          "correct": 0,
+          "total": 5,
+          "percent_correct": 0.0
+        }
+      ]
+    }
+  ],
+  "skipped_questions": []
+}
